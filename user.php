@@ -38,7 +38,7 @@ if (!empty($_SESSION["session_token"])) {
     <meta property="og:url" content="https://hosting.sombti-server.online">
     <meta property="og:type" content="website">
     <link rel="icon" href="/image/sws.ico" type="image/x-icon">
-    <title>Sombit Web Services</title>
+    <title>U-BARBER / <?php echo $row["f_name"]; ?></title>
     <!-- 
         Website External Page's and Style Link Section
      -->
@@ -63,7 +63,7 @@ if (!empty($_SESSION["session_token"])) {
 
             <h1>Welcome <?php echo $row["f_name"]; ?> <?php echo $row["l_name"]; ?></h1><br>
             <a href="/logout.php">Log out</a><br>
-            <a href="/registration.php">New Registration</a>
+            <a href="register.php">New Registration</a>
             <div class="emoji">🚀</div>
             
 </body>
