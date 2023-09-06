@@ -1,11 +1,11 @@
 @media screen and (max-width: 768px) {
     body{
+        background-color: rgb(54, 201, 250);
         margin: 0;
         padding: 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-top: 0;
         /* border: 2px solid red; <<<<< For Debugging porpoises */
     }
     .login_form{
@@ -19,9 +19,11 @@
         margin: .5em;
         height: 2em;
         padding: .3em;
+        border: 4px solid yellow;
     }
     input::placeholder{
         text-transform: capitalize;
+        
     }
     label{
         text-align: left !important;
@@ -30,15 +32,16 @@
         font-weight: bold;
     }
     button{
-        margin:  0 1.5em;
-        background-color: #9fd435;
-        /* font-family: 'Times New Roman', Times, serif; */
+        margin:  0 2.1em;
+        background-color: #35d47f;
         font-size: large;
         font-weight: bolder;
-        color: white;
-        border-radius: .3em;
+        color: rgb(54, 33, 169);
+        border-radius: .9em;
+        border: 3px solid rgb(197, 34, 121);
         padding: .5em;
         width: 80%;
+        cursor: pointer;
     }
     img{
         margin: auto;
@@ -46,7 +49,14 @@
         width: 300px;
     }
     a{
-        border: 3px solid red;
-        margin: 5em;
+        margin: auto;
+        color: rgb(49, 14, 175);
+        text-decoration: none;
+        font-size: large;
+        font-weight: bold;
+        border-radius: 2em;
+        border: 3px solid black;
+        padding: 5px 20px 5px 20px;
+        background-color: #35d47f;
     }
 }

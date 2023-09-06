@@ -61,13 +61,14 @@ if (isset($_POST["submit"])) {
 <body>
     <img src="./IMG/U-BARBER.png" alt="" srcset=""><br>
     <form action="" method="post" class="login_form">
-        <label for="email">What is our Email </label>
+        <label for="email">What is your Email </label>
         <input type="email" placeholder="please tell me" name="email" id="email" required><br>
-        <label for="password">What is your password  </label>
-        <input type="password" placeholder="I don't tell anyone" name="password" id="password" required> <br>
-        <button type="submit" name="submit" id="login_btn">Log In</button><br>
-        <a href="./PHP/register.php">New User ??</a>
+        <label for="password">What is your password </label>
+        <input type="password" placeholder="Promise, I don't tell anyone" name="password" id="password" required> <br>
+        <button type="submit" name="submit" id="login_btn">Log In</button>
     </form>
+    <a href="./PHP/register.php">Register Hear</a>
+
 
 
 
