@@ -1,0 +1,52 @@
+@media screen and (max-width: 768px) {
+    body{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 0;
+        /* border: 2px solid red; <<<<< For Debugging porpoises */
+    }
+    .login_form{
+        margin: 5px;
+    }
+    input{
+        width: 90%;
+        font-weight: bold;
+        overflow: hidden;
+        border-radius: .3em;
+        margin: .5em;
+        height: 2em;
+        padding: .3em;
+    }
+    input::placeholder{
+        text-transform: capitalize;
+    }
+    label{
+        text-align: left !important;
+        margin-left: .5em;
+        font-size: large;
+        font-weight: bold;
+    }
+    button{
+        margin:  0 1.5em;
+        background-color: #9fd435;
+        /* font-family: 'Times New Roman', Times, serif; */
+        font-size: large;
+        font-weight: bolder;
+        color: white;
+        border-radius: .3em;
+        padding: .5em;
+        width: 80%;
+    }
+    img{
+        margin: auto;
+        height: 280px;
+        width: 300px;
+    }
+    a{
+        border: 3px solid red;
+        margin: 5em;
+    }
+}
