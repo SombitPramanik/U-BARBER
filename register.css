@@ -1,0 +1,28 @@
+@media screen and (max-width: 768px) {
+    body{
+       
+        /* border: 2px solid red; <<<<< For Debugging porpoises */
+    }
+    .login_form{
+       
+    }
+    input{
+        
+    }
+    input::placeholder{
+       
+        
+    }
+    label{
+        
+    }
+    button{
+        
+    }
+    img{
+       
+    }
+    a{
+       
+    }
+}
