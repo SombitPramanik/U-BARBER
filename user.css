@@ -1,0 +1,66 @@
+@media screen and (max-width: 768px) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .user_info {
+    padding: 1em;
+    font-size: large;
+    border: 2px solid red;
+    height: 320px;
+  }
+
+  .order {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .list {
+    list-style-type: none;
+    border: 2px solid red;
+    height: 100px;
+    width: 40%;
+  }
+
+  main {
+    margin-top: 1em;
+    border: 2px solid red;
+    height: 400px;
+  }
+
+  footer {
+    margin-top: 1em;
+    height: 250px;
+    border: 2px solid red;
+
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+  }
+
+  .logo {
+    border: 2px solid red;
+    /* height: 100px; */
+    width: 30%;
+    /* margin: auto; */
+  }
+
+  img {
+    height: 100px;
+    width: 100px;
+  }
+
+  .links {
+    border: 2px solid red;
+    width: 60%;
+  }
+  a {
+    float: left !important;
+    padding: 3pt 1em;
+  }
+}
+
+li {
+  list-style-type: none;
+}

@@ -38,34 +38,123 @@ if (!empty($_SESSION["session_token"])) {
     <meta property="og:url" content="https://hosting.sombti-server.online">
     <meta property="og:type" content="website">
     <link rel="icon" href="/image/sws.ico" type="image/x-icon">
-    <title>U-BARBER / <?php echo $row["f_name"]; ?></title>
+    <title>U-BARBER / <?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?></title>
     <!-- 
         Website External Page's and Style Link Section
      -->
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/responsive.css">
-    <link rel="stylesheet" href="/com.css">
-    
+    <link rel="stylesheet" href="./user.css">
+
     <!-- 
         Internal CSS Goes down
       -->
 
     <style>
+        @media screen and (max-width: 768px) {
+            body {
+                margin: 0;
+                padding: 0;
 
+            }
+
+            .user_info {
+                padding: 1em;
+                font-size: large;
+                border: 2px solid red;
+                height: 320px;
+            }
+
+            .order {
+                display: flex;
+                justify-content: space-evenly;
+            }
+
+            .list {
+                list-style-type: none;
+                border: 2px solid red;
+                height: 100px;
+                width: 40%;
+            }
+
+            main {
+                margin-top: 1em;
+                border: 2px solid red;
+                height: 400px;
+            }
+
+            footer {
+                margin-top: 1em;
+                height: 250px;
+                border: 2px solid red;
+
+                display: flex;
+                justify-content: space-evenly;
+                text-align: center;
+            }
+
+            .logo {
+                border: 2px solid red;
+                /* height: 100px; */
+                width: 30%;
+                /* margin: auto; */
+
+            }
+
+            img {
+                height: 100px;
+                width: 100px;
+            }
+
+            .links {
+                border: 2px solid red;
+                width: 60%;
+
+
+            }
+            a{
+                float: left !important;
+                padding: 3pt 1em;
+            }
+
+        }
+
+        li {
+            list-style-type: none;
+        }
     </style>
 </head>
 
 <body>
-    <main class="blur-background">
-        <span>our pluse point >>>></span>
-        <div id="typing-container"></div>
-        <section id="home">
+    <header>
+        <div class="user_info">
+            <h3>Welcome <?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?></h3>
+            <span>Useful Links <a href="">New Order</a> <a href="">Contact Owner</a> <a href="">log out</a> </span><br>
+            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam corrupti error blanditiis atque illum dolor culpa eligendi aliquam nam. Sed.</span>
+            <h4>Your Orders</h4>
+            <div class="order">
+                <li class="list"></li><br>
+                <li class="list"></li>
+            </div>
+        </div>
+    </header>
+    <main>
 
-            <h1>Welcome <?php echo $row["f_name"]; ?> <?php echo $row["l_name"]; ?></h1><br>
-            <a href="/logout.php">Log out</a><br>
-            <a href="register.php">New Registration</a>
-            <div class="emoji">🚀</div>
-            
+
+    </main>
+    <footer>
+        <div class="logo">
+            <img src="./U-BARBER.png" alt="">
+
+        </div>
+        <div class="links">
+            <li> <a href="" target="_blank">>> Our Developer</a></li> <br>
+            <li> <a href="" target="_blank">>> Site Owner</a></li> <br>
+            <li> <a href="" target="_blank">>> Facebook</a></li> <br>
+            <li> <a href="" target="_blank">>> Instagram</a></li> <br>
+            <li> <a href="" target="_blank">>> Whatsapp</a></li> <br>
+            <li> <a href="" target="_blank">>> </a></li>
+
+        </div>
+    </footer>
 </body>
 
 </html>

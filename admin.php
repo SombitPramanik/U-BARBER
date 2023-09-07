@@ -10,7 +10,7 @@ if (!empty($_SESSION["session_token"])) {
     $session_token = $_SESSION["session_token"];
     $email = $session_token;
 
-    $result = mysqli_query($conn, "SELECT * FROM normal_user WHERE email = '$email'");
+    $result = mysqli_query($conn, "SELECT * FROM sysadmin WHERE email = '$email'");
     $row = mysqli_fetch_assoc($result);
 
     if (!$row) {
@@ -19,6 +19,7 @@ if (!empty($_SESSION["session_token"])) {
 } else {
     header("location: index.php"); // No session token, redirect to login
 }
+
 
 ?>
 
@@ -38,7 +39,7 @@ if (!empty($_SESSION["session_token"])) {
     <meta property="og:url" content="https://hosting.sombti-server.online">
     <meta property="og:type" content="website">
     <link rel="icon" href="/image/sws.ico" type="image/x-icon">
-    <title>U-BARBER</title>
+    <title>U-BARBER ADMIN</title>
     <!-- 
         Website External Page's and Style Link Section
      -->
@@ -61,9 +62,9 @@ if (!empty($_SESSION["session_token"])) {
         <div id="typing-container"></div>
         <section id="home">
 
-            <h1>Welcome <?php echo $row["f_name"]; ?> <?php echo $row["l_name"]; ?></h1><br>
+            <!-- <h1>Welcome <?php echo $row["f_name"]; ?> <?php echo $row["l_name"]; ?></h1><br> -->
             <a href="/logout.php">Log out</a><br>
-            <a href="/registration.php">New Registration</a>
+            <a href="./register.php">New Registration</a>
             <div class="emoji">🚀</div>
             
 </body>

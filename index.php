@@ -25,6 +25,7 @@ if (isset($_POST["submit"])) {
             }
         } else {
             echo "<script>alert('You are ot Admin User');</script>";
+            exit();
         }  
     }
     // Normal User Login System
@@ -40,9 +41,11 @@ if (isset($_POST["submit"])) {
             exit();
         } else {
             echo "<script>alert('Wrong Password');</script>";
+            exit();
         }
     } else {
         echo "<script>alert('Username or email is not found :(  Register Now!');</script>";
+        exit();
     }
 }
 ?>
@@ -63,7 +66,7 @@ if (isset($_POST["submit"])) {
     <meta property="og:url" content="https://hosting.sombti-server.online">
     <meta property="og:type" content="website">
     <link rel="icon" href="./IMG/U-BARBER.png" type="image/x-icon">
-    <title>Sombit Web Services</title>
+    <title>U-BARBER HOME</title>
     <!-- 
         Website External Page's and Style Link Section
      -->
