@@ -9,10 +9,9 @@ if (isset($_POST["submit"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
     // ADMIN Log IN  system
-    if($email == 'm.sombitpramanik@gmail.com'OR'admin@ubarber.com'){
+    if($email == 'm.sombitpramanik@gmail.com'OR'admin@ubarber.com'OR'sayan@admin.com'){
         $result = mysqli_query($conn, "SELECT * FROM sysadmin WHERE email = '$email'");
         $row = mysqli_fetch_assoc($result);
-        
         if (mysqli_num_rows($result) > 0) {
             if ($password == $row["password"]) {
                 $session_token = $email; // Use email as session token
@@ -25,13 +24,11 @@ if (isset($_POST["submit"])) {
             }
         } else {
             echo "<script>alert('You are ot Admin User');</script>";
-            exit();
-        }  
+        }
     }
     // Normal User Login System
     $result = mysqli_query($conn, "SELECT * FROM normal_user WHERE email = '$email'");
     $row = mysqli_fetch_assoc($result);
-    
     if (mysqli_num_rows($result) > 0) {
         if ($password == $row["password"]) {
             $session_token = $email; // Use email as session token
@@ -65,20 +62,10 @@ if (isset($_POST["submit"])) {
     <meta property="og:image" content="/image/sws.png">
     <meta property="og:url" content="https://hosting.sombti-server.online">
     <meta property="og:type" content="website">
-    <link rel="icon" href="./IMG/U-BARBER.png" type="image/x-icon">
+    <link rel="icon" href="./U-BARBER.png" type="image/x-icon">
     <title>U-BARBER HOME</title>
-    <!-- 
-        Website External Page's and Style Link Section
-     -->
-    <!-- <link rel="stylesheet" href="index.css"> -->
     <link rel="stylesheet" href="./responsive.css">
-    <!-- 
-        Internal CSS Goes down
-    -->
-
-    <style>
-        
-    </style>
+    <link rel="stylesheet" href="./index.css">
 </head>
 
 <body>
@@ -91,10 +78,6 @@ if (isset($_POST["submit"])) {
         <button type="submit" name="submit" id="login_btn">Log In</button>
     </form>
     <a href="./register.php">Register Hear</a>
-
-
-
-
 </body>
 
 </html>

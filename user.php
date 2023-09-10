@@ -167,7 +167,7 @@ if (!empty($_SESSION["session_token"])) {
 
         </div>
         <div class="links">
-            <li> <a href="" target="_blank">>> Our Developer</a></li> <br>
+            <li> <a href="https://wa.me/6297037940" target="_blank">>> Our Developer</a></li> <br>
             <li> <a href="" target="_blank">>> Site Owner</a></li> <br>
             <li> <a href="" target="_blank">>> Facebook</a></li> <br>
             <li> <a href="" target="_blank">>> Instagram</a></li> <br>

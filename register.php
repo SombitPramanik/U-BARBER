@@ -22,7 +22,7 @@ if (isset($_POST["submit"])) {
     } else {
         if ($password == $c_password) {
             echo "<script>alert('Registration successful\n ! your username is $email\nRedirecting in 5 seconds');</script>";
-            $query = "INSERT INTO normal_user VALUES('','$first_name','$last_name','$email','$password','$mobile')";
+            $query = "INSERT INTO normal_user VALUES('$first_name','$last_name','$email','$password','$mobile')";
             mysqli_query($conn, $query);
             // echo"<script>alert('Registration successful\n ! your username is $email\nRedirecting in 10 seconds');</script>";
             echo "<script>setTimeout(function() { window.location.href = 'index.php'; }, 5000);</script>";
@@ -53,7 +53,7 @@ if (isset($_POST["submit"])) {
     <meta property="og:type" content="website">
     <link rel="icon" href="./U-BARBER.ico" type="image/x-icon">
     <title>U-BARBER Registration</title>
-    <link rel="stylesheet" href="./register.css">
+    <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./responsive.css">
 </head>
 
