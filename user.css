@@ -1,66 +1,590 @@
-@media screen and (max-width: 768px) {
+/* For Very small Screen's like small phones not recommended for better view */
+@media screen and (max-width: 321px) {
   body {
+    background-color: #f5f5f5;
     margin: 0;
     padding: 0;
+    color: #34495e;
+    width: 100%;
+    font-size: small;
   }
-
   .user_info {
     padding: 1em;
-    font-size: large;
-    border: 2px solid red;
-    height: 320px;
+    border-bottom: 2px solid blueviolet;
+    border-radius: 0em 0em 2em 2em;
+    box-shadow: 0px 4px 10px 5px rgba(241, 173, 208, 0.5);
   }
 
   .order {
+    text-transform: capitalize;
     display: flex;
     justify-content: space-evenly;
+    flex-direction: column;
   }
 
   .list {
     list-style-type: none;
+    /* border: 2px solid red; */
+    height: 200px;
+    width: 98.8%;
+    margin: 1em 0em;
+    display: flex;
+    padding: 2px;
+  }
+  .image {
     border: 2px solid red;
-    height: 100px;
-    width: 40%;
+    width: 62%;
+    border-radius: 5px;
+  }
+  .image > img {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .image1 > img {
+    /* border: 2px solid red; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+  }
+  .image1 {
+    margin: auto;
+    border: 2px solid red;
+    height: 300px;
+    width: 98.8%;
+    border-radius: 5px;
+  }
+  .con {
+    /* border: 2px solid blue; */
+    display: flex;
+    /* flex-direction: column; */
+    margin: 5px 10px;
+  }
+  .con_b {
+    margin: 0;
+  }
+
+  .list1 {
+    list-style-type: none;
+    /* border: 2px solid red; */
+    width: 98.8%;
+    margin-top: 2em;
+    height: 350px;
   }
 
   main {
     margin-top: 1em;
-    border: 2px solid red;
-    height: 400px;
+    height: max-content;
+    padding: 1em;
+    border-bottom: 2px solid blueviolet;
+    border-top: 2px solid blueviolet;
+    border-radius: 2em;
+    box-shadow: 0px 4px 10px 5px rgba(241, 173, 208, 0.5);
   }
 
   footer {
+    background-color: #333335;
+    border-radius: 2em 2em 0em 0em;
     margin-top: 1em;
     height: 250px;
-    border: 2px solid red;
-
+    box-shadow: 0px 4px 8px 2px rgba(62, 219, 167, 0.5);
     display: flex;
     justify-content: space-evenly;
     text-align: center;
   }
 
   .logo {
-    border: 2px solid red;
-    /* height: 100px; */
-    width: 30%;
-    /* margin: auto; */
+    height: 65%;
+    width: 35%;
+    margin: auto;
   }
 
   img {
-    height: 100px;
-    width: 100px;
+    height: 70%;
+    width: 80%;
   }
 
   .links {
-    border: 2px solid red;
-    width: 60%;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    /* border: 2px solid red; */
+    margin: auto;
   }
+
+  .openBTN {
+    margin: 5px;
+    border-radius: 5px;
+    padding: 4px 8px;
+    box-shadow: 0px 4px 8px 2px rgba(62, 219, 167, 0.5);
+    cursor: pointer;
+  }
+  li {
+    list-style-type: none;
+  }
+
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+
+  /* Styles for the popup content */
+  .popup-content {
+    background-color: #fff;
+    width: 80%;
+    height: 80%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+  }
+
+  /* Style for the close button */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
   a {
-    float: left !important;
-    padding: 3pt 1em;
+    text-transform: capitalize;
+    color: darkblue;
+    padding: 4px 1em;
+    text-decoration: none;
+    background-color: #2ecc71;
+    margin: 0.3em 1em;
+    border-radius: 0.2em;
+    box-shadow: 0px 4px 8px 2px rgba(62, 219, 167, 0.5);
+  }
+
+  button {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .logo > img {
+    /* border: 2px solid red; */
+    width: 140px;
+    height: 140px;
+    margin: 0;
+    filter: drop-shadow(0px 7px 20px rgba(62, 219, 167, 0.5));
+    background-color: transparent;
+  }
+
+  .im > img {
+    margin: 0;
+    padding: 0;
+    /* border: 2px solid red; */
+    width: 120px;
+    height: 120px;
+    filter: drop-shadow(0px 7px 20px rgba(62, 219, 167, 0.5));
+    background-color: transparent;
   }
 }
+/* Best Screen Resolution Suit for Every Common Mobile Devices  */
+@media screen and (min-width: 322px) and(max-width: 768px) {
+  body {
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    color: #34495e;
+    width: 100%;
+  }
 
-li {
-  list-style-type: none;
+  .user_info {
+    padding: 1em;
+    border-bottom: 2px solid blueviolet;
+    border-radius: 0em 0em 2em 2em;
+    box-shadow: 0px 4px 10px 5px rgba(241, 173, 208, 0.5);
+  }
+
+  .order {
+    text-transform: capitalize;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+
+  .list {
+    list-style-type: none;
+    /* border: 2px solid red; */
+    height: 200px;
+    width: 98.8%;
+    margin: 1em 0em;
+    display: flex;
+    padding: 2px;
+  }
+  .image {
+    border: 2px solid red;
+    width: 62%;
+    border-radius: 5px;
+  }
+  .image > img {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .image1 > img {
+    /* border: 2px solid red; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+  }
+  .image1 {
+    margin: auto;
+    border: 2px solid red;
+    height: 300px;
+    width: 98.8%;
+    border-radius: 5px;
+  }
+  .con {
+    /* border: 2px solid blue; */
+    display: flex;
+    /* flex-direction: column; */
+    margin: 5px 10px;
+  }
+  .con_b {
+    margin: 0;
+  }
+
+  .list1 {
+    list-style-type: none;
+    /* border: 2px solid red; */
+    width: 98.8%;
+    margin-top: 2em;
+    height: 350px;
+  }
+
+  main {
+    margin-top: 1em;
+    height: max-content;
+    padding: 1em;
+    border-bottom: 2px solid blueviolet;
+    border-top: 2px solid blueviolet;
+    border-radius: 2em;
+    box-shadow: 0px 4px 10px 5px rgba(241, 173, 208, 0.5);
+  }
+
+  footer {
+    background-color: #333335;
+    border-radius: 2em 2em 0em 0em;
+    margin-top: 1em;
+    height: 250px;
+    box-shadow: 0px 4px 8px 2px rgba(62, 219, 167, 0.5);
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+  }
+
+  .logo {
+    height: 65%;
+    width: 35%;
+    margin: auto;
+  }
+
+  img {
+    height: 70%;
+    width: 80%;
+  }
+
+  .links {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    /* border: 2px solid red; */
+    margin: auto;
+  }
+
+  .openBTN {
+    margin: 5px;
+    border-radius: 5px;
+    padding: 4px 8px;
+    box-shadow: 0px 4px 8px 2px rgba(62, 219, 167, 0.5);
+    cursor: pointer;
+  }
+  li {
+    list-style-type: none;
+  }
+
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+
+  /* Styles for the popup content */
+  .popup-content {
+    background-color: #fff;
+    width: 80%;
+    height: 80%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+  }
+
+  /* Style for the close button */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  a {
+    text-transform: capitalize;
+    color: darkblue;
+    padding: 4px 1em;
+    text-decoration: none;
+    background-color: #2ecc71;
+    margin: 0.3em 1em;
+    border-radius: 0.2em;
+    box-shadow: 0px 4px 8px 2px rgba(62, 219, 167, 0.5);
+  }
+
+  button {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .logo > img {
+    /* border: 2px solid red; */
+    width: 140px;
+    height: 140px;
+    margin: 0;
+    filter: drop-shadow(0px 7px 20px rgba(62, 219, 167, 0.5));
+    background-color: transparent;
+  }
+
+  .im > img {
+    margin: 0;
+    padding: 0;
+    /* border: 2px solid red; */
+    width: 120px;
+    height: 120px;
+    filter: drop-shadow(0px 7px 20px rgba(62, 219, 167, 0.5));
+    background-color: transparent;
+  }
+}
+/* Responsive Design for Larger Screens Link big Tablet or large desktop or monitor */
+@media screen and (min-width: 769px) {
+  body {
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    color: #34495e;
+    width: 100%;
+  }
+
+  .user_info {
+    padding: 1em;
+    border-bottom: 2px solid blueviolet;
+    border-radius: 0em 0em 2em 2em;
+    box-shadow: 0px 4px 10px 5px rgba(241, 173, 208, 0.5);
+  }
+
+  .order {
+    text-transform: capitalize;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+
+  .list {
+    list-style-type: none;
+    /* border: 2px solid red; */
+    height: 200px;
+    width: 98.8%;
+    margin: 1em 0em;
+    display: flex;
+    padding: 2px;
+  }
+  .image {
+    border: 2px solid red;
+    width: 62%;
+    border-radius: 5px;
+  }
+  .image > img {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .image1 > img {
+    /* border: 2px solid red; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+  }
+  .image1 {
+    margin: auto;
+    border: 2px solid red;
+    height: 300px;
+    width: 98.8%;
+    border-radius: 5px;
+  }
+  .con {
+    /* border: 2px solid blue; */
+    display: flex;
+    /* flex-direction: column; */
+    margin: 5px 10px;
+  }
+  .con_b {
+    margin: 0;
+  }
+
+  .list1 {
+    list-style-type: none;
+    /* border: 2px solid red; */
+    width: 98.8%;
+    margin-top: 2em;
+    height: 350px;
+  }
+
+  main {
+    margin-top: 1em;
+    height: max-content;
+    padding: 1em;
+    border-bottom: 2px solid blueviolet;
+    border-top: 2px solid blueviolet;
+    border-radius: 2em;
+    box-shadow: 0px 4px 10px 5px rgba(241, 173, 208, 0.5);
+  }
+
+  footer {
+    background-color: #333335;
+    border-radius: 2em 2em 0em 0em;
+    margin-top: 1em;
+    height: 250px;
+    box-shadow: 0px 4px 8px 2px rgba(62, 219, 167, 0.5);
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+  }
+
+  .logo {
+    height: 65%;
+    width: 35%;
+    margin: auto;
+  }
+
+  img {
+    height: 70%;
+    width: 80%;
+  }
+
+  .links {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    /* border: 2px solid red; */
+    margin: auto;
+  }
+
+  .openBTN {
+    margin: 5px;
+    border-radius: 5px;
+    padding: 4px 8px;
+    box-shadow: 0px 4px 8px 2px rgba(62, 219, 167, 0.5);
+    cursor: pointer;
+  }
+  li {
+    list-style-type: none;
+  }
+
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+
+  /* Styles for the popup content */
+  .popup-content {
+    background-color: #fff;
+    width: 80%;
+    height: 80%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+  }
+
+  /* Style for the close button */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  a {
+    text-transform: capitalize;
+    color: darkblue;
+    padding: 4px 1em;
+    text-decoration: none;
+    background-color: #2ecc71;
+    margin: 0.3em 1em;
+    border-radius: 0.2em;
+    box-shadow: 0px 4px 8px 2px rgba(62, 219, 167, 0.5);
+  }
+
+  button {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .logo > img {
+    /* border: 2px solid red; */
+    width: 140px;
+    height: 140px;
+    margin: 0;
+    filter: drop-shadow(0px 7px 20px rgba(62, 219, 167, 0.5));
+    background-color: transparent;
+  }
+
+  .im > img {
+    margin: 0;
+    padding: 0;
+    /* border: 2px solid red; */
+    width: 120px;
+    height: 120px;
+    filter: drop-shadow(0px 7px 20px rgba(62, 219, 167, 0.5));
+    background-color: transparent;
+  }
+
+  /* fetcher IF new user  */
 }

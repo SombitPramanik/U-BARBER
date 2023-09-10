@@ -37,109 +37,130 @@ if (!empty($_SESSION["session_token"])) {
     <meta property="og:image" content="/image/sws.png">
     <meta property="og:url" content="https://hosting.sombti-server.online">
     <meta property="og:type" content="website">
-    <link rel="icon" href="/image/sws.ico" type="image/x-icon">
+    <link rel="icon" href="./U-BARBER.ico" type="image/x-icon">
     <title>U-BARBER / <?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?></title>
-    <!-- 
-        Website External Page's and Style Link Section
-     -->
-    <link rel="stylesheet" href="./user.css">
-
-    <!-- 
-        Internal CSS Goes down
-      -->
-
     <style>
-        @media screen and (max-width: 768px) {
-            body {
-                margin: 0;
-                padding: 0;
 
-            }
-
-            .user_info {
-                padding: 1em;
-                font-size: large;
-                border: 2px solid red;
-                height: 320px;
-            }
-
-            .order {
-                display: flex;
-                justify-content: space-evenly;
-            }
-
-            .list {
-                list-style-type: none;
-                border: 2px solid red;
-                height: 100px;
-                width: 40%;
-            }
-
-            main {
-                margin-top: 1em;
-                border: 2px solid red;
-                height: 400px;
-            }
-
-            footer {
-                margin-top: 1em;
-                height: 250px;
-                border: 2px solid red;
-
-                display: flex;
-                justify-content: space-evenly;
-                text-align: center;
-            }
-
-            .logo {
-                border: 2px solid red;
-                /* height: 100px; */
-                width: 30%;
-                /* margin: auto; */
-
-            }
-
-            img {
-                height: 100px;
-                width: 100px;
-            }
-
-            .links {
-                border: 2px solid red;
-                width: 60%;
-
-
-            }
-            a{
-                float: left !important;
-                padding: 3pt 1em;
-            }
-
-        }
-
-        li {
-            list-style-type: none;
-        }
     </style>
+    <link rel="stylesheet" href="./user.css">
 </head>
 
 <body>
     <header>
         <div class="user_info">
-            <h3>Welcome <?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?></h3>
-            <span>Useful Links <a href="">New Order</a> <a href="">Contact Owner</a> <a href="">log out</a> </span><br>
-            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam corrupti error blanditiis atque illum dolor culpa eligendi aliquam nam. Sed.</span>
-            <h4>Your Orders</h4>
-            <div class="order">
-                <li class="list"></li><br>
-                <li class="list"></li>
+            <h3>👋 Welcome <?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?></h3>
+
+            <!-- <img src="./U-BARBER.png" alt="" srcset=""> -->
+            <div class="hed" style="display: flex;">
+                <div class="cont">
+                    <span><a style="padding-right: 2.1em;" href="https://wa.me/6297037940">Contact Owner</a><br><br><a href="./custom.php">Custom Order</a><br><br><a href="./logout.php">log out</a> </span><br><br>
+                </div>
+                <div class="im">
+                    <img src="./U-BARBER.png" alt="">
+                </div>
+            </div>
+
+            <i><span style="font-family: Arial, Helvetica, sans-serif;">We're thrilled to have you here and ready to help you look your best. Whether you're in need of a fresh haircut, a clean shave, or a complete makeover, our skilled barbers are here to make you feel like a million bucks 💇‍♂️.Relax, unwind, and enjoy our top-notch grooming services in a welcoming and stylish atmosphere. Your satisfaction is our top priority, and we take pride in every cut and style we create.Explore our services, meet our talented barbers, and book your appointment today. Get ready to elevate your style and confidence with us! 💪
+                    <br><br> <b> Let's make you look sharp and feel fantastic. See you soon! </i>😊✨</b></span>
+            <div id="recent_order">
+                <h2>Recent Orders</h2>
+                <div class="order">
+                    <li class="list">
+                        <div class="image">
+                            <img src="./U-BARBER.png" alt="" srcset="">
+                        </div>
+                        <div class="con_order" style="padding: 5px;">
+                            <br><a class="con_b" href="">Order Now</a><br><br>
+                            <a class="con_b" href="">Feedback</a><br><br>
+                            <a class="con_b" href="">Share</a><br>
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="image">
+                            <img src="./U-BARBER.png" alt="" srcset="">
+
+                        </div>
+                        <div class="con_order" style="padding: 5px;">
+                            <br><a class="con_b" href="">Order Now</a><br><br>
+                            <a class="con_b" href="">Feedback</a><br><br>
+                            <a class="con_b" href="">Share</a><br>
+                        </div>
+                    </li>
+                </div>
             </div>
         </div>
     </header>
     <main>
-
-
+        <div class="order">
+            <li class="list1">
+                <div class="image1">
+                    <img src="./U-BARBER.png" alt="" srcset="">
+                </div>
+                <div class="con" style="margin:5px;">
+                    <br><a class="openBTN">Order Now</a><br><br>
+                    <a class="con_a" href="">Feedback</a><br><br>
+                    <a class="con_a" href="">Share</a><br>
+                </div>
+            </li>
+            <div class="image1">
+                <img src="./U-BARBER.png" alt="" srcset="">
+            </div>
+            <div class="con" style="margin:5px;">
+                <br><a class="openBTN">Order Now</a><br><br>
+                <a class="con_a" href="">Feedback</a><br><br>
+                <a class="con_a" href="">Share</a><br>
+            </div>
+            </li>
+        </div>
+        <div class="order">
+            <li class="list1">
+                <div class="image1">
+                    <img src="./U-BARBER.png" alt="" srcset="">
+                </div>
+                <div class="con" style="margin:5px;">
+                    <br><a class="openBTN">Order Now</a><br><br>
+                    <a class="con_a" href="">Feedback</a><br><br>
+                    <a class="con_a" href="">Share</a><br>
+                </div>
+            </li>
+            <div class="image1">
+                <img src="./U-BARBER.png" alt="" srcset="">
+            </div>
+            <div class="con" style="margin:5px;">
+                <br><a class="openBTN">Order Now</a><br><br>
+                <a class="con_a" href="">Feedback</a><br><br>
+                <a class="con_a" href="">Share</a><br>
+            </div>
+            </li>
+        </div>
+        <div class="order">
+            <li class="list1">
+                <div class="image1">
+                    <img src="./U-BARBER.png" alt="" srcset="">
+                </div>
+                <div class="con" style="margin:5px;">
+                    <br><a class="openBTN">Order Now</a><br><br>
+                    <a class="con_a" href="">Feedback</a><br><br>
+                    <a class="con_a" href="">Share</a><br>
+                </div>
+            </li>
+            <div class="image1">
+                <img src="./U-BARBER.png" alt="" srcset="">
+            </div>
+            <div class="con" style="margin:5px;">
+                <br><a class="openBTN">Order Now</a><br><br>
+                <a class="con_a" href="">Feedback</a><br><br>
+                <a class="con_a" href="">Share</a><br>
+            </div>
+            </li>
+        </div>
     </main>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <iframe src="./order.php" width="80%" height="100%"></iframe>
+            <span class="close" id="closeButton">&times;</span>
+        </div>
+    </div>
     <footer>
         <div class="logo">
             <img src="./U-BARBER.png" alt="">
@@ -151,11 +172,10 @@ if (!empty($_SESSION["session_token"])) {
             <li> <a href="" target="_blank">>> Facebook</a></li> <br>
             <li> <a href="" target="_blank">>> Instagram</a></li> <br>
             <li> <a href="" target="_blank">>> Whatsapp</a></li> <br>
-            <li> <a href="" target="_blank">>> </a></li>
 
         </div>
     </footer>
+    <script src="./script.js"></script>
 </body>
 
 </html>
-<script src="script.js"></script>
