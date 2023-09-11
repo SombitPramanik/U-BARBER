@@ -9,7 +9,7 @@ if (isset($_POST["submit"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
     // ADMIN Log IN  system
-    if($email == 'm.sombitpramanik@gmail.com'OR'admin@ubarber.com'OR'sayan@admin.com'){
+    if ($email == 'm.sombitpramanik@gmail.com' or 'admin@ubarber.com' or 'sayan@admin.com') {
         $result = mysqli_query($conn, "SELECT * FROM sysadmin WHERE email = '$email'");
         $row = mysqli_fetch_assoc($result);
         if (mysqli_num_rows($result) > 0) {
@@ -51,7 +51,7 @@ if (isset($_POST["submit"])) {
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="language" content="en">
     <meta name="description" content="Welcome to U-BARBER, your destination for top-notch grooming and style services. Our skilled barbers are dedicated to helping you look and feel your best with precision haircuts, traditional shaves, and modern styling. Experience the art of barbering in a relaxed and comfortable atmosphere. Book your appointment today and elevate your style with U-BARBER.">
