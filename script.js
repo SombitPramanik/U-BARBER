@@ -6,7 +6,7 @@ const popup = document.getElementById("popup");
 for (let i = 0; i < openButtons.length; i++) {
     openButtons[i].addEventListener("click", function () {
         const orderId = this.getAttribute("data-order-id"); 
-        fetch('user.php', {
+        fetch('order.php', {
             method: 'POST',
             body: JSON.stringify({ orderId: orderId }),
             headers: {
