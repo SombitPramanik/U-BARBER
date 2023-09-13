@@ -18,11 +18,16 @@ if (!empty($_SESSION["session_token"])) {
         exit();
     }
 }
+global $orderId;
+$orderId = NULL;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    global $orderId;
-    $orderId = $_POST["orderId"];
+    $jsonPayload = file_get_contents('php://input');
+    $data = json_decode($jsonPayload, true);
 
+    if (isset($data["orderId"])) {
+       $orderId = $data["orderId"];
+    }
 }
 
 if (isset($_POST["submit"])) {
