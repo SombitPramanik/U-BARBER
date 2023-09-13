@@ -25,7 +25,6 @@ if (isset($_POST["submit"])) {
             }
         } else {
             echo "<script>alert('You are ot Admin User');</script>";
-            exit();
         }  
     }
     // Normal User Login System
