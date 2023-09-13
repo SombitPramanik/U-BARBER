@@ -1,11 +1,10 @@
 const openButtons = document.getElementsByClassName("openBTN");
 const closeButton = document.getElementById("closeButton");
 const popup = document.getElementById("popup");
-
-// Function to open the popup for each button
 for (let i = 0; i < openButtons.length; i++) {
     openButtons[i].addEventListener("click", function () {
         const orderId = this.getAttribute("data-order-id"); 
+        console.log("orderId:", orderId); // Check if orderId is retrieved correctly
         fetch('order.php', {
             method: 'POST',
             body: JSON.stringify({ orderId: orderId }),
@@ -15,9 +14,7 @@ for (let i = 0; i < openButtons.length; i++) {
         })
         .then(response => response.text())
         .then(data => {
-            // Handle the response from your PHP script
-            console.log(orderId);
-            // Optionally, display the response in the popup or handle it as needed
+            console.log("Response from order.php:", data); // Check the response from order.php
         })
         .catch(error => {
             console.error('Error:', error);

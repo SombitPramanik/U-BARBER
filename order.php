@@ -5,17 +5,19 @@ error_reporting(E_ALL);
 
 require 'config.php';
 global $orderId;
-$orderId = "sombit";
+
+$orderId = NULL;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $jsonPayload = file_get_contents('php://input');
     $data = json_decode($jsonPayload, true);
 
     if (isset($data["orderId"])) {
-       $orderId = $data["orderId"];
-       echo $orderId;
+        $orderId = $data["orderId"];
+        echo "Received orderId: " . $orderId; // Debugging statement
     }
 }
+
 
 if (!empty($_SESSION["session_token"])) {
     $session_token = $_SESSION["session_token"];
