@@ -38,6 +38,7 @@ if (isset($_POST["submit"])) {
     mysqli_query($conn, $query);
 
 }
+echo $orderId;
 ?>
 <!DOCTYPE html>
 <html>
