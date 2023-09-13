@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 require 'config.php';
 global $orderId;
-$orderId = NULL;
+$orderId = "sombit";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $jsonPayload = file_get_contents('php://input');
