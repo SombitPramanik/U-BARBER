@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (isset($data["orderId"])) {
        $orderId = $data["orderId"];
-       echo "<script>alert('$orderId');</script>";
+       echo $orderId;
     }
 }
 
