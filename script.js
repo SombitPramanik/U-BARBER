@@ -1,3 +1,4 @@
+
 // Get references to the buttons with the "openBTN" class
 const openButtons = document.getElementsByClassName("openBTN");
 const closeButton = document.getElementById("closeButton");
@@ -6,6 +7,27 @@ const popup = document.getElementById("popup");
 // Function to open the popup for each button
 for (let i = 0; i < openButtons.length; i++) {
     openButtons[i].addEventListener("click", function () {
+        const orderId = this.getAttribute("data-order-id"); // Get the unique ID
+        // Send the orderId to your PHP script, e.g., using AJAX
+        // You can replace the following code with your AJAX implementation
+        fetch('your_php_script.php', {
+            method: 'POST',
+            body: JSON.stringify({ orderId: orderId }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.text())
+        .then(data => {
+            // Handle the response from your PHP script
+            console.log(data);
+            // Optionally, display the response in the popup or handle it as needed
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+        // Display the popup
         popup.style.display = "block";
     });
 }
@@ -14,6 +36,12 @@ for (let i = 0; i < openButtons.length; i++) {
 closeButton.addEventListener("click", function () {
     popup.style.display = "none";
 });
+
+
+
+
+
+
 
 
 // Button for Read More
