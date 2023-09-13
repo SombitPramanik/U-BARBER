@@ -10,7 +10,7 @@ for (let i = 0; i < openButtons.length; i++) {
         const orderId = this.getAttribute("data-order-id"); // Get the unique ID
         // Send the orderId to your PHP script, e.g., using AJAX
         // You can replace the following code with your AJAX implementation
-        fetch('order.php', {
+        fetch('user.php', {
             method: 'POST',
             body: JSON.stringify({ orderId: orderId }),
             headers: {
