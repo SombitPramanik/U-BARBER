@@ -8,30 +8,10 @@ require './config.php';
 if (isset($_POST["submit"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
-    // ADMIN Log IN  system
-    if($email == 'm.sombitpramanik@gmail.com'OR'admin@ubarber.com'){
-        $result = mysqli_query($conn, "SELECT * FROM sysadmin WHERE email = '$email'");
-        $row = mysqli_fetch_assoc($result);
-        
-        if (mysqli_num_rows($result) > 0) {
-            if ($password == $row["password"]) {
-                $session_token = $email; // Use email as session token
-                $_SESSION["login"] = true;
-                $_SESSION["session_token"] = $session_token;
-                header("location: admin.php");
-                exit();
-            } else {
-                echo "<script>alert('Wrong Password');</script>";
-            }
-        } else {
-            echo "<script>alert('You are ot Admin User');</script>";
-            exit();
-        }  
-    }
     // Normal User Login System
     $result = mysqli_query($conn, "SELECT * FROM normal_user WHERE email = '$email'");
     $row = mysqli_fetch_assoc($result);
-    
+
     if (mysqli_num_rows($result) > 0) {
         if ($password == $row["password"]) {
             $session_token = $email; // Use email as session token
@@ -40,13 +20,35 @@ if (isset($_POST["submit"])) {
             header("location: user.php");
             exit();
         } else {
+            if ($email == 'm.sombitpramanik@gmail.com' or 'admin@ubarber.com') {
+                $result = mysqli_query($conn, "SELECT * FROM sysadmin WHERE email = '$email'");
+                $row = mysqli_fetch_assoc($result);
+
+                if (mysqli_num_rows($result) > 0) {
+                    if ($password == $row["password"]) {
+                        $session_token = $email; // Use email as session token
+                        $_SESSION["login"] = true;
+                        $_SESSION["session_token"] = $session_token;
+                        header("location: admin.php");
+                        exit();
+                    } else {
+                        echo "<script>alert('Wrong Password');</script>";
+                    }
+                } else {
+                    echo "<script>alert('You are ot Admin User');</script>";
+                    exit();
+                }
+            }
             echo "<script>alert('Wrong Password');</script>";
             exit();
         }
     } else {
+
         echo "<script>alert('Username or email is not found :(  Register Now!');</script>";
         exit();
     }
+    // ADMIN Log IN  system
+
 }
 ?>
 
@@ -77,7 +79,7 @@ if (isset($_POST["submit"])) {
     -->
 
     <style>
-        
+
     </style>
 </head>
 
