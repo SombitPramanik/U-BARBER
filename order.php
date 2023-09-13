@@ -67,7 +67,7 @@ echo $orderId;
         <label for="mobile">Mobile Number </label>
         <input type="tel" id="mobile" name="mobile" required value="<?php echo $row["mobile"]; ?>"><br>
         <label for="price">Price</label>
-        <input type="number" id="price" name="price" contenteditable="false" readonly required value="<?php echo $orderId ; ?>"><br>
+        <input type="text" id="price" name="price" contenteditable="false" readonly required value="<?php echo $orderId ; ?>"><br>
 
         <button type="submit" name="submit" id="submit"> Register !</button>
     </form>
