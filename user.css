@@ -1,5 +1,5 @@
 /* For Very small Screen's like small phones not recommended for better view */
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 768px) {
   body {
     background-color: #f5f5f5;
     margin: 0;

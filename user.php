@@ -40,7 +40,26 @@ if (!empty($_SESSION["session_token"])) {
     <link rel="icon" href="./U-BARBER.ico" type="image/x-icon">
     <title>U-BARBER / <?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?></title>
     <style>
+        /* Hide the hidden content by default */
+        .hid_con {
+            display: none;
+        }
 
+        /* Style the "Read More" button */
+        .read-more-button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* Style the "Read More" button when it's in the "less" state */
+        .read-more-button.less {
+            background-color: #e74c3c;
+        }
     </style>
     <link rel="stylesheet" href="./user.css">
 </head>
@@ -91,69 +110,70 @@ if (!empty($_SESSION["session_token"])) {
         </div>
     </header>
     <main>
-        <div class="order">
-            <li class="list1">
+        <div class="show_con">
+            <h2><b><i>Recommended Collections</i></b></h2>
+            <div class="order">
+                <li class="list1">
+                    <div class="image1">
+                        <img src="./img/6.png" alt="" srcset="">
+                    </div>
+                    <div class="con" style="margin:5px;">
+                        <br><a class="openBTN">Order Now</a><br><br>
+                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
+                    </div>
+                </li>
                 <div class="image1">
-                    <img src="./U-BARBER.png" alt="" srcset="">
+                    <img src="./img/3.png" alt="" srcset="">
                 </div>
                 <div class="con" style="margin:5px;">
                     <br><a class="openBTN">Order Now</a><br><br>
-                    <a class="con_a" href="">Feedback</a><br><br>
-                    <a class="con_a" href="">Share</a><br>
+                    <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
                 </div>
-            </li>
-            <div class="image1">
-                <img src="./U-BARBER.png" alt="" srcset="">
+                </li>
             </div>
-            <div class="con" style="margin:5px;">
-                <br><a class="openBTN">Order Now</a><br><br>
-                <a class="con_a" href="">Feedback</a><br><br>
-                <a class="con_a" href="">Share</a><br>
-            </div>
-            </li>
+            <button class="read-more-button">Read More</button>
         </div>
-        <div class="order">
-            <li class="list1">
+        <div class="hid_con">
+            <div class="order">
+                <li class="list1">
+                    <div class="image1">
+                        <img src="./img/2.png" alt="" srcset="">
+                    </div>
+                    <div class="con" style="margin:5px;">
+                        <br><a class="openBTN">Order Now</a><br><br>
+                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
+                    </div>
+                </li>
                 <div class="image1">
-                    <img src="./U-BARBER.png" alt="" srcset="">
+                    <img src="./img/4.png" alt="" srcset="">
                 </div>
                 <div class="con" style="margin:5px;">
                     <br><a class="openBTN">Order Now</a><br><br>
-                    <a class="con_a" href="">Feedback</a><br><br>
-                    <a class="con_a" href="">Share</a><br>
+                    <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
                 </div>
-            </li>
-            <div class="image1">
-                <img src="./U-BARBER.png" alt="" srcset="">
+                </li>
             </div>
-            <div class="con" style="margin:5px;">
-                <br><a class="openBTN">Order Now</a><br><br>
-                <a class="con_a" href="">Feedback</a><br><br>
-                <a class="con_a" href="">Share</a><br>
-            </div>
-            </li>
-        </div>
-        <div class="order">
-            <li class="list1">
+            <div class="order">
+                <li class="list1">
+                    <div class="image1">
+                        <img src="./img/5.png" alt="" srcset="">
+                    </div>
+                    <div class="con" style="margin:5px;">
+                        <br><a class="openBTN">Order Now</a><br><br>
+                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
+                    </div>
+                </li>
                 <div class="image1">
-                    <img src="./U-BARBER.png" alt="" srcset="">
+                    <img src="./img/hearcut1.png" alt="" srcset="">
                 </div>
                 <div class="con" style="margin:5px;">
                     <br><a class="openBTN">Order Now</a><br><br>
-                    <a class="con_a" href="">Feedback</a><br><br>
-                    <a class="con_a" href="">Share</a><br>
+                    <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
                 </div>
-            </li>
-            <div class="image1">
-                <img src="./U-BARBER.png" alt="" srcset="">
+                </li>
             </div>
-            <div class="con" style="margin:5px;">
-                <br><a class="openBTN">Order Now</a><br><br>
-                <a class="con_a" href="">Feedback</a><br><br>
-                <a class="con_a" href="">Share</a><br>
-            </div>
-            </li>
         </div>
+        <h2></h2>
     </main>
     <div id="popup" class="popup">
         <div class="popup-content">
@@ -167,7 +187,7 @@ if (!empty($_SESSION["session_token"])) {
 
         </div>
         <div class="links">
-            <li> <a href="" target="_blank">>> Our Developer</a></li> <br>
+            <li> <a href="https://wa.me/6297037940" target="_blank">>> Our Developer</a></li> <br>
             <li> <a href="" target="_blank">>> Site Owner</a></li> <br>
             <li> <a href="" target="_blank">>> Facebook</a></li> <br>
             <li> <a href="" target="_blank">>> Instagram</a></li> <br>
