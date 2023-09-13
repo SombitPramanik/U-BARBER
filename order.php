@@ -20,6 +20,7 @@ if (!empty($_SESSION["session_token"])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    global $orderId;
     $orderId = $_POST["orderId"];
 
 }
@@ -27,9 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 if (isset($_POST["submit"])) {
     $name = $_POST["name"];
     $mobile = $_POST["mobile"];
-    $id_order = $_POST["id_order"];
 
-    $query = "INSERT INTO receive_order VALUES('$name','$mobile','$id_order')";
+    $query = "INSERT INTO receive_order VALUES('$name','$mobile','$orderId')";
     mysqli_query($conn, $query);
 
 }
