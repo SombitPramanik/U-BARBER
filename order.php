@@ -4,7 +4,18 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require 'config.php';
+global $orderId;
+$orderId = NULL;
 
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $jsonPayload = file_get_contents('php://input');
+    $data = json_decode($jsonPayload, true);
+
+    if (isset($data["orderId"])) {
+       $orderId = $data["orderId"];
+       echo "<script>alert('$orderId');</script>";
+    }
+}
 
 if (!empty($_SESSION["session_token"])) {
     $session_token = $_SESSION["session_token"];
@@ -16,17 +27,6 @@ if (!empty($_SESSION["session_token"])) {
     if (!$row) {
         header("location: index.php"); // Invalid session token, redirect to login
         exit();
-    }
-}
-global $orderId;
-$orderId = NULL;
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $jsonPayload = file_get_contents('php://input');
-    $data = json_decode($jsonPayload, true);
-
-    if (isset($data["orderId"])) {
-       $orderId = $data["orderId"];
     }
 }
 
@@ -66,7 +66,7 @@ if (isset($_POST["submit"])) {
         <label for="mobile">Mobile Number </label>
         <input type="tel" id="mobile" name="mobile" required value="<?php echo $row["mobile"]; ?>"><br>
         <label for="price">Price</label>
-        <input type="number" id="price" name="price" contenteditable="false" randomly required value="<?php echo $orderId ; ?>"><br>
+        <input type="number" id="price" name="price" contenteditable="false" readonly required value="<?php echo $orderId ; ?>"><br>
 
         <button type="submit" name="submit" id="submit"> Register !</button>
     </form>
