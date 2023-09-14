@@ -46,6 +46,7 @@ if (isset($_POST["submit"])) {
     <meta property="og:type" content="website">
     <link rel="icon" href="./U-BARBER.ico" type="image/x-icon">
     <title>Review Order / <?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?></title>
+    
 </head>
 
 <body>
