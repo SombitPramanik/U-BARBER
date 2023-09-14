@@ -34,12 +34,12 @@ readMoreButton.addEventListener('click', function () {
     if (isHidden) {
         // Show the hidden content
         hiddenContent.style.display = 'block';
-        readMoreButton.textContent = 'Read Less';
+        readMoreButton.textContent = 'Hide Styles';
         isHidden = false;
     } else {
-        // Hide the hidden content
+        // Hide the hidden content Element
         hiddenContent.style.display = 'none';
-        readMoreButton.textContent = 'Read More';
+        readMoreButton.textContent = 'Explore More Styles';
         isHidden = true;
     }
 });
