@@ -147,14 +147,14 @@ button {
 
 /* Popup Content Styles */
 .popup-content {
-  background-color: #fff;
-  width: 80%;
+  background: linear-gradient(to bottom, rgb(207, 235, 245), rgb(255, 255, 255));
+  width: 85%;
   height: 80%;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* padding: 20px; */
+  padding: 5px;
   text-align: center;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   border-radius: 10px;

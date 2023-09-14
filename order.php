@@ -52,7 +52,8 @@ if (isset($_POST["submit"])) {
             background: linear-gradient(to bottom, rgb(207, 235, 245), rgb(255, 255, 255));
             margin: 0;
             padding: 0;
-            height: 100vh;
+            height: 90vh;
+            width: 99%;
         }
 
         .order_form {
