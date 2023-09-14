@@ -4,9 +4,11 @@ const popup = document.getElementById("popup");
 for (let i = 0; i < openButtons.length; i++) {
     openButtons[i].addEventListener("click", function () {
         const orderId = this.getAttribute("data-order-id");
+        const price = this.getAttribute("price")
         
         // Store the orderId in local storage
         localStorage.setItem("orderId", orderId);
+        localStorage.setItem("price",price);
         
         // Display the popup
         popup.style.display = "block";

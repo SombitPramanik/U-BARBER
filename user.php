@@ -17,7 +17,7 @@ if (!empty($_SESSION["session_token"])) {
         header("location: index.php"); // Invalid session token, redirect to login
     }
 } else {
-    header("location: index.php"); // No session token, redirect to login
+    header("location: index.php"); 
 }
 
 ?>
@@ -55,8 +55,6 @@ if (!empty($_SESSION["session_token"])) {
             border-radius: 5px;
             margin-top: 10px;
         }
-
-        /* Style the "Read More" button when it's in the "less" state */
         .read-more-button.less {
             background-color: #e74c3c;
         }
@@ -68,8 +66,6 @@ if (!empty($_SESSION["session_token"])) {
     <header>
         <div class="user_info">
             <h3>👋 Welcome <?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?></h3>
-
-            <!-- <img src="./U-BARBER.png" alt="" srcset=""> -->
             <div class="hed" style="display: flex;">
                 <div class="cont">
                     <span><a style="padding-right: 2.1em;" href="https://wa.me/6297037940">Contact Owner</a><br><br><a href="./custom.php">Custom Order</a><br><br><a href="./logout.php">log out</a> </span><br><br>
@@ -118,7 +114,7 @@ if (!empty($_SESSION["session_token"])) {
                         <img src="./img/6.png" alt="" srcset="">
                     </div>
                     <div class="con" style="margin:5px;">
-                        <br><a class="openBTN" data-order-id="UB0FIRST">Order Now</a><br><br>
+                        <br><a class="openBTN" data-order-id="UB001" price="100">Order Now</a><br><br>
                         <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>
                     </div>
                 </li>
@@ -127,7 +123,7 @@ if (!empty($_SESSION["session_token"])) {
                         <img src="./img/3.png" alt="" srcset="">
                     </div>
                     <div class="con" style="margin:5px;">
-                        <br><a class="openBTN" data-order-id="UB0005">Order Now</a><br><br>
+                        <br><a class="openBTN" data-order-id="UB002" price="101">Order Now</a><br><br>
                         <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>
                     </div>
                 </li>
@@ -142,7 +138,7 @@ if (!empty($_SESSION["session_token"])) {
                         <img src="./img/2.png" alt="" srcset="">
                     </div>
                     <div class="con" style="margin:5px;">
-                        <br><a class="openBTN" data-order-id="UB0003">Order Now</a><br><br>
+                        <br><a class="openBTN" data-order-id="UB003" price="103">Order Now</a><br><br>
                         <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>
                     </div>
                 </li>
@@ -151,7 +147,7 @@ if (!empty($_SESSION["session_token"])) {
                         <img src="./img/4.png" alt="" srcset="">
                     </div>
                     <div class="con" style="margin:5px;">
-                        <br><a class="openBTN" data-order-id="UB0005">Order Now</a><br><br>
+                        <br><a class="openBTN" data-order-id="UB004" price="104">Order Now</a><br><br>
                         <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>
                     </div>
                 </li>
@@ -163,7 +159,7 @@ if (!empty($_SESSION["session_token"])) {
                         <img src="./img/5.png" alt="" srcset="">
                     </div>
                     <div class="con" style="margin:5px;">
-                        <br><a class="openBTN" data-order-id="UB0005">Order Now</a><br><br>
+                        <br><a class="openBTN" data-order-id="UB005" price="105">Order Now</a><br><br>
                         <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>
                     </div>
                 </li>
@@ -172,7 +168,7 @@ if (!empty($_SESSION["session_token"])) {
                         <img src="./img/hearcut1.png" alt="" srcset="">
                     </div>
                     <div class="con" style="margin:5px;">
-                        <br><a class="openBTN" data-order-id="UB0005">Order Now</a><br><br>
+                        <br><a class="openBTN" data-order-id="UB006" price="106">Order Now</a><br><br>
                         <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>
                     </div>
                 </li>

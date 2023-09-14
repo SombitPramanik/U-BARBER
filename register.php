@@ -24,14 +24,13 @@ if (isset($_POST["submit"])) {
             echo "<script>alert('Registration successful\n ! your username is $email\nRedirecting in 5 seconds');</script>";
             $query = "INSERT INTO normal_user VALUES('$first_name','$last_name','$email','$password','$mobile')";
             mysqli_query($conn, $query);
-            // echo"<script>alert('Registration successful\n ! your username is $email\nRedirecting in 10 seconds');</script>";
+            echo"<script>alert('Registration successful\n ! your username is $email\nRedirecting in 10 seconds');</script>";
             echo "<script>setTimeout(function() { window.location.href = 'index.php'; }, 5000);</script>";
             exit();
         } else {
             echo "<script>alert('Password Does Not Match [ $password Not Qual to $c_password ] Please Try again');</script>";
         }
     }
-    // echo "<script>setTimeout(function() { window.location.href = 'index.php'; }, 5000);</script>";
 }
 
 ?>
