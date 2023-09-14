@@ -15,7 +15,7 @@ for (let i = 0; i < openButtons.length; i++) {
 
 // Function to close the popup
 closeButton.addEventListener("click", function () {
-    localStorage.removeItem("orderId");
+    // localStorage.removeItem("orderId");
     popup.style.display = "none";
 });
 
