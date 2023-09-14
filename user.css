@@ -170,8 +170,11 @@ button {
 }
 
 /* Responsive Styles for Small Screens */
-@media screen and (max-width: 330px) {
+@media screen and (max-width: 375px) {
   body {
+    font-size: small !important;
+  }
+  .con_a{
     font-size: small !important;
   }
 
