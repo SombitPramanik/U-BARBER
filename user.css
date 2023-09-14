@@ -148,8 +148,8 @@ button {
 /* Popup Content Styles */
 .popup-content {
   background-color: #fff;
-  /* width: 80%; */
-  /* height: 80%; */
+  width: 80%;
+  height: 80%;
   position: fixed;
   top: 50%;
   left: 50%;
