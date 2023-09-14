@@ -177,6 +177,9 @@ button {
   .con_a{
     font-size: small !important;
   }
+  .share{
+    display: none;
+  }
 
   .order {
     display: flex;

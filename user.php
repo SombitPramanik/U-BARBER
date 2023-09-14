@@ -119,7 +119,7 @@ if (!empty($_SESSION["session_token"])) {
                     </div>
                     <div class="con" style="margin:5px;">
                         <br><a class="openBTN" data-order-id="UB0FIRST">Order Now</a><br><br>
-                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
+                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>
                     </div>
                 </li>
                 <li class="list1">
@@ -128,7 +128,7 @@ if (!empty($_SESSION["session_token"])) {
                     </div>
                     <div class="con" style="margin:5px;">
                         <br><a class="openBTN" data-order-id="UB0005">Order Now</a><br><br>
-                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
+                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>
                     </div>
                 </li>
 
@@ -143,7 +143,7 @@ if (!empty($_SESSION["session_token"])) {
                     </div>
                     <div class="con" style="margin:5px;">
                         <br><a class="openBTN" data-order-id="UB0003">Order Now</a><br><br>
-                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
+                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>
                     </div>
                 </li>
                 <li class="list1">
@@ -152,7 +152,7 @@ if (!empty($_SESSION["session_token"])) {
                     </div>
                     <div class="con" style="margin:5px;">
                         <br><a class="openBTN" data-order-id="UB0005">Order Now</a><br><br>
-                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
+                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>
                     </div>
                 </li>
 
@@ -164,7 +164,7 @@ if (!empty($_SESSION["session_token"])) {
                     </div>
                     <div class="con" style="margin:5px;">
                         <br><a class="openBTN" data-order-id="UB0005">Order Now</a><br><br>
-                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
+                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>
                     </div>
                 </li>
                 <li class="list1">
@@ -173,7 +173,7 @@ if (!empty($_SESSION["session_token"])) {
                     </div>
                     <div class="con" style="margin:5px;">
                         <br><a class="openBTN" data-order-id="UB0005">Order Now</a><br><br>
-                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
+                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>
                     </div>
                 </li>
 
