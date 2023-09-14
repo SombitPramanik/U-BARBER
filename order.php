@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (isset($data["orderId"])) {
         $orderId = $data["orderId"];
-        echo "Received orderId: " . $orderId; // Debugging statement
+        // echo "Received orderId: " . $orderId; // Debugging statement
     }
 }
 
@@ -38,9 +38,8 @@ if (isset($_POST["submit"])) {
 
     $query = "INSERT INTO receive_order VALUES('$name','$mobile','$orderId')";
     mysqli_query($conn, $query);
-
 }
-echo $orderId;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -68,12 +67,25 @@ echo $orderId;
         <input type="text" name="name" id="name" required value="<?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?>"><br>
         <label for="mobile">Mobile Number </label>
         <input type="tel" id="mobile" name="mobile" required value="<?php echo $row["mobile"]; ?>"><br>
-        <label for="price">Price</label>
-        <input type="text" id="price" name="price" contenteditable="false" readonly required value="<?php echo $orderId ; ?>"><br>
+        <label for="order_id">Price</label>
+        <input type="text" id="order_id" name="price" contenteditable="false" readonly required ><br>
 
         <button type="submit" name="submit" id="submit"> Register !</button>
     </form>
     <br>
 </body>
+<script src="">
+    document.addEventListener("DOMContentLoaded", function() {
+        // Retrieve orderId from local storage
+        const orderId = localStorage.getItem("orderId");
+
+        // Check if orderId exists and if the element with id "order_id" exists
+        if (orderId && document.getElementById("order_id")) {
+            // Set the orderId as the inner text and value of the element
+            document.getElementById("order_id").innerText = orderId;
+            document.getElementById("order_id").value = orderId;
+        }
+    });
+</script>
 
 </html>

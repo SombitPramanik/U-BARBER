@@ -3,23 +3,11 @@ const closeButton = document.getElementById("closeButton");
 const popup = document.getElementById("popup");
 for (let i = 0; i < openButtons.length; i++) {
     openButtons[i].addEventListener("click", function () {
-        const orderId = this.getAttribute("data-order-id"); 
-        console.log("orderId:", orderId); // Check if orderId is retrieved correctly
-        fetch('order.php', {
-            method: 'POST',
-            body: JSON.stringify({ orderId: orderId }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => response.text())
-        .then(data => {
-            console.log("Response from order.php:", data); // Check the response from order.php
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-
+        const orderId = this.getAttribute("data-order-id");
+        
+        // Store the orderId in local storage
+        localStorage.setItem("orderId", orderId);
+        
         // Display the popup
         popup.style.display = "block";
     });
@@ -29,13 +17,6 @@ for (let i = 0; i < openButtons.length; i++) {
 closeButton.addEventListener("click", function () {
     popup.style.display = "none";
 });
-
-
-
-
-
-
-
 
 // Button for Read More
 // Get a reference to the "Read More" button and the hidden content
