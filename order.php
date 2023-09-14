@@ -74,7 +74,7 @@ if (isset($_POST["submit"])) {
     </form>
     <br>
 </body>
-<script src="">
+<script>
     document.addEventListener("DOMContentLoaded", function() {
         // Retrieve orderId from local storage
         const orderId = localStorage.getItem("orderId");
