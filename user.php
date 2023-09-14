@@ -122,14 +122,16 @@ if (!empty($_SESSION["session_token"])) {
                         <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
                     </div>
                 </li>
-                <div class="image1">
-                    <img src="./img/3.png" alt="" srcset="">
-                </div>
-                <div class="con" style="margin:5px;">
-                    <br><a class="openBTN" data-order-id="UB0SECOND">Order Now</a><br><br>
-                    <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
-                </div>
+                <li class="list1">
+                    <div class="image1">
+                        <img src="./img/3.png" alt="" srcset="">
+                    </div>
+                    <div class="con" style="margin:5px;">
+                        <br><a class="openBTN" data-order-id="UB0005">Order Now</a><br><br>
+                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
+                    </div>
                 </li>
+
             </div>
             <button class="read-more-button">Read More</button>
         </div>
@@ -144,14 +146,16 @@ if (!empty($_SESSION["session_token"])) {
                         <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
                     </div>
                 </li>
-                <div class="image1">
-                    <img src="./img/4.png" alt="" srcset="">
-                </div>
-                <div class="con" style="margin:5px;">
-                    <br><a class="openBTN" data-order-id="UB0004">Order Now</a><br><br>
-                    <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
-                </div>
+                <li class="list1">
+                    <div class="image1">
+                        <img src="./img/4.png" alt="" srcset="">
+                    </div>
+                    <div class="con" style="margin:5px;">
+                        <br><a class="openBTN" data-order-id="UB0005">Order Now</a><br><br>
+                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
+                    </div>
                 </li>
+
             </div>
             <div class="order">
                 <li class="list1">
@@ -163,14 +167,16 @@ if (!empty($_SESSION["session_token"])) {
                         <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
                     </div>
                 </li>
-                <div class="image1">
-                    <img src="./img/hearcut1.png" alt="" srcset="">
-                </div>
-                <div class="con" style="margin:5px;">
-                    <br><a class="openBTN" data-order-id="UB0006">Order Now</a><br><br>
-                    <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
-                </div>
+                <li class="list1">
+                    <div class="image1">
+                        <img src="./img/hearcut1.png" alt="" srcset="">
+                    </div>
+                    <div class="con" style="margin:5px;">
+                        <br><a class="openBTN" data-order-id="UB0005">Order Now</a><br><br>
+                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends&#x1F4E2;</a><br>
+                    </div>
                 </li>
+
             </div>
         </div>
         <h2></h2>
