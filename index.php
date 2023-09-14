@@ -8,37 +8,49 @@ require './config.php';
 if (isset($_POST["submit"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
-    
+
     // ADMIN Log IN  system
     if ($email == 'm.sombitpramanik@gmail.com' || $email == 'admin@ubarber.com') {
         $result = mysqli_query($conn, "SELECT * FROM sysadmin WHERE email = '$email'");
         $row = mysqli_fetch_assoc($result);
-        
-        if ($row && password_verify($password, $row["password"])) {
-            $session_token = $email; // Use email as session token
-            $_SESSION["login"] = true;
-            $_SESSION["session_token"] = $session_token;
-            header("location: admin.php");
-            exit();
+
+        if (mysqli_num_rows($result) > 0) {
+            // No need to check password hashing for admin users
+            if ($password == $row["password"]) {
+                $session_token = $email; // Use email as session token
+                $_SESSION["login"] = true;
+                $_SESSION["session_token"] = $session_token;
+                header("location: admin.php");
+                exit();
+            } else {
+                echo "<script>alert('Wrong Password');</script>";
+            }
         } else {
-            echo "<script>alert('Wrong Email or Password');</script>";
+            echo "<script>alert('You are not an Admin User');</script>";
         }
     } else {
-        // Normal User Login System
+        // Normal User Login System (assuming you have password hashing for normal users)
         $result = mysqli_query($conn, "SELECT * FROM normal_user WHERE email = '$email'");
         $row = mysqli_fetch_assoc($result);
-        
-        if ($row && password_verify($password, $row["password"])) {
-            $session_token = $email; // Use email as session token
-            $_SESSION["login"] = true;
-            $_SESSION["session_token"] = $session_token;
-            header("location: user.php");
-            exit();
+
+        if (mysqli_num_rows($result) > 0) {
+            if (password_verify($password, $row["password"])) {
+                $session_token = $email; // Use email as session token
+                $_SESSION["login"] = true;
+                $_SESSION["session_token"] = $session_token;
+                header("location: user.php");
+                exit();
+            } else {
+                echo "<script>alert('Wrong Password');</script>";
+                exit();
+            }
         } else {
-            echo "<script>alert('Wrong Email or Password');</script>";
+            echo "<script>alert('Username or email is not found :(  Register Now!');</script>";
+            exit();
         }
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +72,7 @@ if (isset($_POST["submit"])) {
     <title>U-BARBER HOME</title>
     <link rel="stylesheet" href="./responsive.css">
     <style>
-        
+
     </style>
 </head>
 
