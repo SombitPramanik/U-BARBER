@@ -179,7 +179,7 @@ if (!empty($_SESSION["session_token"])) {
     </main>
     <div id="popup" class="popup">
         <div class="popup-content">
-            <iframe src="./order.php" width="99%" height="100%" style="border-radius: 10px;"></iframe>
+            <iframe src="./order.php" width="99%" height="100%" style="border-radius: 5px;"></iframe>
             <span class="close" id="closeButton">&times;</span>
         </div>
     </div>
