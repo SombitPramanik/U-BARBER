@@ -53,7 +53,7 @@ if (isset($_POST["submit"])) {
     <link rel="icon" href="./U-BARBER.ico" type="image/x-icon">
     <title>U-BARBER Registration</title>
     <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="./responsive.css">
+    <!-- <link rel="stylesheet" href="./responsive.css"> -->
 </head>
 
 <body>

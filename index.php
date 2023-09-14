@@ -8,8 +8,9 @@ require './config.php';
 if (isset($_POST["submit"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
+    
     // ADMIN Log IN  system
-    if($email == 'm.sombitpramanik@gmail.com'OR'admin@ubarber.com'){
+    if ($email == 'm.sombitpramanik@gmail.com' || $email == 'admin@ubarber.com') { // Fixed the condition
         $result = mysqli_query($conn, "SELECT * FROM sysadmin WHERE email = '$email'");
         $row = mysqli_fetch_assoc($result);
         
@@ -24,28 +25,28 @@ if (isset($_POST["submit"])) {
                 echo "<script>alert('Wrong Password');</script>";
             }
         } else {
-            echo "<script>alert('You are ot Admin User');</script>";
+            echo "<script>alert('You are not an Admin User');</script>"; // Corrected the error message
         }  
-    }
-    // Normal User Login System
-    $result = mysqli_query($conn, "SELECT * FROM normal_user WHERE email = '$email'");
-    $row = mysqli_fetch_assoc($result);
-    
-    if (mysqli_num_rows($result) > 0) {
-        if ($password == $row["password"]) {
-            $session_token = $email; // Use email as session token
-            $_SESSION["login"] = true;
-            $_SESSION["session_token"] = $session_token;
-            header("location: user.php");
-            exit();
+    } else {
+        // Normal User Login System
+        $result = mysqli_query($conn, "SELECT * FROM normal_user WHERE email = '$email'");
+        $row = mysqli_fetch_assoc($result);
+        
+        if (mysqli_num_rows($result) > 0) {
+            if ($password == $row["password"]) {
+                $session_token = $email; // Use email as session token
+                $_SESSION["login"] = true;
+                $_SESSION["session_token"] = $session_token;
+                header("location: user.php");
+                exit();
+            } else {
+                echo "<script>alert('Wrong Password');</script>";
+                exit();
+            }
         } else {
-            echo "<script>alert('Wrong Password');</script>";
+            echo "<script>alert('Username or email is not found :(  Register Now!');</script>";
             exit();
         }
-    } else {
-
-        echo "<script>alert('Username or email is not found :(  Register Now!');</script>";
-        exit();
     }
 }
 ?>
