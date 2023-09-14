@@ -4,20 +4,8 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require 'config.php';
-global $orderId;
-
-$orderId = NULL;
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $jsonPayload = file_get_contents('php://input');
-    $data = json_decode($jsonPayload, true);
-
-    if (isset($data["orderId"])) {
-        $orderId = $data["orderId"];
-        // echo "Received orderId: " . $orderId; // Debugging statement
-    }
-}
-
+session_unset();
+session_destroy();
 
 if (!empty($_SESSION["session_token"])) {
     $session_token = $_SESSION["session_token"];
@@ -35,8 +23,11 @@ if (!empty($_SESSION["session_token"])) {
 if (isset($_POST["submit"])) {
     $name = $_POST["name"];
     $mobile = $_POST["mobile"];
+    $order_id = $_POST["order_id"];
+    $time = time();
 
-    $query = "INSERT INTO receive_order VALUES('$name','$mobile','$orderId')";
+
+    $query = "INSERT INTO receive_order VALUES('$time','$name','$mobile','$order_id')";
     mysqli_query($conn, $query);
 }
 
@@ -67,8 +58,8 @@ if (isset($_POST["submit"])) {
         <input type="text" name="name" id="name" required value="<?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?>"><br>
         <label for="mobile">Mobile Number </label>
         <input type="tel" id="mobile" name="mobile" required value="<?php echo $row["mobile"]; ?>"><br>
-        <label for="order_id">Price</label>
-        <input type="text" id="order_id" name="price" contenteditable="false" readonly required><br>
+        <label for="order_id">Order ID </label>
+        <input type="text" id="order_id" name="order_id" contenteditable="false" readonly required><br>
 
         <button type="submit" name="submit" id="submit"> Register !</button>
     </form>
