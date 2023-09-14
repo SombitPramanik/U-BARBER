@@ -4,8 +4,10 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require './config.php';
+
 session_unset();
 session_destroy();
+ 
 
 if (isset($_POST["submit"])) {
     $first_name = $_POST["f_name"];
@@ -14,25 +16,31 @@ if (isset($_POST["submit"])) {
     $mobile = $_POST["m_num"];
     $password = $_POST["password"];
     $c_password = $_POST["c_password"];
-    $duplicate = mysqli_query($conn, "SELECT * FROM normal_user Where email = '$email'");
 
-
+    // Check if the email is already taken
+    $duplicate = mysqli_query($conn, "SELECT * FROM normal_user WHERE email = '$email'");
+    
     if (mysqli_num_rows($duplicate) > 0) {
         echo "<script>alert('Email and User Name is Already Taken\nUse Another One');</script>";
     } else {
         if ($password == $c_password) {
-            echo "<script>alert('Registration successful\n ! your username is $email\nRedirecting in 5 seconds');</script>";
-            $query = "INSERT INTO normal_user VALUES('$first_name','$last_name','$email','$password','$mobile')";
-            mysqli_query($conn, $query);
-            echo"<script>alert('Registration successful\n ! your username is $email\nRedirecting in 10 seconds');</script>";
-            echo "<script>setTimeout(function() { window.location.href = 'index.php'; }, 5000);</script>";
-            exit();
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT); // Hash the password
+            
+            // Insert user data into the database
+            $query = "INSERT INTO normal_user VALUES ('$first_name', '$last_name', '$email', '$hashed_password', '$mobile')";
+            
+            if (mysqli_query($conn, $query)) {
+                echo "<script>alert('Registration successful! Your username is $email. Redirecting in 5 seconds');</script>";
+                echo "<script>setTimeout(function() { window.location.href = 'index.php'; }, 5000);</script>";
+                exit();
+            } else {
+                echo "<script>alert('Registration failed. Please try again later.');</script>";
+            }
         } else {
-            echo "<script>alert('Password Does Not Match [ $password Not Qual to $c_password ] Please Try again');</script>";
+            echo "<script>alert('Password Does Not Match. Please Try again');</script>";
         }
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -52,8 +60,7 @@ if (isset($_POST["submit"])) {
     <meta property="og:type" content="website">
     <link rel="icon" href="./U-BARBER.ico" type="image/x-icon">
     <title>U-BARBER Registration</title>
-    <link rel="stylesheet" href="./index.css">
-    <!-- <link rel="stylesheet" href="./responsive.css"> -->
+    <link rel="stylesheet" href="./responsive.css">
 </head>
 
 <body>
