@@ -4,9 +4,6 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require 'config.php';
-session_unset();
-session_destroy();
-
 if (!empty($_SESSION["session_token"])) {
     $session_token = $_SESSION["session_token"];
     $email = $session_token;
