@@ -129,7 +129,7 @@ if (!empty($_SESSION["session_token"])) {
                 </li>
 
             </div>
-            <button class="read-more-button">Read More</button>
+            <button class="read-more-button">Explore More Styles</button>
         </div>
         <div class="hid_con">
             <div class="order">
