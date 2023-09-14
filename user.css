@@ -205,7 +205,8 @@ button {
     margin-top: 2em;
   }
   .list1{
-    margin-top: 2em;
+    margin: 2em 0 0 0;
+    width: 100%;
   }
 }
 
@@ -227,6 +228,10 @@ button {
     margin-top: 2em;
   }
   .list1{
-    margin-top: 2em;
+    margin: 2em 0 0 0;
+    width: 100%;
+  }
+  .image{
+    width: 65% !important;
   }
 }
