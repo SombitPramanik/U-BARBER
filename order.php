@@ -109,20 +109,11 @@ if (isset($_POST["submit"])) {
             padding: 5px 20px 5px 20px;
             background-color: #35d47f;
         }
-
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 30px;
-            cursor: pointer;
-        }
     </style>
 
 </head>
 
 <body>
-    <span class="close" id="closeButton">&times;</span>
     <form action="" method="post" class="order_form">
         <h1>Review Order</h1><br>
         <label for="name">Name</label>
@@ -165,12 +156,6 @@ if (isset($_POST["submit"])) {
         }
     }
     const updateInterval = setInterval(updateOrderIdField, 100);
-
-    // Function to close the popup
-    closeButton.addEventListener("click", function() {
-        // localStorage.removeItem("orderId");
-        popup.style.display = "none";
-    });
 </script>
 
 </html>
