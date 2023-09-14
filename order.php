@@ -109,27 +109,38 @@ if (isset($_POST["submit"])) {
             padding: 5px 20px 5px 20px;
             background-color: #35d47f;
         }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+        }
     </style>
 
 </head>
 
 <body>
+    <span class="close" id="closeButton">&times;</span>
     <form action="" method="post" class="order_form">
         <h1>Review Order</h1><br>
-        <label for="name">First Name </label>
+        <label for="name">Name</label>
         <input type="text" name="name" id="name" required value="<?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?>"><br>
-        <label for="mobile">Mobile Number </label>
+        <label for="mobile">Mobile</label>
         <input type="tel" id="mobile" name="mobile" required value="<?php echo $row["mobile"]; ?>"><br>
-        <label for="order_id">Order ID </label>
+        <label for="order_id">Order ID</label>
         <input type="text" id="order_id" name="order_id" contenteditable="false" readonly required><br>
-        <label for="price">Price </label>
+        <label for="price">Price</label>
         <input type="text" id="price" name="price" contenteditable="false" readonly required><br>
 
-        <button type="submit" name="submit" id="submit"> Register !</button>
+        <button type="submit" name="submit" id="submit">Order Now</button>
     </form>
     <br>
 </body>
 <script>
+    const closeButton = document.getElementById("closeButton");
+
     function updateOrderIdField() {
         const orderId = localStorage.getItem("orderId");
         const price = localStorage.getItem("price");
@@ -154,6 +165,12 @@ if (isset($_POST["submit"])) {
         }
     }
     const updateInterval = setInterval(updateOrderIdField, 100);
+
+    // Function to close the popup
+    closeButton.addEventListener("click", function() {
+        // localStorage.removeItem("orderId");
+        popup.style.display = "none";
+    });
 </script>
 
 </html>

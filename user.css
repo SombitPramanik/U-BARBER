@@ -148,16 +148,17 @@ button {
 /* Popup Content Styles */
 .popup-content {
   background-color: #fff;
-  width: 80%;
-  height: 80%;
+  /* width: 80%; */
+  /* height: 80%; */
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 20px;
+  /* padding: 20px; */
   text-align: center;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
+  border-radius: 10px;
+  border: 2px solid;
 }
 
 /* Close Button Styles */
@@ -174,10 +175,12 @@ button {
   body {
     font-size: small !important;
   }
-  .con_a{
+
+  .con_a {
     font-size: small !important;
   }
-  .share{
+
+  .share {
     display: none;
   }
 
@@ -194,7 +197,8 @@ button {
     box-shadow: 0px 4px 10px 5px rgba(241, 173, 208, 0.5);
   }
 }
-@media screen and (max-width: 786px){
+
+@media screen and (max-width: 786px) {
   .order {
     display: flex;
     justify-content: space-evenly;
