@@ -47,8 +47,6 @@ if (isset($_POST["submit"])) {
         echo "<script>alert('Username or email is not found :(  Register Now!');</script>";
         exit();
     }
-    // ADMIN Log IN  system
-
 }
 ?>
 
@@ -70,10 +68,6 @@ if (isset($_POST["submit"])) {
     <link rel="icon" href="./U-BARBER.ico" type="image/x-icon">
     <title>U-BARBER HOME</title>
     <link rel="stylesheet" href="./responsive.css">
-    <!-- 
-        Internal CSS Goes down
-    -->
-
     <style>
         
     </style>
