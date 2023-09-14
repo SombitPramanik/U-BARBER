@@ -75,17 +75,27 @@ if (isset($_POST["submit"])) {
     <br>
 </body>
 <script>
-    setTimeout(function() {
+    // Function to update the orderId field based on local storage
+    function updateOrderIdField() {
         // Retrieve orderId from local storage
         const orderId = localStorage.getItem("orderId");
 
         // Check if orderId exists and if the element with id "order_id" exists
         if (orderId && document.getElementById("order_id")) {
-            // Set the orderId as the inner text and value of the element
-            document.getElementById("order_id").innerText = orderId;
-            document.getElementById("order_id").value = orderId;
+            // Get the current value of the order_id field
+            const currentOrderId = document.getElementById("order_id").value;
+
+            // Check if the orderId has changed
+            if (orderId !== currentOrderId) {
+                // Update the orderId field
+                document.getElementById("order_id").innerText = orderId;
+                document.getElementById("order_id").value = orderId;
+            }
         }
-    }, 100);
+    }
+
+    // Set an interval to continuously update the orderId field
+    const updateInterval = setInterval(updateOrderIdField, 100); // Update every 1 second (adjust as needed)
 </script>
 
 </html>
