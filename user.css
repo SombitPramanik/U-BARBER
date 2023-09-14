@@ -170,11 +170,25 @@ button {
 }
 
 /* Responsive Styles for Small Screens */
-@media screen and (min-width: 319px) and (max-width: 768px) {
+@media screen and (max-width: 330px) {
   body {
     font-size: small !important;
   }
 
+  .order {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+
+  .user_info {
+    padding: 1em;
+    border-bottom: 2px solid blueviolet;
+    border-radius: 0em 0em 2em 2em;
+    box-shadow: 0px 4px 10px 5px rgba(241, 173, 208, 0.5);
+  }
+}
+@media screen and (max-width: 786px){
   .order {
     display: flex;
     justify-content: space-evenly;
