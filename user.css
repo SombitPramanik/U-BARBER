@@ -30,6 +30,7 @@ body {
   margin: 1em 0em;
   display: flex;
   padding: 2px;
+
 }
 
 /* Image Styles */
@@ -63,8 +64,8 @@ body {
 .list1 {
   list-style-type: none;
   width: 98.8%;
-  margin-top: 2em;
   height: 350px;
+  margin: 8px;
 }
 
 /* Main Content Styles */
@@ -198,6 +199,10 @@ button {
   .image{
     width: 65% !important;
   }
+  .list{
+    flex-direction: row;
+    margin-top: 2em;
+  }
 }
 
 @media screen and (max-width: 786px) {
@@ -212,5 +217,9 @@ button {
     border-bottom: 2px solid blueviolet;
     border-radius: 0em 0em 2em 2em;
     box-shadow: 0px 4px 10px 5px rgba(241, 173, 208, 0.5);
+  }
+  .list{
+    flex-direction: row;
+    margin-top: 2em;
   }
 }
