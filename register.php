@@ -30,8 +30,8 @@ if (isset($_POST["submit"])) {
             $query = "INSERT INTO normal_user VALUES ('$first_name', '$last_name', '$email', '$hashed_password', '$mobile')";
             
             if (mysqli_query($conn, $query)) {
-                echo "<script>alert('Registration successful! Your username is $email. Redirecting in 5 seconds');</script>";
-                echo "<script>setTimeout(function() { window.location.href = 'index.php'; }, 5000);</script>";
+                echo "<script>alert('Registration successful! Your username is $email. Redirecting in 3 seconds');</script>";
+                echo "<script>setTimeout(function() { window.location.href = 'index.php'; }, 3000);</script>";
                 exit();
             } else {
                 echo "<script>alert('Registration failed. Please try again later.');</script>";

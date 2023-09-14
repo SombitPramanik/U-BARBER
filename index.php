@@ -42,10 +42,12 @@ if (isset($_POST["submit"])) {
                 exit();
             } else {
                 echo "<script>alert('Wrong Password');</script>";
+                echo "<script>setTimeout(function() { window.location.href = 'index.php'; }, 3000);</script>";
                 exit();
             }
         } else {
-            echo "<script>alert('Username or email is not found :(  Register Now!');</script>";
+            echo "<script>alert('Username or email is not found :(  Register Now! Redirecting in 3 seconds');</script>";
+            echo "<script>setTimeout(function() { window.location.href = 'register.php'; }, 3000);</script>";
             exit();
         }
     }
