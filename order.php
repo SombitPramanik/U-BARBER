@@ -68,14 +68,14 @@ if (isset($_POST["submit"])) {
         <label for="mobile">Mobile Number </label>
         <input type="tel" id="mobile" name="mobile" required value="<?php echo $row["mobile"]; ?>"><br>
         <label for="order_id">Price</label>
-        <input type="text" id="order_id" name="price" contenteditable="false" readonly required ><br>
+        <input type="text" id="order_id" name="price" contenteditable="false" readonly required><br>
 
         <button type="submit" name="submit" id="submit"> Register !</button>
     </form>
     <br>
 </body>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
         // Retrieve orderId from local storage
         const orderId = localStorage.getItem("orderId");
 
@@ -85,7 +85,7 @@ if (isset($_POST["submit"])) {
             document.getElementById("order_id").innerText = orderId;
             document.getElementById("order_id").value = orderId;
         }
-    });
+    }, 100);
 </script>
 
 </html>
