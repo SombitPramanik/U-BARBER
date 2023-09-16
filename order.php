@@ -146,7 +146,7 @@ if (isset($_POST["submit"])) {
 
                 while ($time_slot = mysqli_fetch_assoc($available)) {
                     // Store existing time slots in an array
-                    $existingTimeSlots[] = $time_slot["time_slot"];
+                    $existingTimeSlots[] = $time_slot["bocked_time"];
                 }
 
                 // Create an array of time slots from 7:00 AM to 9:00 PM at 30-minute intervals
@@ -183,7 +183,7 @@ if (isset($_POST["submit"])) {
             mysqli_close($conn);
             ?>
 
-        </select>
+        </select><br>
         <label for="order_id">Order ID</label>
         <input type="text" id="order_id" name="order_id" contenteditable="false" readonly required><br>
         <label for="price">Price</label>
