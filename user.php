@@ -110,27 +110,27 @@ if (!empty($_SESSION["session_token"])) {
         <?php
         $order_id = mysqli_query($conn, "SELECT * FROM order_id_price");
 
+        echo '<div class="show_con">';
+        echo '<h2><b><i>Recommended Collections</i></b></h2>';
+        echo '<div class="order">';
+        echo '<ul>'; // Add an unordered list (ul) tag here
+
         while ($order_id_list = mysqli_fetch_assoc($order_id)) {
-            echo '<div class="show_con">';
-            echo '<h2><b><i>Recommended Collections</i></b></h2>';
-            echo '<div class="order">';
-
-            foreach ($order_id_list as $key => $order) {
-                echo '<li class="list1">';
-                echo '<div class="image1">';
-                echo '<img src="./img/' . $order["order_id"] . '.png" alt="" srcset="">';
-                echo '</div>';
-                echo '<div class="con" style="margin:5px;">';
-                echo '<br><a class="openBTN" data-order-id="' . $order["order_id"] . '" price="' . $order["price"] . '">Order Now</a><br><br>';
-                echo '<a class="con_a" href="whatsapp://send?text=Go%20and%20checkout%20The%20Beautiful%20Online%20Hair%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>';
-                echo '</div>';
-                echo '</li>';
-            }
-
-            echo '<button class="read-more-button">Explore More Styles</button>';
+            echo '<li class="list1">';
+            echo '<div class="image1">';
+            echo '<img src="./img/' . $order_id_list["order_id"] . '.png" alt="" srcset="">';
             echo '</div>';
+            echo '<div class="con" style="margin:5px;">';
+            echo '<br><a class="openBTN" data-order-id="' . $order_id_list["order_id"] . '" price="' . $order_id_list["price"] . '">Order Now</a><br><br>';
+            echo '<a class="con_a" href="whatsapp://send?text=Go%20and%20checkout%20The%20Beautiful%20Online%20Hair%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>';
             echo '</div>';
+            echo '</li>';
         }
+
+        echo '</ul>'; // Close the unordered list (ul) tag
+        echo '<button class="read-more-button">Explore More Styles</button>';
+        echo '</div>';
+        echo '</div>';
         ?>
 
     </main>
