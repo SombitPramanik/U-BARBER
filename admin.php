@@ -23,10 +23,6 @@ if (!empty($_SESSION["session_token"])) {
 $user = mysqli_query($conn, "SELECT * FROM normal_user");
 $user_row = mysqli_fetch_assoc($user);
 
-// $order = mysqli_query($conn, "SELECT * FROM receive_order");
-// $order_row = mysqli_fetch_assoc($order);
-
-
 ?>
 
 <!DOCTYPE html>
@@ -110,116 +106,27 @@ $user_row = mysqli_fetch_assoc($user);
     </fieldset><br><br>
     <fieldset>
         <legend><b><i>Change Image & Price</i></b></legend>
-        <table>
-            <tr>
-                <td>
-                    <div class="op">
-                        <span>order ID: UB003</span>
-                        <br><br>
-                        <span>update Price
-                            <br>
-                            <a href="">current : 103</a>
-                            <a href="">update</a>
-                        </span>
-                    </div>
-                </td>
-                <td>
-                    <img src="./img/10.png" alt="" srcset="">
-                    <a href="">change image</a>
-                    <a href="">Delete image</a>
-                </td>
+        <?php
+        $print_img_table = mysqli_query($conn, "SELECT * FROM order_id_price");
+        echo '<table>';
+        echo '<caption>Change Image & Price</caption>';
+        echo '<th>Price</th>';
+        echo '<th>Order ID</th>';
+        echo '<th>Image</th>';
 
-            </tr>
-        </table>
-    </fieldset>
+        while ($data = mysqli_fetch_assoc($print_img_table)) {
+            echo '<tr>';
+            echo '<td>' . $data["price"] . '</td>';
+            echo '<td>' . $data["order_id"] . '</td>';
+            echo '<td><img src="./img/' . $data["order_id"] . '.png" alt="' . $data["order_id"] . '"></td>';
+            echo '</tr>';
+        }
+        echo '</table>';
+        ?>
+    </fieldset><br><br>
     <fieldset>
-        <legend><b><i>Total Renew</i></b></legend>
-        <fieldset>
-            <legend><b><i> This Month Renew </i></b></legend>
-            <?php
-            global $ub001, $ub002, $ub003, $ub004, $ub005, $ub006, $total_order;
-
-            // Get the current month as a number (1-12)
-            $currentMonth = date("m");
-
-            // Query to fetch orders for the current month
-            $monthly_order = mysqli_query($conn, "SELECT * FROM receive_order WHERE MONTH(time_stamp) = '$currentMonth'");
-
-            // Initialize the total order count
-            $total_order = 0;
-
-            if (mysqli_num_rows($monthly_order) > 0) {
-                while ($monthly_order_row = mysqli_fetch_assoc($monthly_order)) {
-                    // Increment the total order count
-                    $total_order++;
-
-                    // Get the order ID from the current row
-                    $order_fetch = $monthly_order_row["order_id"];
-
-                    // Categorize orders based on their order IDs
-                    switch ($order_fetch) {
-                        case "UB001":
-                            $ub001 = $order_fetch;
-                            break;
-                        case "UB002":
-                            $ub002 = $order_fetch;
-                            break;
-                        case "UB003":
-                            $ub003 = $order_fetch;
-                            break;
-                        case "UB004":
-                            $ub004 = $order_fetch;
-                            break;
-                        case "UB005":
-                            $ub005 = $order_fetch;
-                            break;
-                        case "UB006":
-                            $ub006 = $order_fetch;
-                            break;
-                            // Add more cases for other order IDs if needed
-                        default:
-                            // Handle any other order IDs here
-                            break;
-                    }echo '
-                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                    <script>
-                        google.charts.load("current", {packages: ["corechart"]});
-                        google.charts.setOnLoadCallback(drawChart);
-                
-                        function drawChart() {
-                            let data = google.visualization.arrayToDataTable([
-                                ["Genre", "Fantasy & Sci Fi", "Romance", "Mystery/Crime", "General",
-                                "Western", "Literature", { role: "annotation" } ],
-                                ["2010", 10, 24, 20, 32, 18, 5, ""],
-                                ["2020", 16, 22, 23, 30, 16, 9, ""],
-                                ["2030", 28, 19, 29, 30, 12, 13, ""]
-                            ]);
-                
-                            let options = {
-                                width: 600,
-                                height: 400,
-                                legend: { position: "top", maxLines: 3 },
-                                bar: { groupWidth: "75%" },
-                                isStacked: true
-                            };
-                
-                            let chart = new google.visualization.BarChart(document.getElementById("dual_x_div"));
-                            chart.draw(data, options);
-                        }
-                    </script>
-                ';
-                
-                }
-            } else {
-                echo "No orders placed in this month";
-            }
-            ?>
-
-        </fieldset>
-        <fieldset>
-            <legend><b><i>Lifetime Renew</i></b></legend>
-            <div id="dual_x_div" style="width: 900px; height: 500px;"></div>
-        </fieldset>
+        <legend><b><i>Lifetime Revenue</i></b></legend>
+        <div id="dual_x_div"></div>
     </fieldset>
 </body>
 <script src="./admin.js"></script>
