@@ -93,7 +93,7 @@ $user_row = mysqli_fetch_assoc($user);
 
                 echo '<tr>';
                 echo '<td>Chat</td>';
-                echo '<td><a href="wa.me/' . $row["mobile"] . '">Chat with customer in Whatsapp</a></td>';
+                echo '<td><a href="https://wa.me/' . $row["mobile"] . '" target="_blank">Chat with customer in Whatsapp</a></td>';
                 echo '</tr>';
 
                 echo '<tr>';
