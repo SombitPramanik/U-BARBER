@@ -121,6 +121,18 @@ if (isset($_POST["submit"])) {
             padding: 5px 20px 5px 20px;
             background-color: #35d47f;
         }
+
+        #time-slot {
+            width: 96%;
+            font-weight: bold;
+            overflow: hidden;
+            border-radius: 0.3em;
+            margin: 0.5em;
+            height: auto;
+            padding: 0.3em;
+            border: 4px solid yellow;
+            text-transform: capitalize;
+        }
     </style>
 
 </head>

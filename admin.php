@@ -113,18 +113,21 @@ $user_row = mysqli_fetch_assoc($user);
         echo '<th>Price</th>';
         echo '<th>Order ID</th>';
         echo '<th>Image</th>';
+        echo '<th>operation</th>';
 
         while ($data = mysqli_fetch_assoc($print_img_table)) {
             echo '<tr>';
             echo '<td>' . $data["price"] . '</td>';
             echo '<td>' . $data["order_id"] . '</td>';
             echo '<td><img src="./img/' . $data["order_id"] . '.png" alt="' . $data["order_id"] . '"></td>';
+            echo '<td><a href="#">change</a></td>';
             echo '</tr>';
         }
         echo '</table>';
         ?>
     </fieldset><br><br>
     <fieldset>
+        
         <legend><b><i>Lifetime Revenue</i></b></legend>
         <div id="dual_x_div"></div>
     </fieldset>
