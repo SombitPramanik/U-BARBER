@@ -28,7 +28,7 @@ if (!empty($_SESSION["session_token"])) {
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="language" content="en">
     <meta name="description" content="Welcome to U-BARBER, your destination for top-notch grooming and style services. Our skilled barbers are dedicated to helping you look and feel your best with precision haircuts, traditional shaves, and modern styling. Experience the art of barbering in a relaxed and comfortable atmosphere. Book your appointment today and elevate your style with U-BARBER.">
@@ -43,75 +43,82 @@ if (!empty($_SESSION["session_token"])) {
     <title>U-BARBER ADMIN</title>
     <link rel="stylesheet" href="./admin.css">
     <style>
-        
+
+
     </style>
 </head>
 
 <body>
-    <header>
-        <div class="user_info">
-            <i><h3>Welcome <?php echo ucwords($admin_row["name"]);?></h3></i>
-            <div class="hed">
-                <div class="cont">
-                    <span><a href="">Contact Developer</a><br><br><a href="#order">View Orders</a><br><br><a href="./logout.php">Log out</a><br></span><br><br>
+    <h1>Admin Panel</h1>
+    <fieldset>
+        <legend><b><i>Today Order</i></b></legend>
+        <table>
+            <caption>User Data information table</caption>
+            <th>Operator</th>
+            <th>Value [Fetch from the server]</th>
+            <tr>
+                <td>Name</td>
+                <td>User Name </td>
+            </tr>
+            <tr>
+                <td>Mobile</td>
+                <td>66566566</td>
+            </tr>
+            <tr>
+                <td>Order ID</td>
+                <td>UB003</td>
+            </tr>
+            <tr>
+                <td>Price:</td>
+                <td>6466</td>
+            </tr>
+            <tr>
+                <td>Chat </td>
+                <td>Chat with customer in Whatsapp <br>number will be dynamic </td>
+            </tr>
+            <tr>
+                <td>style</td>
+                <td><img src="./img/10.png" alt="" srcset=""></td>
+            </tr>
+        </table>
 
-                </div>
-                <div class="im">
-                    <img src="./U-BARBER.png" alt="">
-                </div>
-            </div>
-            <i><span>Welcome To The <b> <i>Admin Panel for U-BARBER</i> </b> , Hear you can easily manage your orders and view you Monthly Orders & many more things, if you need some help from the Developer press the <b> "Contact Developer"</b> Button for Help. <br> <b>Enjoy your day !!!</b></span></i>
-            <div id="profits">
-                <h3>This Month Orders</h3>
-                
-            </div>
-        </div>
-    </header>
-    <main>
+    </fieldset><br><br>
+    <fieldset>
+        <legend><b><i>Change Image & Price</i></b></legend>
+        <table>
+            <tr>
+                <td>
+                    <div class="op">
+                        <span>order ID: UB003</span>
+                        <br><br>
+                        <span>update Price
+                            <br>
+                            <a href="">current : 103</a>
+                            <a href="">update</a>
+                        </span>
+                    </div>
+                </td>
+                <td>
+                    <img src="./img/10.png" alt="" srcset="">
+                    <a href="">change image</a>
+                    <a href="">Delete image</a>
+                </td>
 
-        <div class="order">
-            <li class="list1"></li>
-            <li class="list1"></li>
+            </tr>
+        </table>
+    </fieldset>
+    <fieldset>
+        <legend><b><i>Total Renew</i></b></legend>
+        <fieldset>
+            <legend><b><i> This Month Renew </i></b></legend>
 
-        </div>
-        <div class="order"><span class="r_order">order now</span><br><span class="r_order">order now</span></div>
-        <div class="order">
-            <li class="list1"></li>
-            <li class="list1"></li>
-        </div>
-        <div class="order"><span class="r_order">order now</span><br><span class="r_order">order now</span></div>
+        </fieldset>
+        <fieldset>
+            <legend><b><i>Lifetime Renew</i></b></legend>
 
-
-        <div class="order">
-            <li class="list1"></li>
-            <li class="list1"></li>
-        </div>
-        <div class="order"><span class="r_order">order now</span><br><span class="r_order">order now</span></div>
-
-
-        <div class="order">
-            <li class="list1"></li>
-            <li class="list1"></li>
-        </div>
-        <div class="order"><span class="r_order">order now</span><br><span class="r_order">order now</span></div>
-
-    </main>
-    <footer>
-        <div class="logo">
-            <img src="./U-BARBER.png" alt="">
-
-        </div>
-        <div class="links">
-            <li> <a href="" target="_blank">>> Our Developer</a></li> <br>
-            <li> <a href="" target="_blank">>> Site Owner</a></li> <br>
-            <li> <a href="" target="_blank">>> Facebook</a></li> <br>
-            <li> <a href="" target="_blank">>> Instagram</a></li> <br>
-            <li> <a href="" target="_blank">>> Whatsapp</a></li> <br>
-            <li> <a href="" target="_blank"></a></li>
-
-        </div>
-    </footer>
+        </fieldset>
+    </fieldset>
 </body>
+<script src="./admin.js"></script>
 
 </html>
-<script src="script.js"></script>
