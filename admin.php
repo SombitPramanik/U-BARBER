@@ -44,6 +44,7 @@ $user_row = mysqli_fetch_assoc($user);
     <title>U-BARBER ADMIN</title>
     <link rel="stylesheet" href="./admin.css">
     <link rel="stylesheet" href="./order.css">
+    <link rel="stylesheet" href="./user.css">
     <style>
 
 
@@ -129,7 +130,7 @@ $user_row = mysqli_fetch_assoc($user);
 
         <div id="popup" class="popup">
             <div class="popup-content">
-                <iframe src="./order.php" width="99%" height="100%" style="border-radius: 5px;"></iframe>
+                <iframe src="./update.php" width="99%" height="100%" style="border-radius: 5px;"></iframe>
                 <span class="close" id="closeButton">&times;</span>
             </div>
         </div>
