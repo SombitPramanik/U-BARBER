@@ -115,7 +115,7 @@ if (!empty($_SESSION["session_token"])) {
             echo '<h2><b><i>Recommended Collections</i></b></h2>';
             echo '<div class="order">';
 
-            foreach ($order_id_list as $order) {
+            foreach ($order_id_list as $key => $order) {
                 echo '<li class="list1">';
                 echo '<div class="image1">';
                 echo '<img src="./img/' . $order["order_id"] . '.png" alt="" srcset="">';
@@ -127,6 +127,7 @@ if (!empty($_SESSION["session_token"])) {
                 echo '</li>';
             }
 
+            echo '<button class="read-more-button">Explore More Styles</button>';
             echo '</div>';
             echo '</div>';
         }
