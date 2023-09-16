@@ -111,7 +111,7 @@ if (!empty($_SESSION["session_token"])) {
             <div class="order">
                 <li class="list1">
                     <div class="image1">
-                        <img src="./img/6.png" alt="" srcset="">
+                        <img src="./img/UB001.png" alt="" srcset="">
                     </div>
                     <div class="con" style="margin:5px;">
                         <br><a class="openBTN" data-order-id="UB001" price="100">Order Now</a><br><br>
@@ -120,7 +120,7 @@ if (!empty($_SESSION["session_token"])) {
                 </li>
                 <li class="list1">
                     <div class="image1">
-                        <img src="./img/3.png" alt="" srcset="">
+                        <img src="./img/UB002.png" alt="" srcset="">
                     </div>
                     <div class="con" style="margin:5px;">
                         <br><a class="openBTN" data-order-id="UB002" price="101">Order Now</a><br><br>
@@ -135,7 +135,7 @@ if (!empty($_SESSION["session_token"])) {
             <div class="order">
                 <li class="list1">
                     <div class="image1">
-                        <img src="./img/2.png" alt="" srcset="">
+                        <img src="./img/UB003.png" alt="" srcset="">
                     </div>
                     <div class="con" style="margin:5px;">
                         <br><a class="openBTN" data-order-id="UB003" price="103">Order Now</a><br><br>
@@ -144,7 +144,7 @@ if (!empty($_SESSION["session_token"])) {
                 </li>
                 <li class="list1">
                     <div class="image1">
-                        <img src="./img/4.png" alt="" srcset="">
+                        <img src="./img/UB004.png" alt="" srcset="">
                     </div>
                     <div class="con" style="margin:5px;">
                         <br><a class="openBTN" data-order-id="UB004" price="104">Order Now</a><br><br>
@@ -156,7 +156,7 @@ if (!empty($_SESSION["session_token"])) {
             <div class="order">
                 <li class="list1">
                     <div class="image1">
-                        <img src="./img/5.png" alt="" srcset="">
+                        <img src="./img/UB005.png" alt="" srcset="">
                     </div>
                     <div class="con" style="margin:5px;">
                         <br><a class="openBTN" data-order-id="UB005" price="105">Order Now</a><br><br>
@@ -165,7 +165,7 @@ if (!empty($_SESSION["session_token"])) {
                 </li>
                 <li class="list1">
                     <div class="image1">
-                        <img src="./img/hearcut1.png" alt="" srcset="">
+                        <img src="./img/UB006.png" alt="" srcset="">
                     </div>
                     <div class="con" style="margin:5px;">
                         <br><a class="openBTN" data-order-id="UB006" price="106">Order Now</a><br><br>
@@ -194,8 +194,8 @@ if (!empty($_SESSION["session_token"])) {
             <li> <a href="" target="_blank">>> Facebook</a></li> <br>
             <li> <a href="" target="_blank">>> Instagram</a></li> <br>
             <li> <a href="" target="_blank">>> Whatsapp</a></li> <br>
-
         </div>
+        <!-- <h3 style="margin: auto; margin-bottom: 0;margin-left: 45%;"><b><i><li style="list-style-type: none;" > <a style="text-decoration:none;" href="" target="_blank">>> Powered by SWS</a></li></i></b></h3> -->
     </footer>
     <script src="./script.js"></script>
 </body>

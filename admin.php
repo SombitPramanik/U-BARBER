@@ -5,7 +5,6 @@ error_reporting(E_ALL);
 
 require 'config.php';
 
-
 if (!empty($_SESSION["session_token"])) {
     $session_token = $_SESSION["session_token"];
     $email = $session_token;
@@ -20,6 +19,12 @@ if (!empty($_SESSION["session_token"])) {
 } else {
     header("location: index.php"); // No session token, redirect to login
 }
+
+$user = mysqli_query($conn, "SELECT * FROM normal_user");
+$user_row = mysqli_fetch_assoc($user);
+
+// $order = mysqli_query($conn, "SELECT * FROM receive_order");
+// $order_row = mysqli_fetch_assoc($order);
 
 
 ?>
@@ -52,36 +57,56 @@ if (!empty($_SESSION["session_token"])) {
     <h1>Admin Panel</h1>
     <fieldset>
         <legend><b><i>Today Order</i></b></legend>
-        <table>
-            <caption>User Data information table</caption>
-            <th>Operator</th>
-            <th>Value [Fetch from the server]</th>
-            <tr>
-                <td>Name</td>
-                <td>User Name </td>
-            </tr>
-            <tr>
-                <td>Mobile</td>
-                <td>66566566</td>
-            </tr>
-            <tr>
-                <td>Order ID</td>
-                <td>UB003</td>
-            </tr>
-            <tr>
-                <td>Price:</td>
-                <td>6466</td>
-            </tr>
-            <tr>
-                <td>Chat </td>
-                <td>Chat with customer in Whatsapp <br>number will be dynamic </td>
-            </tr>
-            <tr>
-                <td>style</td>
-                <td><img src="./img/10.png" alt="" srcset=""></td>
-            </tr>
-        </table>
+        <?php
+        // Get today's date in the same format as the database date
+        $todayDate = date("Y-m-d");
 
+        // Query to fetch orders for today's date
+        $order = mysqli_query($conn, "SELECT * FROM receive_order WHERE DATE(time_stamp) = '$todayDate'");
+
+        if (mysqli_num_rows($order) > 0) {
+            echo '<table>';
+            echo '<caption>User Data information table</caption>';
+            echo '<th>Operator</th>';
+            echo '<th>Value</th>';
+
+            while ($row = mysqli_fetch_assoc($order)) {
+                echo '<tr>';
+                echo '<td>Name</td>';
+                echo '<td>' . $row["name"] . '</td>';
+                echo '</tr>';
+
+                echo '<tr>';
+                echo '<td>Mobile</td>';
+                echo '<td>' . $row["mobile"] . '</td>';
+                echo '</tr>';
+
+                echo '<tr>';
+                echo '<td>Order ID</td>';
+                echo '<td>' . $row["order_id"] . '</td>'; 
+                echo '</tr>';
+
+                echo '<tr>';
+                echo '<td>Price:</td>';
+                echo '<td>' . $row["price"] . '</td>';
+                echo '</tr>';
+
+                echo '<tr>';
+                echo '<td>Chat</td>';
+                echo '<td><a href="wa.me/' . $row["mobile"] . '">Chat with customer in Whatsapp</a></td>';
+                echo '</tr>';
+
+                echo '<tr>';
+                echo '<td>Style</td>';
+                echo '<td><img src="./img/' . $row["order_id"] . '.png" alt="" srcset=""></td>';
+                echo '</tr>';
+            }
+
+            echo '</table>';
+        } else {
+            echo "No orders placed today";
+        }
+        ?>
     </fieldset><br><br>
     <fieldset>
         <legend><b><i>Change Image & Price</i></b></legend>

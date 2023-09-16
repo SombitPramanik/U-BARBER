@@ -22,7 +22,7 @@ if (isset($_POST["submit"])) {
     $mobile = $_POST["mobile"];
     $order_id = $_POST["order_id"];
     $price = $_POST["price"];
-    $time = date("Y-m-d H:i:s");
+    $time = date("Y-m-d");
 
 
     $query = "INSERT INTO receive_order VALUES('$time','$name','$mobile','$order_id','$price')";
