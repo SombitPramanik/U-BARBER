@@ -17,7 +17,7 @@ if (!empty($_SESSION["session_token"])) {
         header("location: index.php"); // Invalid session token, redirect to login
     }
 } else {
-    header("location: index.php"); 
+    header("location: index.php");
 }
 
 ?>
@@ -55,6 +55,7 @@ if (!empty($_SESSION["session_token"])) {
             border-radius: 5px;
             margin-top: 10px;
         }
+
         .read-more-button.less {
             background-color: #e74c3c;
         }
@@ -106,76 +107,31 @@ if (!empty($_SESSION["session_token"])) {
         </div>
     </header>
     <main>
-        <div class="show_con">
-            <h2><b><i>Recommended Collections</i></b></h2>
-            <div class="order">
-                <li class="list1">
-                    <div class="image1">
-                        <img src="./img/UB001.png" alt="" srcset="">
-                    </div>
-                    <div class="con" style="margin:5px;">
-                        <br><a class="openBTN" data-order-id="UB001" price="100">Order Now</a><br><br>
-                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>
-                    </div>
-                </li>
-                <li class="list1">
-                    <div class="image1">
-                        <img src="./img/UB002.png" alt="" srcset="">
-                    </div>
-                    <div class="con" style="margin:5px;">
-                        <br><a class="openBTN" data-order-id="UB002" price="101">Order Now</a><br><br>
-                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>
-                    </div>
-                </li>
+        <?php
+        $order_id = mysqli_query($conn, "SELECT * FROM order_id_price");
 
-            </div>
-            <button class="read-more-button">Explore More Styles</button>
-        </div>
-        <div class="hid_con">
-            <div class="order">
-                <li class="list1">
-                    <div class="image1">
-                        <img src="./img/UB003.png" alt="" srcset="">
-                    </div>
-                    <div class="con" style="margin:5px;">
-                        <br><a class="openBTN" data-order-id="UB003" price="103">Order Now</a><br><br>
-                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>
-                    </div>
-                </li>
-                <li class="list1">
-                    <div class="image1">
-                        <img src="./img/UB004.png" alt="" srcset="">
-                    </div>
-                    <div class="con" style="margin:5px;">
-                        <br><a class="openBTN" data-order-id="UB004" price="104">Order Now</a><br><br>
-                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>
-                    </div>
-                </li>
+        while ($order_id_list = mysqli_fetch_assoc($order_id)) {
+            echo '<div class="show_con">';
+            echo '<h2><b><i>Recommended Collections</i></b></h2>';
+            echo '<div class="order">';
 
-            </div>
-            <div class="order">
-                <li class="list1">
-                    <div class="image1">
-                        <img src="./img/UB005.png" alt="" srcset="">
-                    </div>
-                    <div class="con" style="margin:5px;">
-                        <br><a class="openBTN" data-order-id="UB005" price="105">Order Now</a><br><br>
-                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>
-                    </div>
-                </li>
-                <li class="list1">
-                    <div class="image1">
-                        <img src="./img/UB006.png" alt="" srcset="">
-                    </div>
-                    <div class="con" style="margin:5px;">
-                        <br><a class="openBTN" data-order-id="UB006" price="106">Order Now</a><br><br>
-                        <a class="con_a" href="whatsapp://send?text=Go%and%20checkout%The%20Beautiful%20Online%20Hear%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>
-                    </div>
-                </li>
+            foreach ($order_id_list as $order) {
+                echo '<li class="list1">';
+                echo '<div class="image1">';
+                echo '<img src="./img/' . $order["order_id"] . '.png" alt="" srcset="">';
+                echo '</div>';
+                echo '<div class="con" style="margin:5px;">';
+                echo '<br><a class="openBTN" data-order-id="' . $order["order_id"] . '" price="' . $order["price"] . '">Order Now</a><br><br>';
+                echo '<a class="con_a" href="whatsapp://send?text=Go%20and%20checkout%20The%20Beautiful%20Online%20Hair%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>';
+                echo '</div>';
+                echo '</li>';
+            }
 
-            </div>
-        </div>
-        <h2></h2>
+            echo '</div>';
+            echo '</div>';
+        }
+        ?>
+
     </main>
     <div id="popup" class="popup">
         <div class="popup-content">
