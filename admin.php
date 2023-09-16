@@ -43,6 +43,7 @@ $user_row = mysqli_fetch_assoc($user);
     <link rel="icon" href="./U-BARBER.ico" type="image/x-icon">
     <title>U-BARBER ADMIN</title>
     <link rel="stylesheet" href="./admin.css">
+    <link rel="stylesheet" href="./order.css">
     <style>
 
 
@@ -120,18 +121,26 @@ $user_row = mysqli_fetch_assoc($user);
             echo '<td>' . $data["price"] . '</td>';
             echo '<td>' . $data["order_id"] . '</td>';
             echo '<td><img src="./img/' . $data["order_id"] . '.png" alt="' . $data["order_id"] . '"></td>';
-            echo '<td><a href="#">change</a></td>';
+            echo '<td><a class="openBTN" data-order-id="' . $data["order_id"] . '" price="' . $data["price"] . '">update</a></td>';
             echo '</tr>';
         }
         echo '</table>';
         ?>
+
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <iframe src="./order.php" width="99%" height="100%" style="border-radius: 5px;"></iframe>
+                <span class="close" id="closeButton">&times;</span>
+            </div>
+        </div>
     </fieldset><br><br>
     <fieldset>
-        
+
         <legend><b><i>Lifetime Revenue</i></b></legend>
         <div id="dual_x_div"></div>
     </fieldset>
 </body>
 <script src="./admin.js"></script>
+<script src="./script.js"></script>
 
 </html>
