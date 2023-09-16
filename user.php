@@ -113,7 +113,6 @@ if (!empty($_SESSION["session_token"])) {
         echo '<div class="show_con">';
         echo '<h2><b><i>Recommended Collections</i></b></h2>';
         echo '<div class="order">';
-        echo '<ul>'; // Add an unordered list (ul) tag here
 
         while ($order_id_list = mysqli_fetch_assoc($order_id)) {
             echo '<li class="list1">';
@@ -126,9 +125,6 @@ if (!empty($_SESSION["session_token"])) {
             echo '</div>';
             echo '</li>';
         }
-
-        echo '</ul>'; // Close the unordered list (ul) tag
-        echo '<button class="read-more-button">Explore More Styles</button>';
         echo '</div>';
         echo '</div>';
         ?>
