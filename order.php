@@ -23,10 +23,21 @@ if (isset($_POST["submit"])) {
     $order_id = $_POST["order_id"];
     $price = $_POST["price"];
     $time = date("Y-m-d H:i:s");
+    $time_selected = $_POST["time_slot"];
 
 
-    $query = "INSERT INTO receive_order VALUES('$time','$name','$mobile','$order_id','$price')";
-    mysqli_query($conn, $query);
+    $query = "INSERT INTO receive_order VALUES('$time','$name','$mobile','$order_id','$price','$time_selected')";
+    $success = mysqli_query($conn, $query);
+    if ($success) {
+        // If the query was successful, show a success message
+        echo '<script>';
+        echo 'alert("Order received successfully.");';
+        echo 'setTimeout(function() { window.close(); }, 3000);'; // Close the window after 3 seconds
+        echo '</script>';
+    } else {
+        // If there was an error with the query
+        echo 'Error: ' . mysqli_error($conn);
+    }
 }
 
 ?>
@@ -121,6 +132,58 @@ if (isset($_POST["submit"])) {
         <input type="text" name="name" id="name" required value="<?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?>"><br>
         <label for="mobile">Mobile</label>
         <input type="tel" id="mobile" name="mobile" required value="<?php echo $row["mobile"]; ?>"><br>
+        <!-- <label for="time-slot">Select a time slot:</label> -->
+        <select id="time-slot" name="time_slot">
+            <!-- Option for a default placeholder -->
+            <option value="">Select a time slot</option>
+
+            <?php
+            require 'config.php';
+            $available = mysqli_query($conn, "SELECT bocked_time FROM receive_order");
+
+            if (mysqli_num_rows($available) > 0) {
+                $existingTimeSlots = [];
+
+                while ($time_slot = mysqli_fetch_assoc($available)) {
+                    // Store existing time slots in an array
+                    $existingTimeSlots[] = $time_slot["time_slot"];
+                }
+
+                // Create an array of time slots from 7:00 AM to 9:00 PM at 30-minute intervals
+                $start = strtotime("07:00 AM");
+                $end = strtotime("09:00 PM");
+                $interval = 30 * 60; // 30 minutes in seconds
+                $current = $start;
+
+                while ($current <= $end) {
+                    $timeSlot = date("h:i A", $current);
+
+                    // Check if the time slot exists in the database
+                    if (!in_array($timeSlot, $existingTimeSlots)) {
+                        echo '<option value="' . $timeSlot . '">' . $timeSlot . '</option>';
+                    }
+
+                    $current += $interval;
+                }
+            } else {
+                // If there are no existing time slots, create all options
+                $start = strtotime("07:00 AM");
+                $end = strtotime("09:00 PM");
+                $interval = 30 * 60; // 30 minutes in seconds
+                $current = $start;
+
+                while ($current <= $end) {
+                    $timeSlot = date("h:i A", $current);
+                    echo '<option value="' . $timeSlot . '">' . $timeSlot . '</option>';
+                    $current += $interval;
+                }
+            }
+
+            // Close the database connection
+            mysqli_close($conn);
+            ?>
+
+        </select>
         <label for="order_id">Order ID</label>
         <input type="text" id="order_id" name="order_id" contenteditable="false" readonly required><br>
         <label for="price">Price</label>
