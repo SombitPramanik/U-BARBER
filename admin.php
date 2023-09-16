@@ -180,18 +180,21 @@ $user_row = mysqli_fetch_assoc($user);
                         default:
                             // Handle any other order IDs here
                             break;
-                    }
-                    echo '
-                        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                        <script>
+                    }echo '
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                    <script>
+                        google.charts.load("current", {packages: ["corechart"]});
+                        google.charts.setOnLoadCallback(drawChart);
+                
+                        function drawChart() {
                             let data = google.visualization.arrayToDataTable([
                                 ["Genre", "Fantasy & Sci Fi", "Romance", "Mystery/Crime", "General",
                                 "Western", "Literature", { role: "annotation" } ],
-                                ["2010", 10, 24, 20, 32, 18, 5, "],
-                                ["2020", 16, 22, 23, 30, 16, 9, "],
-                                ["2030", 28, 19, 29, 30, 12, 13, "]
+                                ["2010", 10, 24, 20, 32, 18, 5, ""],
+                                ["2020", 16, 22, 23, 30, 16, 9, ""],
+                                ["2030", 28, 19, 29, 30, 12, 13, ""]
                             ]);
-                        
+                
                             let options = {
                                 width: 600,
                                 height: 400,
@@ -199,11 +202,13 @@ $user_row = mysqli_fetch_assoc($user);
                                 bar: { groupWidth: "75%" },
                                 isStacked: true
                             };
-                            let chart = new google.charts.Bar(document.getElementById("dual_x_div"));
+                
+                            let chart = new google.visualization.BarChart(document.getElementById("dual_x_div"));
                             chart.draw(data, options);
-                        </script>
-
-                    ';
+                        }
+                    </script>
+                ';
+                
                 }
             } else {
                 echo "No orders placed in this month";
