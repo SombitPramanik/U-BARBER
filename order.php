@@ -69,7 +69,7 @@ if (isset($_POST["submit"])) {
         <label for="mobile">Mobile</label>
         <input type="tel" id="mobile" name="mobile" required value="<?php echo $row["mobile"]; ?>"><br>
         <!-- <label for="time-slot">Select a time slot:</label> -->
-        <select id="time-slot" name="time_slot">
+        <select id="time-slot" name="time_slot" required>
             <!-- Option for a default placeholder -->
             <option value="">Select a time slot</option>
 
