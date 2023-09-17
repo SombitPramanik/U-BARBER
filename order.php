@@ -76,6 +76,8 @@ if (isset($_POST["submit"])) {
             <?php
             require 'config.php';
             $available = mysqli_query($conn, "SELECT bocked_time FROM receive_order");
+            $tc = mysqli_query($conn,"SELECT * FROM business_info");
+            $tc_a = mysqli_fetch_assoc($tc);
 
             if (mysqli_num_rows($available) > 0) {
                 $existingTimeSlots = [];
@@ -86,8 +88,8 @@ if (isset($_POST["submit"])) {
                 }
 
                 // Create an array of time slots from 7:00 AM to 9:00 PM at 30-minute intervals
-                $start = strtotime("07:00 AM");
-                $end = strtotime("09:00 PM");
+                $start = strtotime($tc_a["open"]);
+                $end = strtotime($tc_a["close"]);
                 $interval = 30 * 60; // 30 minutes in seconds
                 $current = $start;
 
@@ -103,8 +105,8 @@ if (isset($_POST["submit"])) {
                 }
             } else {
                 // If there are no existing time slots, create all options
-                $start = strtotime("07:00 AM");
-                $end = strtotime("09:00 PM");
+                $start = strtotime($tc_a["open"]);
+                $end = strtotime($tc_a["close"]);
                 $interval = 30 * 60; // 30 minutes in seconds
                 $current = $start;
 

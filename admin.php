@@ -10,7 +10,6 @@ if (!empty($_SESSION["session_token"])) {
     $email = $session_token;
 
     $result = mysqli_query($conn, "SELECT * FROM sysadmin WHERE email = '$email'");
-
     $admin_row = mysqli_fetch_assoc($result);
 
     if (!$admin_row) {
@@ -24,7 +23,6 @@ $user = mysqli_query($conn, "SELECT * FROM normal_user");
 $user_row = mysqli_fetch_assoc($user);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,20 +39,18 @@ $user_row = mysqli_fetch_assoc($user);
     <meta property="og:url" content="https://barber.sombti-server.online">
     <meta property="og:type" content="website">
     <link rel="icon" href="./U-BARBER.ico" type="image/x-icon">
-    <title>U-BARBER ADMIN</title>
     <link rel="stylesheet" href="./admin.css">
-    <link rel="stylesheet" href="./order.css">
-    <link rel="stylesheet" href="./user.css">
+    <title>U-BARBER ADMIN</title>
     <style>
-
-
     </style>
 </head>
 
 <body>
-    <h1>Admin Panel</h1>
+    <header>
+        <h1>Welcome U-Barber ADMIN <br><br><a href="./logout.php">Logout</a><br></h1>
+    </header>
     <fieldset>
-        <legend><b><i>Today Order</i></b></legend>
+        <legend>Today's Order</legend>
         <?php
         // Get today's date in the same format as the database date
         $todayDate = date("Y-m-d");
@@ -63,12 +59,16 @@ $user_row = mysqli_fetch_assoc($user);
         $order = mysqli_query($conn, "SELECT * FROM receive_order WHERE DATE(time_stamp) = '$todayDate'");
 
         if (mysqli_num_rows($order) > 0) {
-            echo '<table>';
-            echo '<caption>User Data information table</caption>';
-            echo '<th>Operator</th>';
-            echo '<th>Value</th>';
-
             while ($row = mysqli_fetch_assoc($order)) {
+                echo '<table>';
+                echo '<thead>';
+                echo '<th>Data</th>';
+                echo '<th>Information</th>';
+                echo '<th>Operation</th>';
+                echo '</thead>';
+
+                echo '<tbody>';
+
                 echo '<tr>';
                 echo '<td>Name</td>';
                 echo '<td>' . $row["name"] . '</td>';
@@ -82,6 +82,7 @@ $user_row = mysqli_fetch_assoc($user);
                 echo '<tr>';
                 echo '<td>Order ID</td>';
                 echo '<td>' . $row["order_id"] . '</td>';
+                echo '<td><a href="https://wa.me/' . $row["mobile"] . '" target="_blank">Chat with customer in Whatsapp</a></td>';
                 echo '</tr>';
 
                 echo '<tr>';
@@ -90,58 +91,208 @@ $user_row = mysqli_fetch_assoc($user);
                 echo '</tr>';
 
                 echo '<tr>';
-                echo '<td>Chat</td>';
-                echo '<td><a href="https://wa.me/' . $row["mobile"] . '" target="_blank">Chat with customer in Whatsapp</a></td>';
-                echo '</tr>';
-
-                echo '<tr>';
                 echo '<td>Style</td>';
                 echo '<td><img src="./img/' . $row["order_id"] . '.png" alt="' . $row["order_id"] . '"></td>';
                 echo '</tr>';
-            }
 
-            echo '</table>';
+                echo '<tbody>';
+                echo '</table>';
+                echo '<br>';
+            }
         } else {
             echo "No orders placed today";
         }
         ?>
-    </fieldset><br><br>
+    </fieldset>
     <fieldset>
-        <legend><b><i>Change Image & Price</i></b></legend>
+        <legend>Update Catalog</legend>
         <?php
         $print_img_table = mysqli_query($conn, "SELECT * FROM order_id_price");
         echo '<table>';
-        echo '<caption>Change Image & Price</caption>';
+        echo '<thead>';
         echo '<th>Price</th>';
-        echo '<th>Order ID</th>';
-        echo '<th>Image</th>';
+        echo '<th>style</th>';
         echo '<th>operation</th>';
-
+        echo '</thead>';
+        echo '<tbody>';
         while ($data = mysqli_fetch_assoc($print_img_table)) {
             echo '<tr>';
             echo '<td>' . $data["price"] . '</td>';
-            echo '<td>' . $data["order_id"] . '</td>';
             echo '<td><img src="./img/' . $data["order_id"] . '.png" alt="' . $data["order_id"] . '"></td>';
-            echo '<td><a class="openBTN" data-order-id="' . $data["order_id"] . '" price="' . $data["price"] . '">update</a></td>';
+            echo '<td class="t2"><a class="openBTN" data-order-id="' . $data["order_id"] . '" price="' . $data["price"] . '">update</a></td>';
             echo '</tr>';
         }
+        echo '</tbody>';
         echo '</table>';
         ?>
-
         <div id="popup" class="popup">
             <div class="popup-content">
-                <iframe src="./update.php" width="99%" height="100%" style="border-radius: 5px;"></iframe>
+                <iframe src="./update_ctl.php" width="99%" height="100%" style="border-radius: 5px;"></iframe>
                 <span class="close" id="closeButton">&times;</span>
             </div>
         </div>
-    </fieldset><br><br>
-    <fieldset>
-
-        <legend><b><i>Lifetime Revenue</i></b></legend>
-        <div id="dual_x_div"></div>
     </fieldset>
+    <fieldset>
+        <legend>Update the Business Information</legend>
+        <?php
+        $business_info = mysqli_query($conn, "SELECT * FROM business_info");
+        $b_info_data = mysqli_fetch_assoc($business_info);
+
+        echo '<table>';
+        echo '<thead>';
+        echo '<th>data</th>';
+        echo '<th>Current</th>';
+        echo '<th>operation</th>';
+        echo '</thead>';
+        echo '<tbody>';
+
+        // Row: Name
+        echo '<tr>';
+        echo '<td>name</td>';
+        echo '<td>' . $b_info_data["name"] . '</td>';
+        echo '<td class="t2"><a class="openBTN2">update</a></td>';
+        echo '</tr>';
+
+        // Row: Mobile
+        echo '<tr>';
+        echo '<td>mobile</td>';
+        echo '<td>' . $b_info_data["mobile"] . '</td>';
+        echo '<td class="t2"><a class="openBTN2">update</a></td>';
+        echo '</tr>';
+
+        // Row: Logo
+        echo '<tr>';
+        echo '<td>logo</td>';
+        echo '<td><img src="./' . $b_info_data["logo"] . '" alt="Business Logo" srcset=""></td>';
+        echo '<td class="t2"><a class="openBTN2">update</a></td>';
+        echo '</tr>';
+
+        // Row: Tag Line
+        echo '<tr>';
+        echo '<td>tag line</td>';
+        echo '<td>' . $b_info_data["tagline"] . '</td>';
+        echo '<td class="t2"><a class="openBTN2">update</a></td>';
+        echo '</tr>';
+
+        // Row: Opening & Closing Time
+        echo '<tr>';
+        echo '<td>opening & closing time</td>';
+        echo '<td>' . $b_info_data["open"] . ' to ' . $b_info_data["close"] . '</td>';
+        echo '<td class="t2"><a class="openBTN2">update</a></td>';
+        echo '</tr>';
+
+        echo '</tbody>';
+        echo '</table>';
+        ?>
+        <div id="popup2" class="popup2">
+            <div class="popup-content2">
+                <iframe src="./update_ctl.php" width="99%" height="100%" style="border-radius: 5px;"></iframe>
+                <span class="close2" id="closeButton2">&times;</span>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <?php
+        // Fetch data from the database for the last 30 days
+        $currentDate = date("Y-m-d H:i:s");
+        $thirtyDaysAgo = date("Y-m-d H:i:s", strtotime("-30 days"));
+
+        $filteredOrders = mysqli_query($conn, "SELECT * FROM receive_order WHERE time_stamp BETWEEN '$thirtyDaysAgo' AND '$currentDate'");
+
+        // Calculate total customer count and total income for the last 30 days
+        $totalCustomers = mysqli_num_rows($filteredOrders);
+        $totalIncome = 0;
+
+        while ($order = mysqli_fetch_assoc($filteredOrders)) {
+            $totalIncome += intval($order["price"]);
+        }
+
+        // Fetch data for the last 7 days
+        $sevenDaysAgo = date("Y-m-d H:i:s", strtotime("-7 days"));
+        $filteredOrdersSevenDays = mysqli_query($conn, "SELECT * FROM receive_order WHERE time_stamp BETWEEN '$sevenDaysAgo' AND '$currentDate'");
+
+        // Calculate the total income for the last 7 days
+        $totalIncomeSevenDays = 0;
+
+        while ($order = mysqli_fetch_assoc($filteredOrdersSevenDays)) {
+            $totalIncomeSevenDays += intval($order["price"]);
+        }
+        ?>
+
+        <legend>Revenue</legend>
+        <fieldset>
+            <legend>This Month</legend>
+            <table>
+                <thead>
+                    <th>data</th>
+                    <th>information</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Total <br> customer</td>
+                        <td><?php echo $totalCustomers; ?></td>
+                    </tr>
+                    <tr>
+                        <td>7 day <br> income</td>
+                        <td><?php echo $totalIncomeSevenDays; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td><?php echo $totalIncome; ?></td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+        <?php
+        // Fetch data from the database for the lifetime
+        $lifetimeOrders = mysqli_query($conn, "SELECT * FROM receive_order");
+
+        // Calculate total customer count and total income for the lifetime
+        $totalCustomersLifetime = mysqli_num_rows($lifetimeOrders);
+        $totalIncomeLifetime = 0;
+
+        while ($order = mysqli_fetch_assoc($lifetimeOrders)) {
+            $totalIncomeLifetime += intval($order["price"]);
+        }
+
+        // Fetch data for the last 3 months
+        $threeMonthsAgo = date("Y-m-d H:i:s", strtotime("-3 months"));
+        $filteredOrdersThreeMonths = mysqli_query($conn, "SELECT * FROM receive_order WHERE time_stamp >= '$threeMonthsAgo'");
+
+        // Calculate the total income for the last 3 months
+        $totalIncomeThreeMonths = 0;
+
+        while ($order = mysqli_fetch_assoc($filteredOrdersThreeMonths)) {
+            $totalIncomeThreeMonths += intval($order["price"]);
+        }
+        ?>
+
+        <fieldset>
+            <legend>Lifetime</legend>
+            <table>
+                <thead>
+                    <th>data</th>
+                    <th>information</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Total <br> customer</td>
+                        <td><?php echo $totalCustomersLifetime; ?></td>
+                    </tr>
+                    <tr>
+                        <td>3 month <br> income</td>
+                        <td><?php echo $totalIncomeThreeMonths; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td><?php echo $totalIncomeLifetime; ?></td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+
+    </fieldset>
+
 </body>
-<script src="./admin.js"></script>
-<script src="./script.js"></script>
 
 </html>
