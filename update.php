@@ -2,7 +2,7 @@
 require 'config.php';
 // Check if the form is submitted
 if (isset($_POST['submit'])) {
-    $unique_id = $_POST['unique_id'];
+    $unique_id = $_POST['order_id'];
     $price = $_POST['price'];
 
     // Update the price in the database
@@ -42,7 +42,7 @@ $order_id = mysqli_query($conn, "SELECT * FROM order_id_price");
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="language" content="en">
     <meta name="description" content="Welcome to U-BARBER, your destination for top-notch grooming and style services. Our skilled barbers are dedicated to helping you look and feel your best with precision haircuts, traditional shaves, and modern styling. Experience the art of barbering in a relaxed and comfortable atmosphere. Book your appointment today and elevate your style with U-BARBER.">
@@ -58,16 +58,16 @@ $order_id = mysqli_query($conn, "SELECT * FROM order_id_price");
     <title>Update Price and Image</title>
 </head>
 
-<body>
+<body><br><br>
     <form action="" method="post" enctype="multipart/form-data">
-        <label for="unique_id">Changing For</label>
-        <input type="text" id="unique_id" name="unique_id" contenteditable="false" required readonly><br>
+        <label for="order_id">Changing For</label>
+        <input type="text" id="order_id" name="order_id" contenteditable="false" required readonly><br>
 
         <label for="price">Old Price</label>
         <input type="text" id="price" name="price" required contenteditable="false" readonly><br>
 
         <label for="new_price">New Price </label>
-        <input type="text" id="new_price" name="new_price" required>
+        <input type="text" id="new_price" name="new_price" required><br>
 
         <label for="image">New Image</label>
         <input type="file" id="image" name="image" required><br>
@@ -80,6 +80,18 @@ $order_id = mysqli_query($conn, "SELECT * FROM order_id_price");
 
     function updateOrderIdField() {
         const orderId = localStorage.getItem("orderId");
+        const price = localStorage.getItem("price");
+
+
+        if (price && document.getElementById("price")) {
+            const current_price = document.getElementById("price").value;
+
+            if (price !== current_price) {
+                document.getElementById("price").innerText = price;
+                document.getElementById("price").value = price;
+            }
+        }
+
         if (orderId && document.getElementById("order_id")) {
             const currentOrderId = document.getElementById("order_id").value;
 
