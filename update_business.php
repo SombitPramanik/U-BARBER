@@ -63,7 +63,7 @@ if (isset($_POST["submit"])) {
 
 <body>
     <form action="" method="post" class="order_form">
-        <h1>Update Catalog</h1><br>
+        <h1>Update Business Info</h1><br>
         <label for="name">Name</label>
         <input type="text" name="name" id="name" required value="<?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?>"><br>
         <label for="mobile">Mobile</label>

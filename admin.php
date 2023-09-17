@@ -43,6 +43,15 @@ $user_row = mysqli_fetch_assoc($user);
     <title>U-BARBER ADMIN</title>
     <style>
     </style>
+    <script>
+        // Function to reload the page
+        function reloadPage() {
+            location.reload(); // Reload the current page
+        }
+
+        // Set a timeout to reload the page every 5 minutes (adjust as needed)
+        setTimeout(reloadPage, 600000); // 10 minutes in milliseconds (10 * 60 * 1000)
+    </script>
 </head>
 
 <body>
@@ -72,27 +81,31 @@ $user_row = mysqli_fetch_assoc($user);
                 echo '<tr>';
                 echo '<td>Name</td>';
                 echo '<td>' . $row["name"] . '</td>';
+                echo '<td></td>';
                 echo '</tr>';
 
                 echo '<tr>';
                 echo '<td>Mobile</td>';
                 echo '<td>' . $row["mobile"] . '</td>';
+                echo '<td></td>';
                 echo '</tr>';
 
                 echo '<tr>';
                 echo '<td>Order ID</td>';
                 echo '<td>' . $row["order_id"] . '</td>';
-                echo '<td><a href="https://wa.me/' . $row["mobile"] . '" target="_blank">Chat with customer in Whatsapp</a></td>';
+                echo '<td><a href="https://wa.me/' . $row["mobile"] . '" target="_blank">Chat in <br><i>Whatsapp</i></a></td>';
                 echo '</tr>';
 
                 echo '<tr>';
                 echo '<td>Price:</td>';
                 echo '<td>' . $row["price"] . '</td>';
+                echo '<td></td>';
                 echo '</tr>';
 
                 echo '<tr>';
                 echo '<td>Style</td>';
                 echo '<td><img src="./img/' . $row["order_id"] . '.png" alt="' . $row["order_id"] . '"></td>';
+                echo '<td></td>';
                 echo '</tr>';
 
                 echo '<tbody>';
@@ -131,6 +144,30 @@ $user_row = mysqli_fetch_assoc($user);
                 <span class="close" id="closeButton">&times;</span>
             </div>
         </div>
+        <script>
+            const openButtons = document.getElementsByClassName("openBTN");
+            const closeButton = document.getElementById("closeButton");
+            const popup = document.getElementById("popup");
+            for (let i = 0; i < openButtons.length; i++) {
+                openButtons[i].addEventListener("click", function() {
+                    const orderId = this.getAttribute("data-order-id");
+                    const price = this.getAttribute("price")
+
+                    // Store the orderId in local storage
+                    localStorage.setItem("orderId", orderId);
+                    localStorage.setItem("price", price);
+
+                    // Display the popup
+                    popup.style.display = "block";
+                });
+            }
+
+            // Function to close the popup
+            closeButton.addEventListener("click", function() {
+                // localStorage.removeItem("orderId");
+                popup.style.display = "none";
+            });
+        </script>
     </fieldset>
     <fieldset>
         <legend>Update the Business Information</legend>
@@ -186,10 +223,26 @@ $user_row = mysqli_fetch_assoc($user);
         ?>
         <div id="popup2" class="popup2">
             <div class="popup-content2">
-                <iframe src="./update_ctl.php" width="99%" height="100%" style="border-radius: 5px;"></iframe>
+                <iframe src="./update_business.php" width="99%" height="100%" style="border-radius: 5px;"></iframe>
                 <span class="close2" id="closeButton2">&times;</span>
             </div>
         </div>
+        <script>
+            const openButtons2 = document.getElementsByClassName("openBTN2");
+            const closeButton2 = document.getElementById("closeButton2");
+            const popup2 = document.getElementById("popup2");
+            for (let i = 0; i < openButtons2.length; i++) {
+                openButtons[i].addEventListener("click", function() {
+                    // Display the popup
+                    popup.style.display = "block";
+                });
+            }
+
+            // Function to close the popup
+            closeButton.addEventListener("click", function() {
+                popup.style.display = "none";
+            });
+        </script>
     </fieldset>
     <fieldset>
         <?php
