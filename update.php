@@ -3,7 +3,7 @@ require 'config.php';
 // Check if the form is submitted
 if (isset($_POST['submit'])) {
     $unique_id = $_POST['order_id'];
-    $price = $_POST['price'];
+    $price = $_POST['new_price'];
 
     // Update the price in the database
     $update_query = "UPDATE order_id_price SET price='$price' WHERE order_id='$unique_id'";
@@ -70,7 +70,7 @@ $order_id = mysqli_query($conn, "SELECT * FROM order_id_price");
         <input type="text" id="new_price" name="new_price" required><br>
 
         <label for="image">New Image</label>
-        <input type="file" id="image" name="image" required><br>
+        <input type="file" id="image" name="image"><br>
 
         <input type="submit" name="submit" value="Update">
     </form>
