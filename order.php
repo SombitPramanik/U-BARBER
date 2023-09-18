@@ -1,7 +1,4 @@
 <?php
-if(!defined('allow')){
-    die('Direct Access Denied');
-}
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -18,6 +15,8 @@ if (!empty($_SESSION["session_token"])) {
         header("location: index.php"); // Invalid session token, redirect to login
         exit();
     }
+}else{
+    header("location: index.php");  // if session token is not found redirect 
 }
 
 if (isset($_POST["submit"])) {
