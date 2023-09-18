@@ -111,7 +111,6 @@ $user_row = mysqli_fetch_assoc($user);
                 } elseif (file_exists("./uploads/$check_img.png")) {
                     echo '<td><img src="./uploads/'.$mb.''.$check_img.'.png" alt="' . $check_img . '"></td>';
                 }
-
                 echo '<td></td>';
                 echo '</tr>';
 
