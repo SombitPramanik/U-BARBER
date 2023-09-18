@@ -14,7 +14,9 @@ body {
   border-radius: 0em 0em 2em 2em;
   box-shadow: 0px 4px 10px 5px rgba(241, 173, 208, 0.5);
 }
-
+#recent_order{
+  display: none;
+}
 .order {
   text-transform: capitalize;
   display: flex;
@@ -117,7 +119,7 @@ footer {
   margin: auto;
 }
 
-.openBTN,
+.openBTN,.openBTN2,
 a {
   text-transform: capitalize;
   color: darkblue;
@@ -135,7 +137,7 @@ button {
 }
 
 /* Popup Styles */
-.popup {
+.popup,.popup2 {
   display: none;
   position: fixed;
   top: 0;
@@ -147,7 +149,7 @@ button {
 }
 
 /* Popup Content Styles */
-.popup-content {
+.popup-content,.popup-content2 {
   background: linear-gradient(to bottom, rgb(207, 235, 245), rgb(255, 255, 255));
   width: 85%;
   height: 80%;
@@ -163,7 +165,7 @@ button {
 }
 
 /* Close Button Styles */
-.close {
+.close,.close2 {
   position: absolute;
   top: 10px;
   right: 10px;

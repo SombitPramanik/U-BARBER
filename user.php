@@ -39,27 +39,6 @@ if (!empty($_SESSION["session_token"])) {
     <meta property="og:type" content="website">
     <link rel="icon" href="./U-BARBER.ico" type="image/x-icon">
     <title>U-BARBER / <?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?></title>
-    <style>
-        /* Hide the hidden content by default */
-        .hid_con {
-            display: none;
-        }
-
-        /* Style the "Read More" button */
-        .read-more-button {
-            background-color: #3498db;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        .read-more-button.less {
-            background-color: #e74c3c;
-        }
-    </style>
     <link rel="stylesheet" href="./user.css">
 </head>
 
@@ -69,15 +48,17 @@ if (!empty($_SESSION["session_token"])) {
             <h3>👋 Welcome <?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?></h3>
             <div class="hed" style="display: flex;">
                 <div class="cont">
-                    <span><a style="padding-right: 2.1em;" href="https://wa.me/6297037940">Contact Owner</a><br><br><a href="./custom.php">Custom Order</a><br><br><a href="./logout.php">log out</a> </span><br><br>
+                    <span>
+                        <a style="padding-right: 2.1em;" href="https://wa.me/6297037940">Contact Owner</a><br><br>
+                        <a class="openBTN2" data-order-id="UBCS1">Custom Order</a>
+                        <a href="./logout.php">log out</a><br><br>
+                    </span>
                 </div>
                 <div class="im">
                     <img src="./U-BARBER.png" alt="">
                 </div>
             </div>
-
-            <i><span style="font-family: Arial, Helvetica, sans-serif;">We're thrilled to have you here and ready to help you look your best. Whether you're in need of a fresh haircut, a clean shave, or a complete makeover, our skilled barbers are here to make you feel like a million bucks 💇‍♂️.Relax, unwind, and enjoy our top-notch grooming services in a welcoming and stylish atmosphere. Your satisfaction is our top priority, and we take pride in every cut and style we create.Explore our services, meet our talented barbers, and book your appointment today. Get ready to elevate your style and confidence with us! 💪
-                    <br><br> <b> Let's make you look sharp and feel fantastic. See you soon! </i>😊✨</b></span>
+            <i><span style="font-family: Arial, Helvetica, sans-serif;">We' re thrilled to have you here and ready to help you look your best. Whether you're in need of a fresh haircut, a clean shave, or a complete makeover, our skilled barbers are here to make you feel like a million bucks 💇‍♂️.Relax, unwind, and enjoy our top-notch grooming services in a welcoming and stylish atmosphere. Your satisfaction is our top priority, and we take pride in every cut and style we create.Explore our services, meet our talented barbers, and book your appointment today. Get ready to elevate your style and confidence with us! 💪 <br><br> <b> Let's make you look sharp and feel fantastic. See you soon! </i>😊✨</b></span>
             <div id="recent_order">
                 <h2>Recent Orders</h2>
                 <div class="order">
@@ -134,6 +115,12 @@ if (!empty($_SESSION["session_token"])) {
         <div class="popup-content">
             <iframe src="./order.php" width="99%" height="100%" style="border-radius: 5px;"></iframe>
             <span class="close" id="closeButton">&times;</span>
+        </div>
+    </div>
+    <div id="popup2" class="popup2">
+        <div class="popup-content2">
+            <iframe src="./custom.php" width="99%" height="100%" style="border-radius: 5px;"></iframe>
+            <span class="close2" id="closeButton2">&times;</span>
         </div>
     </div>
     <footer>
