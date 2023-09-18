@@ -102,16 +102,5 @@ if (isset($_POST["submit"])) {
     </form>
     <br>
 </body>
-<script>
-        if (orderId && document.getElementById("order_id")) {
-            const currentOrderId = document.getElementById("order_id").value;
-
-            if (orderId !== currentOrderId) {
-                document.getElementById("order_id").innerText = orderId;
-                document.getElementById("order_id").value = orderId;
-            }
-        }
-    const updateInterval = setInterval(updateOrderIdField, 100);
-</script>
 
 </html>
