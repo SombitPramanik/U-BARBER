@@ -170,7 +170,7 @@ $user_row = mysqli_fetch_assoc($user);
         <div id="popup3" class="popup3">
             <div class="popup-content3">
                 <iframe src="./insert.php" width="99%" height="100%" style="border-radius: 5px;"></iframe>
-                <span class="close2" id="closeButton2">&times;</span>
+                <span class="close3" id="closeButton3">&times;</span>
             </div>
         </div>
         <script>
@@ -218,7 +218,7 @@ $user_row = mysqli_fetch_assoc($user);
         $business_info = mysqli_query($conn, "SELECT * FROM business_info");
         $b_info_data = mysqli_fetch_assoc($business_info);
 
-        echo '<table>';
+        echo '<table style="max-width:90vw !important;">';
         echo '<thead>';
         echo '<th>data</th>';
         echo '<th>Current</th>';

@@ -26,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
 
-    $business_info = mysqli_query($conn, "SELECT * FROM business_info");
-    $b_info_data = mysqli_fetch_assoc($business_info);
+    $b = mysqli_query($conn, "SELECT * FROM business_info");
+    $a = mysqli_fetch_assoc($b);
 }
 ?>
 
@@ -68,25 +68,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <form action="" method="post" class="business_info_form">
         <h1>Update Business Information</h1><br>
         <label for="name">Business Name</label>
-        <input type="text" id="name" name="name" value="<?php echo $b_info_data["name"]; ?>" required><br>
+        <input type="text" id="name" name="name" value="<?php echo $b["name"]; ?>" required><br>
 
         <label for="mobile">Mobile</label>
-        <input type="text" id="mobile" name="mobile" value="<?php echo $b_info_data["mobile"]; ?>" required><br>
+        <input type="text" id="mobile" name="mobile" value="<?php echo $b["mobile"]; ?>" required><br>
 
         <label for="tagline">Tagline</label>
-        <textarea name="tagline" id="tagline" required value="<?php echo $b_info_data["tagline"]; ?>" cols="30" rows="10"></textarea><br>
+        <textarea name="tagline" id="tagline" required value="<?php echo $b["tagline"]; ?>" cols="30" rows="10"></textarea><br>
 
         <label for="open">Open Time</label>
-        <input type="text" id="open" name="open" value="<?php echo $b_info_data["open"]; ?>" required><br>
+        <input type="text" id="open" name="open" value="<?php echo $b["open"]; ?>" required><br>
 
         <label for="close">Close Time</label>
-        <input type="text" id="close" name="close" value="<?php echo $b_info_data["close"]; ?>" required><br>
+        <input type="text" id="close" name="close" value="<?php echo $b["close"]; ?>" required><br>
 
         <label for="open">Instagram</label>
-        <input type="text" id="open" name="open" value="<?php echo $b_info_data["instagram"]; ?>" required><br>
+        <input type="text" id="open" name="open" value="<?php echo $b["instagram"]; ?>" required><br>
 
         <label for="open">Facebook</label>
-        <input type="text" id="open" name="open" value="<?php echo $b_info_data["facebook"]; ?>" required><br>
+        <input type="text" id="open" name="open" value="<?php echo $b["facebook"]; ?>" required><br>
 
         <button type="submit" name="submit" id="submit">Update Business Info</button>
     </form>
