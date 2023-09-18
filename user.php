@@ -133,13 +133,11 @@ if (!empty($_SESSION["session_token"])) {
         </div>
         <div class="links">
             <li> <a href="https://wa.me/6297037940" target="_blank">Our Developer</a></li> <br>
-            <li> <a href="https://wa.me/<?php echo $admin_row["mobile"];?>" target="_blank">Site Owner</a></li> <br>
-            <li> <a href="<?php echo $admin_row["facebook"];?>" target="_blank">Facebook</a></li> <br>
-            <li> <a href="<?php echo $admin_row["instagram"];?>" target="_blank">Instagram</a></li> <br>            
+            <li> <a href="https://wa.me/<?php echo $admin_row["mobile"]; ?>" target="_blank">Site Owner</a></li> <br>
+            <li> <a href="<?php echo $admin_row["facebook"]; ?>" target="_blank">Facebook</a></li> <br>
+            <li> <a href="<?php echo $admin_row["instagram"]; ?>" target="_blank">Instagram</a></li> <br>
         </div>
-        <h3 style="margin: auto; margin-bottom: 0;margin-left: 45% ;opacity:30%;"><b><i>
-                    <li style="list-style-type: none;"> <a style="text-decoration:none;" href="https://hosting.sombti-server.online" target="_blank">Powered by SWS</a></li>
-                </i></b></h3>
+        <span><a style="margin: 0;background-color: transparent; padding:0; color:ghostwhite; opacity:50%;" href="https://hosting.sombti-server.online"><i><b>Powered By SWS</b></i></a></span><br>
     </footer>
     <script src="./script.js"></script>
 </body>
