@@ -260,7 +260,7 @@ $user_row = mysqli_fetch_assoc($user);
         // Row: Tag Line
         echo '<tr>';
         echo '<td>tag line</td>';
-        echo '<td>' . $b_info_data["tagline"] . '</td>';
+        echo '<td>" . $b_info_data["tagline"] . "</td>';
         echo '<td class="t2"><a class="openBTN2">update</a></td>';
         echo '</tr>';
 
