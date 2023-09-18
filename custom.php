@@ -24,9 +24,9 @@ if (isset($_POST["submit"])) {
 
     // Check if the target directory exists, and create it if it doesn't
     if (!file_exists($targetDirectory)) {
-        mkdir($targetDirectory, 0777, true);
+        mkdir($targetDirectory, 0755, true);
     }
-    
+
     $name = $_POST["name"];
     $mobile = $_POST["mobile"];
     $order_id = $_POST["order_id"];
@@ -101,7 +101,7 @@ if (isset($_POST["submit"])) {
 </head>
 
 <body>
-    <form action="" method="POST" class="order_form">
+    <form action="" method="POST" class="order_form" enctype="multipart/form-data">
         <h1>Create your Custom Order</h1><br>
         <label for="name">Name</label>
         <input type="text" name="name" id="name" required value="<?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?>"><br>
