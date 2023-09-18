@@ -233,14 +233,14 @@ $user_row = mysqli_fetch_assoc($user);
             const closeButton2 = document.getElementById("closeButton2");
             const popup2 = document.getElementById("popup2");
             for (let i = 0; i < openButtons2.length; i++) {
-                openButtons[i].addEventListener("click", function() {
+                openButtons2[i].addEventListener("click", function() {
                     // Display the popup
-                    popup.style.display = "block";
+                    popup2.style.display = "block";
                 });
             }
 
             // Function to close the popup
-            closeButton.addEventListener("click", function() {
+            closeButton2.addEventListener("click", function() {
                 popup.style.display = "none";
             });
         </script>
