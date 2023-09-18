@@ -42,6 +42,16 @@ $user_row = mysqli_fetch_assoc($user);
     <link rel="stylesheet" href="./admin.css">
     <title>U-BARBER ADMIN</title>
     <style>
+        .spical {
+            height: max-content;
+            overflow-wrap: break-word;
+            max-width: 80%;
+        }
+
+        .spical>td {
+            padding: 0;
+            margin: 0;
+        }
     </style>
     <script>
         // Function to reload the page
@@ -152,7 +162,7 @@ $user_row = mysqli_fetch_assoc($user);
         echo '<tbody>';
         while ($data = mysqli_fetch_assoc($print_img_table)) {
             echo '<tr>';
-            echo '<td>' . $data["price"] . '<br><br>'.$data["order_id"].'</td>';
+            echo '<td>' . $data["price"] . '<br><br>' . $data["order_id"] . '</td>';
             echo '<td><img src="./img/' . $data["order_id"] . '.png" alt="' . $data["order_id"] . '"></td>';
             echo '<td class="t2"><a class="openBTN" data-order-id="' . $data["order_id"] . '" price="' . $data["price"] . '">update</a></td>';
             echo '</tr>';
@@ -218,7 +228,7 @@ $user_row = mysqli_fetch_assoc($user);
         $business_info = mysqli_query($conn, "SELECT * FROM business_info");
         $b_info_data = mysqli_fetch_assoc($business_info);
 
-        echo '<table style="max-width:90vw !important;">';
+        echo '<table class="spical">';
         echo '<thead>';
         echo '<th>data</th>';
         echo '<th>Current</th>';
@@ -253,14 +263,14 @@ $user_row = mysqli_fetch_assoc($user);
         echo '<td>' . $b_info_data["tagline"] . '</td>';
         echo '<td class="t2"><a class="openBTN2">update</a></td>';
         echo '</tr>';
-        
+
         // Row: instagram
         echo '<tr>';
         echo '<td>mobile</td>';
         echo '<td>' . $b_info_data["instagram"] . '</td>';
         echo '<td class="t2"><a class="openBTN2">update</a></td>';
         echo '</tr>';
-        
+
         // Row: facebook
         echo '<tr>';
         echo '<td>mobile</td>';
