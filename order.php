@@ -34,7 +34,7 @@ if (isset($_POST["submit"])) {
         // If the query was successful, show a success message
         echo '<script>';
         echo 'alert("Order received successfully.");';
-        echo 'setTimeout(function() { window.close(); }, 3000);'; // Close the window after 3 seconds
+        echo 'setTimeout(function() { window.close(); }, 1500);'; // Close the window after 1.5 seconds
         echo '</script>';
     } else {
         // If there was an error with the query
