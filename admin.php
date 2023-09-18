@@ -122,7 +122,6 @@ $user_row = mysqli_fetch_assoc($user);
                         echo '<td>No image available</td>';
                     }
                 }
-
                 echo '<td></td>';
                 echo '</tr>';
                 
@@ -131,7 +130,6 @@ $user_row = mysqli_fetch_assoc($user);
                 echo '<td>' . $row["bocked_time"] . '</td>';
                 echo '<td></td>';
                 echo '</tr>';
-
 
                 echo '<tbody>';
                 echo '</table>';
