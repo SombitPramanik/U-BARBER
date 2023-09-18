@@ -1,9 +1,6 @@
 <?php
 if(!defined('allow')){
-    die('
-    <script>alert("Access Denied Log in to Access  Redirecting in 2 seconds");</script>;
-    <script>setTimeout(function() { window.location.href = "index.php"; }, 2000);</script>;
-    ');
+    die('Direct Access Denied');
 }
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
