@@ -241,7 +241,7 @@ $user_row = mysqli_fetch_assoc($user);
 
             // Function to close the popup
             closeButton2.addEventListener("click", function() {
-                popup.style.display = "none";
+                popup2.style.display = "none";
             });
         </script>
     </fieldset>
