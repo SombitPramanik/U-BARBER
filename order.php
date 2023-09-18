@@ -32,12 +32,8 @@ if (isset($_POST["submit"])) {
     $success = mysqli_query($conn, $query);
     if ($success) {
         // If the query was successful, show a success message
-        echo '<script>';
-        echo 'alert("Order received successfully.");';
-        echo 'setTimeout(function() { window.close(); }, 1500);'; // Close the window after 1.5 seconds
-        echo '</script>';
+        echo '<script>alert("Order received successfully.");setTimeout(function() { window.close(); }, 800);</script>';
     } else {
-        // If there was an error with the query
         echo 'Error: ' . mysqli_error($conn);
     }
 }

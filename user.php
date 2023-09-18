@@ -13,6 +13,9 @@ if (!empty($_SESSION["session_token"])) {
     $result = mysqli_query($conn, "SELECT * FROM normal_user WHERE email = '$email'");
     $row = mysqli_fetch_assoc($result);
 
+    $admin = mysqli_query($conn, "SELECT * FROM business_info");
+    $admin_row = mysqli_fetch_assoc($admin);
+
     if (!$row) {
         header("location: index.php"); // Invalid session token, redirect to login
     }
@@ -49,7 +52,7 @@ if (!empty($_SESSION["session_token"])) {
             <div class="hed" style="display: flex;">
                 <div class="cont">
                     <span>
-                        <a style="padding-right: 2.1em;" href="https://wa.me/6297037940">Contact Owner</a><br><br>
+                        <a style="padding-right: 2.1em;" href="https://wa.me/<?php echo $admin_row["mobile"]; ?>">Contact Owner</a><br><br>
                         <a class="openBTN2" data-order-id="UBCS1">Custom Order</a><br><br>
                         <a href="./logout.php">log out</a><br><br>
                     </span>
@@ -58,7 +61,7 @@ if (!empty($_SESSION["session_token"])) {
                     <img src="./U-BARBER.png" alt="">
                 </div>
             </div>
-            <i><span style="font-family: Arial, Helvetica, sans-serif;">We' re thrilled to have you here and ready to help you look your best. Whether you're in need of a fresh haircut, a clean shave, or a complete makeover, our skilled barbers are here to make you feel like a million bucks 💇‍♂️.Relax, unwind, and enjoy our top-notch grooming services in a welcoming and stylish atmosphere. Your satisfaction is our top priority, and we take pride in every cut and style we create.Explore our services, meet our talented barbers, and book your appointment today. Get ready to elevate your style and confidence with us! 💪 <br><br> <b> Let's make you look sharp and feel fantastic. See you soon! </i>😊✨</b></span>
+            <i><span style="font-family: Arial, Helvetica, sans-serif;"><?php echo $admin_row["tagline"]; ?><br><br> <b> Let's make you look sharp and feel fantastic. See you soon! </i>😊✨</b></span>
             <div id="recent_order">
                 <h2>Recent Orders</h2>
                 <div class="order">
@@ -129,13 +132,14 @@ if (!empty($_SESSION["session_token"])) {
 
         </div>
         <div class="links">
-            <li> <a href="https://wa.me/6297037940" target="_blank">>> Our Developer</a></li> <br>
-            <li> <a href="" target="_blank">>> Site Owner</a></li> <br>
-            <li> <a href="" target="_blank">>> Facebook</a></li> <br>
-            <li> <a href="" target="_blank">>> Instagram</a></li> <br>
-            <li> <a href="" target="_blank">>> Whatsapp</a></li> <br>
+            <li> <a href="https://wa.me/6297037940" target="_blank">Our Developer</a></li> <br>
+            <li> <a href="https://wa.me/<?php echo $admin_row["mobile"];?>" target="_blank">Site Owner</a></li> <br>
+            <li> <a href="<?php echo $admin_row["facebook"];?>" target="_blank">Facebook</a></li> <br>
+            <li> <a href="<?php echo $admin_row["instagram"];?>" target="_blank">Instagram</a></li> <br>            
         </div>
-        <!-- <h3 style="margin: auto; margin-bottom: 0;margin-left: 45%;"><b><i><li style="list-style-type: none;" > <a style="text-decoration:none;" href="" target="_blank">>> Powered by SWS</a></li></i></b></h3> -->
+        <h3 style="margin: auto; margin-bottom: 0;margin-left: 45% ;opacity:30%;"><b><i>
+                    <li style="list-style-type: none;"> <a style="text-decoration:none;" href="https://hosting.sombti-server.online" target="_blank">Powered by SWS</a></li>
+                </i></b></h3>
     </footer>
     <script src="./script.js"></script>
 </body>

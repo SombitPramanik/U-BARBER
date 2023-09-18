@@ -39,4 +39,5 @@ for (let i = 0; i < openButtons2.length; i++) {
 closeButton2.addEventListener("click", function () {
     // localStorage.removeItem("orderId");
     popup2.style.display = "none";
+
 });
