@@ -24,11 +24,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         echo "Error updating business information: " . mysqli_error($conn);
     }
-
-
-    $b = mysqli_query($conn, "SELECT * FROM business_info");
-    $a = mysqli_fetch_assoc($b);
 }
+
+$b = mysqli_query($conn, "SELECT * FROM business_info");
+$a = mysqli_fetch_assoc($b);
 ?>
 
 <!DOCTYPE html>

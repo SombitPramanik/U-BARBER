@@ -7,7 +7,6 @@ require 'config.php';
 if (!empty($_SESSION["session_token"])) {
     $email = $_SESSION["session_token"];
 
-
     $result = mysqli_query($conn, "SELECT * FROM sysadmin WHERE email = '$email'");
     $row = mysqli_fetch_assoc($result);
 
