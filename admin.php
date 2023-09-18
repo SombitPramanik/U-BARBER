@@ -104,7 +104,13 @@ $user_row = mysqli_fetch_assoc($user);
 
                 echo '<tr>';
                 echo '<td>Style</td>';
-                echo '<td><img src="./img/' . $row["order_id"] . '.png" alt="' . $row["order_id"] . '"></td>';
+                $check_img = $row["order_id"];
+                if (file_exists("./img/$check_img.png")) {
+                    echo '<td><img src="./img/' . $check_img . '.png" alt="' . $check_img . '"></td>';
+                } elseif (file_exists("./uploads/$check_img.png")) {
+                    echo '<td><img src="./uploads/' .$row["mobile"]. $check_img . '.png" alt="' . $check_img . '"></td>';
+                }
+
                 echo '<td></td>';
                 echo '</tr>';
 
