@@ -29,7 +29,7 @@ if (!file_exists($targetDirectory)) {
 if (isset($_POST["submit"])) {
     $id = $_POST["order_id"];
     $up_id = strtoupper($id);
-    $price = $_price["price"];
+    $price = $_POST["price"];
     $file = $_FILES["new_img"];
     $fileName = $file["name"];
     $fileSize = $file["size"];
