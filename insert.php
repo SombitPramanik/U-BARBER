@@ -12,7 +12,6 @@ if (!empty($_SESSION["session_token"])) {
 
     if (!$row) {
         header("location: index.php"); // Invalid session token, redirect to login
-        exit();
     }
 } else {
     header("location: index.php");  // if session token is not found redirect 
