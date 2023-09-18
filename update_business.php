@@ -1,4 +1,10 @@
 <?php
+if(!defined('allow')){
+    die('
+    <script>alert("Access Denied Log in to Access  Redirecting in 2 seconds");</script>;
+    <script>setTimeout(function() { window.location.href = "index.php"; }, 2000);</script>;
+    ');
+}
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -8,7 +14,7 @@ if (!empty($_SESSION["session_token"])) {
     $session_token = $_SESSION["session_token"];
     $email = $session_token;
 
-    $result = mysqli_query($conn, "SELECT * FROM normal_user WHERE email = '$email'");
+    $result = mysqli_query($conn, "SELECT * FROM sysadmin WHERE email = '$email'");
     $row = mysqli_fetch_assoc($result);
 
     if (!$row) {
