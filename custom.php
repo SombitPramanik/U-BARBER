@@ -52,7 +52,7 @@ if (isset($_POST["submit"])) {
         echo "Error: File size exceeds the maximum allowed size (10 MB).";
     } else {
         // Generate a unique file name based on username and file extension
-        $uniqueFileName = $_name . "_cs_img." . $fileType;
+        $uniqueFileName = $name . "_cs_img." . $fileType;
 
         // Construct the complete file path
         $filePath = $targetDirectory . $uniqueFileName;
