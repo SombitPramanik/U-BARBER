@@ -40,14 +40,14 @@ if (isset($_POST["submit"])) {
     $fileType = pathinfo($fileName, PATHINFO_EXTENSION); // Get the file extension
 
     // Define the allowed file types (in this case, only .png files are allowed)
-    $allowedFileTypes = array("png");
+    $allowedFileTypes = array("png", "jpeg", "jpg");
 
     // Define the maximum file size (in bytes)
     $maxFileSize = 10 * 1024 * 1024; // 10 MB
 
     // Check if the file type is allowed
     if (!in_array(strtolower($fileType), $allowedFileTypes)) {
-        echo "Error: Only .png files are allowed.";
+        echo "Error: Only .png .jpeg and .jpg files are allowed.";
     } elseif ($fileSize > $maxFileSize) {
         echo "Error: File size exceeds the maximum allowed size (10 MB).";
     } else {
@@ -60,21 +60,18 @@ if (isset($_POST["submit"])) {
         // Move the uploaded file to the target directory
         if (move_uploaded_file($fileTmpName, $filePath)) {
             echo "File uploaded successfully.";
+            $query = "INSERT INTO receive_order VALUES('$time','$name','$mobile','$order_id','$price','$time_selected')";
+            $success = mysqli_query($conn, $query);
+            if ($success) {
+                // If the query was successful, show a success message
+                echo '<script>alert("Order received successfully.");setTimeout(function() { window.close(); }, 800);</script>';
+            } else {
+                // If there was an error with the query
+                echo 'Error: ' . mysqli_error($conn);
+            }
         } else {
             echo "Error uploading file.";
         }
-    }
-    $query = "INSERT INTO receive_order VALUES('$time','$name','$mobile','$order_id','$price','$time_selected')";
-    $success = mysqli_query($conn, $query);
-    if ($success) {
-        // If the query was successful, show a success message
-        echo '<script>';
-        echo 'alert("Order received successfully.");';
-        echo 'setTimeout(function() { window.close(); }, 3000);'; // Close the window after 3 seconds
-        echo '</script>';
-    } else {
-        // If there was an error with the query
-        echo 'Error: ' . mysqli_error($conn);
     }
 }
 
@@ -96,13 +93,13 @@ if (isset($_POST["submit"])) {
     <meta property="og:url" content="https://barber.sombti-server.online">
     <meta property="og:type" content="website">
     <link rel="icon" href="./U-BARBER.ico" type="image/x-icon">
-    <title>Review Order / <?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?></title>
+    <title>Custom Order / <?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?></title>
     <link rel="stylesheet" href="./order.css">
 </head>
 
 <body>
     <form action="" method="POST" class="order_form" enctype="multipart/form-data">
-        <h1>Create your Custom Order</h1><br>
+        <h1>Create your Style</h1><br>
         <label for="name">Name</label>
         <input type="text" name="name" id="name" required value="<?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?>"><br>
         <label for="mobile">Mobile</label>
@@ -159,10 +156,12 @@ if (isset($_POST["submit"])) {
         </select><br>
         <label for="order_id">Order ID</label>
         <input type="text" id="order_id" name="order_id" contenteditable="false" readonly required><br>
+        <label for="r_price">Minimum Price</label>
+        <input type="text" id="r_price" name="r_price" value="70" contenteditable="false" randomly><br>
         <label for="price">Price</label>
         <input type="text" id="price" name="price" required><br>
-        <label for="cs_img">Upload an Image (PNG format, max 10MB)</label>
-        <input type="file" id="cs_img" name="cs_img" accept=".png" required><br>
+        <label for="cs_img">Reference image</label>
+        <input type="file" id="cs_img" name="cs_img" accept=".png,.jpeg,.jpg" required><br>
         <button type="submit" name="submit" id="submit">Order Now</button>
     </form>
     <br>
@@ -172,7 +171,7 @@ if (isset($_POST["submit"])) {
 
     function updateOrderIdField() {
         const orderId = localStorage.getItem("orderId");
-        
+
         if (orderId && document.getElementById("order_id")) {
             const currentOrderId = document.getElementById("order_id").value;
 
