@@ -136,7 +136,7 @@ if (!empty($_SESSION["session_token"])) {
             <li> <a href="https://wa.me/<?php echo $admin_row["mobile"]; ?>" target="_blank">Site Owner</a></li> <br>
             <li> <a href="<?php echo $admin_row["facebook"]; ?>" target="_blank">Facebook</a></li> <br>
             <li> <a href="<?php echo $admin_row["instagram"]; ?>" target="_blank">Instagram</a></li> <br><br><br>
-            <span><a style="margin: 0;background-color: transparent; box-shadow:none; padding:0; color:ghostwhite; opacity:50%;" href="https://hosting.sombti-server.online"><i><b>Powered By SWS</b></i></a></span><br>
+            <span><a style="font-size:small;margin: 0;background-color: transparent; box-shadow:none; padding:0; color:ghostwhite; opacity:35%;" href="https://hosting.sombti-server.online"><i><b>Developed & Hosted By SWS</b></i></a></span><br>
         </div>
     </footer>
     <script src="./script.js"></script>
