@@ -42,14 +42,13 @@ $user_row = mysqli_fetch_assoc($user);
     <link rel="stylesheet" href="./admin.css">
     <title>U-BARBER ADMIN</title>
     <style>
-        .spical {
+        .spical{
             height: max-content;
             overflow-wrap: break-word;
             max-width: 80%;
         }
-
-        .spical>td {
-            padding: 0;
+        .spical>td{
+            padding:0;
             margin: 0;
         }
     </style>
@@ -162,7 +161,7 @@ $user_row = mysqli_fetch_assoc($user);
         echo '<tbody>';
         while ($data = mysqli_fetch_assoc($print_img_table)) {
             echo '<tr>';
-            echo '<td>' . $data["price"] . '<br><br>' . $data["order_id"] . '</td>';
+            echo '<td>' . $data["price"] . '<br><br>'.$data["order_id"].'</td>';
             echo '<td><img src="./img/' . $data["order_id"] . '.png" alt="' . $data["order_id"] . '"></td>';
             echo '<td class="t2"><a class="openBTN" data-order-id="' . $data["order_id"] . '" price="' . $data["price"] . '">update</a></td>';
             echo '</tr>';
@@ -253,24 +252,24 @@ $user_row = mysqli_fetch_assoc($user);
         // Row: Logo
         echo '<tr>';
         echo '<td>logo</td>';
-        echo '<td><img src="./' . $b_info_data["logo"] . '" alt="Business Logo" srcset=""></td>';
+        echo '<td>logo</td>';
         echo '<td class="t2"><a class="openBTN2">update</a></td>';
         echo '</tr>';
 
         // Row: Tag Line
         echo '<tr>';
         echo '<td>tag line</td>';
-        echo '<td>" . $b_info_data["tagline"] . "</td>';
+        echo '<td>' . $b_info_data["tagline"] . '</td>';
         echo '<td class="t2"><a class="openBTN2">update</a></td>';
         echo '</tr>';
-
+        
         // Row: instagram
         echo '<tr>';
         echo '<td>mobile</td>';
         echo '<td>' . $b_info_data["instagram"] . '</td>';
         echo '<td class="t2"><a class="openBTN2">update</a></td>';
         echo '</tr>';
-
+        
         // Row: facebook
         echo '<tr>';
         echo '<td>mobile</td>';
