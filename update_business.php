@@ -114,7 +114,7 @@ if (isset($_POST["submit"])) {
 </head>
 
 <body>
-    <form action="" method="post" class="business_info_form">
+    <form action="" method="POST" class="order_form">
         <h1>Update Business Information</h1><br>
         <label for="name">Business Name</label>
         <input type="text" id="name" name="name" value="<?php echo $b["b_name"]; ?>" required><br>
