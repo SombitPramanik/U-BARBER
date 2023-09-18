@@ -75,7 +75,6 @@ $user_row = mysqli_fetch_assoc($user);
                 echo '<th>Information</th>';
                 echo '<th>Operation</th>';
                 echo '</thead>';
-
                 echo '<tbody>';
 
                 echo '<tr>';
@@ -106,7 +105,7 @@ $user_row = mysqli_fetch_assoc($user);
                 echo '<td>Style</td>';
                 $check_img = $row["order_id"];
                 $mb = $row["mobile"];
-                $upp = $mb.$check_img;
+                $upp = $mb . $check_img;
 
                 // Check if the image file exists in the ./img/ directory
                 $imgPath = "./img/$check_img.png";
@@ -124,7 +123,7 @@ $user_row = mysqli_fetch_assoc($user);
                 }
                 echo '<td></td>';
                 echo '</tr>';
-                
+
                 echo '<tr>';
                 echo '<td>Time : </td>';
                 echo '<td>' . $row["bocked_time"] . '</td>';
@@ -141,7 +140,7 @@ $user_row = mysqli_fetch_assoc($user);
         ?>
     </fieldset>
     <fieldset>
-        <legend>Update Catalog</legend>
+        <legend>Update Catalog & Insert New</legend>
         <?php
         $print_img_table = mysqli_query($conn, "SELECT * FROM order_id_price");
         echo '<table>';
@@ -153,7 +152,7 @@ $user_row = mysqli_fetch_assoc($user);
         echo '<tbody>';
         while ($data = mysqli_fetch_assoc($print_img_table)) {
             echo '<tr>';
-            echo '<td>' . $data["price"] . '</td>';
+            echo '<td>' . $data["price"] . '<br><br>'.$data["order_id"].'</td>';
             echo '<td><img src="./img/' . $data["order_id"] . '.png" alt="' . $data["order_id"] . '"></td>';
             echo '<td class="t2"><a class="openBTN" data-order-id="' . $data["order_id"] . '" price="' . $data["price"] . '">update</a></td>';
             echo '</tr>';
@@ -161,13 +160,34 @@ $user_row = mysqli_fetch_assoc($user);
         echo '</tbody>';
         echo '</table>';
         ?>
+        <div><a class="openBTN3">Insert New Item</a></div>
         <div id="popup" class="popup">
             <div class="popup-content">
                 <iframe src="./update_ctl.php" width="99%" height="100%" style="border-radius: 5px;"></iframe>
                 <span class="close" id="closeButton">&times;</span>
             </div>
         </div>
+        <div id="popup3" class="popup3">
+            <div class="popup-content3">
+                <iframe src="./insert.php" width="99%" height="100%" style="border-radius: 5px;"></iframe>
+                <span class="close2" id="closeButton2">&times;</span>
+            </div>
+        </div>
         <script>
+            const openButtons3 = document.getElementsByClassName("openBTN3");
+            const closeButton3 = document.getElementById("closeButton3");
+            const popup3 = document.getElementById("popup3");
+            for (let i = 0; i < openButtons3.length; i++) {
+                openButtons3[i].addEventListener("click", function() {
+                    popup3.style.display = "block";
+                });
+            }
+
+            // Function to close the popup
+            closeButton3.addEventListener("click", function() {
+                // localStorage.removeItem("orderId");
+                popup3.style.display = "none";
+            });
             const openButtons = document.getElementsByClassName("openBTN");
             const closeButton = document.getElementById("closeButton");
             const popup = document.getElementById("popup");
@@ -231,6 +251,20 @@ $user_row = mysqli_fetch_assoc($user);
         echo '<tr>';
         echo '<td>tag line</td>';
         echo '<td>' . $b_info_data["tagline"] . '</td>';
+        echo '<td class="t2"><a class="openBTN2">update</a></td>';
+        echo '</tr>';
+        
+        // Row: instagram
+        echo '<tr>';
+        echo '<td>mobile</td>';
+        echo '<td>' . $b_info_data["instagram"] . '</td>';
+        echo '<td class="t2"><a class="openBTN2">update</a></td>';
+        echo '</tr>';
+        
+        // Row: facebook
+        echo '<tr>';
+        echo '<td>mobile</td>';
+        echo '<td>' . $b_info_data["facebook"] . '</td>';
         echo '<td class="t2"><a class="openBTN2">update</a></td>';
         echo '</tr>';
 
@@ -309,11 +343,11 @@ $user_row = mysqli_fetch_assoc($user);
                         <td><?php echo $totalCustomers; ?></td>
                     </tr>
                     <tr>
-                        <td>7 day <br> income</td>
+                        <td>Paste 7 day <br> income</td>
                         <td><?php echo $totalIncomeSevenDays; ?></td>
                     </tr>
                     <tr>
-                        <td>Total</td>
+                        <td>Total (7 Days) </td>
                         <td><?php echo $totalIncome; ?></td>
                     </tr>
                 </tbody>

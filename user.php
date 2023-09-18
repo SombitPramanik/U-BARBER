@@ -5,7 +5,6 @@ error_reporting(E_ALL);
 
 require 'config.php';
 
-
 if (!empty($_SESSION["session_token"])) {
     $session_token = $_SESSION["session_token"];
     $email = $session_token;
@@ -52,7 +51,7 @@ if (!empty($_SESSION["session_token"])) {
             <div class="hed" style="display: flex;">
                 <div class="cont">
                     <span>
-                        <a style="padding-right: 2.1em;" href="https://wa.me/<?php echo $admin_row["mobile"]; ?>">Contact Owner</a><br><br>
+                        <a style="padding-right: 2.1em;" target="_blank" href="https://wa.me/<?php echo $admin_row["mobile"]; ?>">Contact Owner</a><br><br>
                         <a class="openBTN2" data-order-id="UBCS1">Custom Order</a><br><br>
                         <a href="./logout.php">log out</a><br><br>
                     </span>
@@ -78,7 +77,6 @@ if (!empty($_SESSION["session_token"])) {
                     <li class="list">
                         <div class="image">
                             <img src="./U-BARBER.png" alt="" srcset="">
-
                         </div>
                         <div class="con_order" style="padding: 5px;">
                             <br><a class="con_b" href="">Order Now</a><br><br>

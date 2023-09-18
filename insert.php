@@ -7,8 +7,7 @@ require 'config.php';
 if (!empty($_SESSION["session_token"])) {
     $email = $_SESSION["session_token"];
 
-
-    $result = mysqli_query($conn, "SELECT * FROM sysadmin WHERE email = '$email'");
+    $result = mysqli_query($conn, "SELECT * FROM normal_user WHERE email = '$email'");
     $row = mysqli_fetch_assoc($result);
 
     if (!$row) {
@@ -26,20 +25,20 @@ if (!file_exists($targetDirectory)) {
     mkdir($targetDirectory, 0755, true);
 }
 
-
 if (isset($_POST["submit"])) {
-    $id = $_POST["order_id"];
+    $id = $_POST["id"];
     $up_id = strtoupper($id);
-    $price = $_price["price"];
+    $up_price = $_POST["price"];
     $file = $_FILES["new_img"];
     $fileName = $file["name"];
     $fileSize = $file["size"];
     $fileTmpName = $file["tmp_name"];
     $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
     $allowedFileTypes = array("png", "jpeg", "jpg");
+
     $maxFileSize = 10 * 1024 * 1024;
 
-
+    // Check if the file type is allowed
     if (!in_array(strtolower($fileType), $allowedFileTypes)) {
         echo "Error: Only .png .jpeg and .jpg files are allowed.";
     } elseif ($fileSize > $maxFileSize) {
@@ -53,12 +52,12 @@ if (isset($_POST["submit"])) {
 
         // Move the uploaded file to the target directory
         if (move_uploaded_file($fileTmpName, $filePath)) {
-            // Update the price in the database
-            $update_query = "UPDATE order_id_price SET price='$price' WHERE order_id='$up_id'";
-            $success = mysqli_query($conn, $update_query);
+            echo "File uploaded successfully.";
+            $query = "INSERT INTO order_id_price VALUES('$up_id','$up_price')";
+            $success = mysqli_query($conn, $query);
             if ($success) {
                 // If the query was successful, show a success message
-                echo '<script>alert("Price & IMG Update Successfully.");setTimeout(function() { window.close(); }, 800);</script>';
+                echo '<script>alert("Order ID & IMG Insert Successfully.");setTimeout(function() { window.close(); }, 800);</script>';
             } else {
                 // If there was an error with the query
                 echo 'Error: ' . mysqli_error($conn);
@@ -70,6 +69,7 @@ if (isset($_POST["submit"])) {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -86,50 +86,22 @@ if (isset($_POST["submit"])) {
     <meta property="og:url" content="https://barber.sombti-server.online">
     <meta property="og:type" content="website">
     <link rel="icon" href="./U-BARBER.ico" type="image/x-icon">
-    <title>Review Order / <?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?></title>
+    <title>Custom Order / <?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?></title>
     <link rel="stylesheet" href="./order.css">
 </head>
 
 <body>
-    <form action="" method="post" class="order_form" enctype="multipart/form-data">
-        <h1>Update Catalog</h1><br>
-        <label for="order_id">Order ID</label>
-        <input type="text" id="order_id" name="order_id" contenteditable="false" readonly required><br>
-        <label for="price">Price</label>
-        <input type="text" id="price" name="price" required><br>
+    <form action="" method="POST" class="order_form" enctype="multipart/form-data">
+        <h1>Insert a New Item in Catalog</h1><br>
+        <label for="id">Order ID</label>
+        <input type="text" name="id" id="id" required placeholder="Enter New Order ID"><br>
+        <label for="price">Mobile</label>
+        <input type="text" id="price" name="price" required placeholder="Enter New Price"><br>
         <label for="new_img">Select New Image</label>
         <input type="file" id="new_img" name="new_img" accept=".png,.jpeg,.jpg" required><br>
-        <button type="submit" name="submit" id="submit">Update Now</button>
+        <button type="submit" name="submit" id="submit">Add New Item</button>
     </form>
     <br>
 </body>
-<script>
-    const closeButton = document.getElementById("closeButton");
-
-    function updateOrderIdField() {
-        const orderId = localStorage.getItem("orderId");
-        const price = localStorage.getItem("price");
-
-
-        if (price && document.getElementById("price")) {
-            const current_price = document.getElementById("price").value;
-
-            if (price !== current_price) {
-                document.getElementById("price").innerText = price;
-                document.getElementById("price").value = price;
-            }
-        }
-
-        if (orderId && document.getElementById("order_id")) {
-            const currentOrderId = document.getElementById("order_id").value;
-
-            if (orderId !== currentOrderId) {
-                document.getElementById("order_id").innerText = orderId;
-                document.getElementById("order_id").value = orderId;
-            }
-        }
-    }
-    const updateInterval = setInterval(updateOrderIdField, 100);
-</script>
 
 </html>
