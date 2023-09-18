@@ -102,15 +102,34 @@ $user_row = mysqli_fetch_assoc($user);
                 echo '<td></td>';
                 echo '</tr>';
 
+
+                echo '<tr>';
+                echo '<td>Time : </td>';
+                echo '<td>' . $row["bocked_time"] . '</td>';
+                echo '<td></td>';
+                echo '</tr>';
+
                 echo '<tr>';
                 echo '<td>Style</td>';
                 $check_img = $row["order_id"];
                 $mb = $row["mobile"];
-                if (file_exists("./img/$check_img.png")) {
-                    echo '<td><img src="./img/' . $check_img . '.png" alt="' . $check_img . '"></td>';
-                } elseif (file_exists("./uploads/$check_img.png")) {
-                    echo '<td><img src="./uploads/'.$mb.''.$check_img.'.png" alt="' . $check_img . '"></td>';
+                $upp = $mb.$check_img;
+
+                // Check if the image file exists in the ./img/ directory
+                $imgPath = "./img/$check_img.png";
+                if (file_exists($imgPath)) {
+                    echo '<td><img src="' . $imgPath . '" alt="' . $check_img . '"></td>';
+                } else {
+                    // Check if the image file exists in the ./uploads/ directory
+                    $uploadPath = "./uploads/$upp.png";
+                    if (file_exists($uploadPath)) {
+                        echo '<td><img src="' . $uploadPath . '" alt="' . $check_img . '"></td>';
+                    } else {
+                        // Handle the case where the image file doesn't exist in either directory
+                        echo '<td>No image available</td>';
+                    }
                 }
+
                 echo '<td></td>';
                 echo '</tr>';
 
