@@ -23,32 +23,32 @@ if (isset($_POST["submit"])) {
         $update_query = "UPDATE business_info SET b_name='$name'";
         $result = mysqli_query($conn, $update_query);
         echo "Business information [Name] updated successfully <br> Close This Page!";
-    }else{
+    } else {
         echo "Business information [Name] NOT updated <br> Close This Page!";
     }
 
-    
+
     if (!empty($mobile)) {
         $update_query = "UPDATE business_info SET mobile='$mobile'";
         $result = mysqli_query($conn, $update_query);
         echo "Business information [Mobile] updated successfully <br> Close This Page!";
-    }else{
+    } else {
         echo "Business information [Mobile] NOT updated <br> Close This Page!";
     }
-    
+
     if (!empty($tagline)) {
         $update_query = "UPDATE business_info SET tagline='$tagline'";
         $result = mysqli_query($conn, $update_query);
         echo "Business information [tagline] updated successfully <br> Close This Page!";
-    }else{
+    } else {
         echo "Business information [tagline] NOT updated <br> Close This Page!";
     }
-    
+
     if (!empty($openTime)) {
         $update_query = "UPDATE business_info SET openTime='$openTime'";
         $result = mysqli_query($conn, $update_query);
         echo "Business information [Open Time] updated successfully <br> Close This Page!";
-    }else{
+    } else {
         echo "Business information [Open Time] NOT updated <br> Close This Page!";
     }
 
@@ -56,23 +56,23 @@ if (isset($_POST["submit"])) {
         $update_query = "UPDATE business_info SET closeTime='$closeTime'";
         $result = mysqli_query($conn, $update_query);
         echo "Business information [Close Time] updated successfully <br> Close This Page!";
-    }else{
+    } else {
         echo "Business information [Close Time] NOT updated <br> Close This Page!";
     }
-    
+
     if (!empty($instagram)) {
         $update_query = "UPDATE business_info SET instagram='$instagram'";
         $result = mysqli_query($conn, $update_query);
         echo "Business information [instagram] updated successfully <br> Close This Page!";
-    }else{
+    } else {
         echo "Business information [instagram] NOT updated <br> Close This Page!";
     }
-    
+
     if (!empty($facebook)) {
         $update_query = "UPDATE business_info SET facebook='$facebook'";
         $result = mysqli_query($conn, $update_query);
         echo "Business information [Name] updated successfully <br> Close This Page!";
-    }else{
+    } else {
         echo "Business information [Name] NOT updated <br> Close This Page!";
     }
 }
@@ -123,7 +123,7 @@ if (isset($_POST["submit"])) {
         <input type="tel" id="mobile" name="mobile" value="<?php echo $b["mobile"]; ?>" required><br>
 
         <label for="tagline">Tagline</label>
-        <textarea name="tagline" id="tagline" required value="<?php echo $b["tagline"]; ?>" cols="30" rows="10"></textarea><br>
+        <textarea name="tagline" id="tagline" required cols="30" rows="10"><?php echo $b["tagline"]; ?></textarea><br>
 
         <label for="open">Open Time</label>
         <input type="text" id="open" name="open" value="<?php echo $b["openTime"]; ?>" required><br>
@@ -131,11 +131,11 @@ if (isset($_POST["submit"])) {
         <label for="close">Close Time</label>
         <input type="text" id="close" name="close" value="<?php echo $b["closeTime"]; ?>" required><br>
 
-        <label for="open">Instagram</label>
-        <input type="text" id="open" name="open" value="<?php echo $b["instagram"]; ?>" required><br>
+        <label for="instagram">Instagram</label>
+        <input type="text" id="instagram" name="instagram" value="<?php echo $b["instagram"]; ?>" required><br>
 
-        <label for="open">Facebook</label>
-        <input type="text" id="open" name="open" value="<?php echo $b["facebook"]; ?>" required><br>
+        <label for="facebook">Facebook</label>
+        <input type="text" id="facebook" name="facebook" value="<?php echo $b["facebook"]; ?>" required><br>
 
         <button type="submit" name="submit" id="submit">Update Business Info</button>
     </form>
