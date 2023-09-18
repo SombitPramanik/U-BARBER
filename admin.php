@@ -105,10 +105,11 @@ $user_row = mysqli_fetch_assoc($user);
                 echo '<tr>';
                 echo '<td>Style</td>';
                 $check_img = $row["order_id"];
+                $mb = $row["mobile"];
                 if (file_exists("./img/$check_img.png")) {
                     echo '<td><img src="./img/' . $check_img . '.png" alt="' . $check_img . '"></td>';
                 } elseif (file_exists("./uploads/$check_img.png")) {
-                    echo '<td><img src="./uploads/' .$row["mobile"]. $check_img . '.png" alt="' . $check_img . '"></td>';
+                    echo '<td><img src="./uploads/'.$mb.''.$check_img.'.png" alt="' . $check_img . '"></td>';
                 }
 
                 echo '<td></td>';
