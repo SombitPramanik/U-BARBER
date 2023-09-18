@@ -229,7 +229,7 @@ $user_row = mysqli_fetch_assoc($user);
         // Row: Name
         echo '<tr>';
         echo '<td>name</td>';
-        echo '<td>' . $b_info_data["name"] . '</td>';
+        echo '<td>' . $b_info_data["b_name"] . '</td>';
         echo '<td class="t2"><a class="openBTN2">update</a></td>';
         echo '</tr>';
 
@@ -271,7 +271,7 @@ $user_row = mysqli_fetch_assoc($user);
         // Row: Opening & Closing Time
         echo '<tr>';
         echo '<td>opening & closing time</td>';
-        echo '<td>' . $b_info_data["open"] . ' to ' . $b_info_data["close"] . '</td>';
+        echo '<td>' . $b_info_data["openTime"] . ' to ' . $b_info_data["closeTime"] . '</td>';
         echo '<td class="t2"><a class="openBTN2">update</a></td>';
         echo '</tr>';
 

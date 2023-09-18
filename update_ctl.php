@@ -93,11 +93,11 @@ if (isset($_POST["submit"])) {
     <form action="" method="post" class="order_form" enctype="multipart/form-data">
         <h1>Update Catalog</h1><br>
         <label for="order_id">Order ID</label>
-        <input type="text" id="order_id" name="order_id" contenteditable="false" readonly required><br>
+        <input type="text" id="order_id" name="order_id" required><br>
         <label for="price">Price</label>
         <input type="text" id="price" name="price" required><br>
         <label for="new_img">Select New Image</label>
-        <input type="file" id="new_img" name="new_img" accept=".png,.jpeg,.jpg" required><br>
+        <input type="file" id="new_img" name="new_img" accept=".png,.jpeg,.jpg" ><br>
         <button type="submit" name="submit" id="submit">Update Now</button>
     </form>
     <br>

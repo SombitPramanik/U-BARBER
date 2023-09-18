@@ -12,6 +12,7 @@ if (!empty($_SESSION["session_token"])) {
 
     if (!$row) {
         header("location: index.php"); // Invalid session token, redirect to login
+        exit();
     }
 } else {
     header("location: index.php");  // if session token is not found redirect 
@@ -92,11 +93,11 @@ if (isset($_POST["submit"])) {
 <body>
     <form action="" method="POST" class="order_form" enctype="multipart/form-data">
         <h1>Insert a New Item in Catalog</h1><br>
-        <label for="id">Order ID</label>
+        <label for="id">Add ID</label>
         <input type="text" name="id" id="id" required placeholder="Enter New Order ID"><br>
-        <label for="price">Mobile</label>
+        <label for="price">Add Price</label>
         <input type="text" id="price" name="price" required placeholder="Enter New Price"><br>
-        <label for="new_img">Select New Image</label>
+        <label for="new_img">Add Image</label>
         <input type="file" id="new_img" name="new_img" accept=".png,.jpeg,.jpg" required><br>
         <button type="submit" name="submit" id="submit">Add New Item</button>
     </form>
