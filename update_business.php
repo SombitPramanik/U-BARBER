@@ -48,6 +48,7 @@ $a = mysqli_fetch_assoc($b);
     <link rel="icon" href="./U-BARBER.ico" type="image/x-icon">
     <title>Update Business Info</title>
     <link rel="stylesheet" href="./order.css">
+    <link rel="stylesheet" href="./admin.css">
     <style>
         /* textarea {
             width: 90%;

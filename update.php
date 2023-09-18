@@ -55,6 +55,7 @@ $order_id = mysqli_query($conn, "SELECT * FROM order_id_price");
     <meta property="og:type" content="website">
     <link rel="icon" href="./U-BARBER.ico" type="image/x-icon">
     <link rel="stylesheet" href="./order.css">
+    <link rel="stylesheet" href="./admin.css">
     <title>Update Price and Image</title>
 </head>
 
