@@ -103,22 +103,6 @@ if (isset($_POST["submit"])) {
     <br>
 </body>
 <script>
-    const closeButton = document.getElementById("closeButton");
-
-    function updateOrderIdField() {
-        const orderId = localStorage.getItem("orderId");
-        const price = localStorage.getItem("price");
-
-
-        if (price && document.getElementById("price")) {
-            const current_price = document.getElementById("price").value;
-
-            if (price !== current_price) {
-                document.getElementById("price").innerText = price;
-                document.getElementById("price").value = price;
-            }
-        }
-
         if (orderId && document.getElementById("order_id")) {
             const currentOrderId = document.getElementById("order_id").value;
 
@@ -127,7 +111,6 @@ if (isset($_POST["submit"])) {
                 document.getElementById("order_id").value = orderId;
             }
         }
-    }
     const updateInterval = setInterval(updateOrderIdField, 100);
 </script>
 

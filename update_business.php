@@ -49,7 +49,7 @@ $a = mysqli_fetch_assoc($b);
     <title>Update Business Info</title>
     <link rel="stylesheet" href="./order.css">
     <style>
-        textarea {
+        /* textarea {
             width: 90%;
             font-weight: bold;
             overflow: hidden;
@@ -59,7 +59,7 @@ $a = mysqli_fetch_assoc($b);
             padding: .3em;
             border: 4px solid yellow;
 
-        }
+        } */
     </style>
 </head>
 
@@ -70,7 +70,7 @@ $a = mysqli_fetch_assoc($b);
         <input type="text" id="name" name="name" value="<?php echo $b["name"]; ?>" required><br>
 
         <label for="mobile">Mobile</label>
-        <input type="text" id="mobile" name="mobile" value="<?php echo $b["mobile"]; ?>" required><br>
+        <input type="tel" id="mobile" name="mobile" value="<?php echo $b["mobile"]; ?>" required><br>
 
         <label for="tagline">Tagline</label>
         <textarea name="tagline" id="tagline" required value="<?php echo $b["tagline"]; ?>" cols="30" rows="10"></textarea><br>
