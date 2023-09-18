@@ -50,7 +50,7 @@ if (!empty($_SESSION["session_token"])) {
                 <div class="cont">
                     <span>
                         <a style="padding-right: 2.1em;" href="https://wa.me/6297037940">Contact Owner</a><br><br>
-                        <a class="openBTN2" data-order-id="UBCS1">Custom Order</a>
+                        <a class="openBTN2" data-order-id="UBCS1">Custom Order</a><br><br>
                         <a href="./logout.php">log out</a><br><br>
                     </span>
                 </div>
