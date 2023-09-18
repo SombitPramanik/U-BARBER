@@ -102,13 +102,6 @@ $user_row = mysqli_fetch_assoc($user);
                 echo '<td></td>';
                 echo '</tr>';
 
-
-                echo '<tr>';
-                echo '<td>Time : </td>';
-                echo '<td>' . $row["bocked_time"] . '</td>';
-                echo '<td></td>';
-                echo '</tr>';
-
                 echo '<tr>';
                 echo '<td>Style</td>';
                 $check_img = $row["order_id"];
@@ -132,6 +125,13 @@ $user_row = mysqli_fetch_assoc($user);
 
                 echo '<td></td>';
                 echo '</tr>';
+                
+                echo '<tr>';
+                echo '<td>Time : </td>';
+                echo '<td>' . $row["bocked_time"] . '</td>';
+                echo '<td></td>';
+                echo '</tr>';
+
 
                 echo '<tbody>';
                 echo '</table>';
