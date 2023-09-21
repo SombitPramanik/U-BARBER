@@ -109,8 +109,8 @@ if (!empty($_SESSION["session_token"])) {
         }
         echo '</div>';
         echo '</div>';
+        
         ?>
-
     </main>
     <div id="popup" class="popup">
         <div class="popup-content">
@@ -127,7 +127,6 @@ if (!empty($_SESSION["session_token"])) {
     <footer>
         <div class="logo">
             <img src="./U-BARBER.png" alt="">
-
         </div>
         <div class="links">
             <li> <a href="https://wa.me/6297037940" target="_blank">Our Developer</a></li> <br>

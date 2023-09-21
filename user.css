@@ -218,7 +218,6 @@ button {
     justify-content: space-evenly;
     flex-direction: column;
   }
-
   .user_info {
     padding: 1em;
     border-bottom: 2px solid blueviolet;

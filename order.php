@@ -86,8 +86,8 @@ if (isset($_POST["submit"])) {
                 }
 
                 // Create an array of time slots from 7:00 AM to 9:00 PM at 30-minute intervals
-                $start = strtotime($tc_a["open"]);
-                $end = strtotime($tc_a["close"]);
+                $start = strtotime($tc_a["openTime"]);
+                $end = strtotime($tc_a["closeTime"]);
                 $interval = 30 * 60; // 30 minutes in seconds
                 $current = $start;
 
@@ -103,8 +103,8 @@ if (isset($_POST["submit"])) {
                 }
             } else {
                 // If there are no existing time slots, create all options
-                $start = strtotime($tc_a["open"]);
-                $end = strtotime($tc_a["close"]);
+                $start = strtotime($tc_a["openTime"]);
+                $end = strtotime($tc_a["closeTime"]);
                 $interval = 30 * 60; // 30 minutes in seconds
                 $current = $start;
 
