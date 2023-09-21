@@ -90,45 +90,46 @@ if (!empty($_SESSION["session_token"])) {
     </header>
     <main>
         <?php
-        $order_id = mysqli_query($conn, "SELECT * FROM order_id_price");
-        $data = mysqli_fetch_assoc($order_id);
+            $order_id = mysqli_query($conn, "SELECT * FROM order_id_price");
 
-        echo '<div class="show_con">';
-        echo '<h2><b><i>Recommended Collections</i></b></h2>';
-        echo '<div class="order">';
-
-        while ($order_id_list = mysqli_fetch_assoc($order_id)) {
-            echo '<li class="list1">';
-            echo '<div class="image1">';
-            // echo '<img src="./img/' . $order_id_list["order_id"] . '.png" alt="" srcset="">';
-            $extensions = array("png", "jpeg", "jpg");
-            $folders = array("./img/", "./uploads/");
-            $imageSrc = "";
+            echo '<div class="show_con">';
+            echo '<h2><b><i>Recommended Collections</i></b></h2>';
+            echo '<div class="order">';
             
-            foreach ($extensions as $extension) {
-                foreach ($folders as $folder) {
-                    $imagePath = $folder . $data["order_id"] . "." . $extension;
-                    if (file_exists($imagePath)) {
-                        $imageSrc = $imagePath;
-                        break 2; // Break out of both loops when a valid image is found
+            while ($order_id_list = mysqli_fetch_assoc($order_id)) {
+                echo '<li class="list1">';
+                echo '<div class="image1">';
+                // echo '<img src="./img/' . $order_id_list["order_id"] . '.png" alt="" srcset="">';
+                $extensions = array("png", "jpeg", "jpg");
+                $folders = array("./img/", "./uploads/");
+                $imageSrc = "";
+            
+                foreach ($extensions as $extension) {
+                    foreach ($folders as $folder) {
+                        $imagePath = $folder . $order_id_list["order_id"] . "." . $extension;
+                        if (file_exists($imagePath)) {
+                            $imageSrc = $imagePath;
+                            break 2; // Break out of both loops when a valid image is found
+                        }
                     }
                 }
+                
+                if (!empty($imageSrc)) {
+                    echo '<td><img src="' . $imageSrc . '" alt="' . $order_id_list["order_id"] . '"></td>';
+                } else {
+                    echo '<td>No image found</td>';
+                }
+                echo '</div>';
+                echo '<div class="con" style="margin:5px;">';
+                echo '<br><a class="openBTN" data-order-id="' . $order_id_list["order_id"] . '" price="' . $order_id_list["price"] . '">Order Now</a><br><br>';
+                echo '<a class="con_a" href="whatsapp://send?text=Go%20and%20checkout%20The%20Beautiful%20Online%20Hair%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>';
+                echo '</div>';
+                echo '</li>';
             }
-            if (!empty($imageSrc)) {
-                echo '<td><img src="' . $imageSrc . '" alt="' . $data["order_id"] . '"></td>';
-            } else {
-                echo '<td>No image found</td>';
-            }
+            
             echo '</div>';
-            echo '<div class="con" style="margin:5px;">';
-            echo '<br><a class="openBTN" data-order-id="' . $order_id_list["order_id"] . '" price="' . $order_id_list["price"] . '">Order Now</a><br><br>';
-            echo '<a class="con_a" href="whatsapp://send?text=Go%20and%20checkout%20The%20Beautiful%20Online%20Hair%20Cutting%20Website%20https://barber.sombti-server.online" target="_blank">Share With Friends <span class="share">&#x1F4E2;</span></a><br>';
             echo '</div>';
-            echo '</li>';
-        }
-        echo '</div>';
-        echo '</div>';
-        
+            
         ?>
     </main>
     <div id="popup" class="popup">
