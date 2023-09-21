@@ -42,13 +42,14 @@ $user_row = mysqli_fetch_assoc($user);
     <link rel="stylesheet" href="./admin.css">
     <title>U-BARBER ADMIN</title>
     <style>
-        .spical{
+        .spical {
             height: max-content;
             overflow-wrap: break-word;
             max-width: 80%;
         }
-        .spical>td{
-            padding:0;
+
+        .spical>td {
+            padding: 0;
             margin: 0;
         }
     </style>
@@ -161,8 +162,25 @@ $user_row = mysqli_fetch_assoc($user);
         echo '<tbody>';
         while ($data = mysqli_fetch_assoc($print_img_table)) {
             echo '<tr>';
-            echo '<td>' . $data["price"] . '<br><br>'.$data["order_id"].'</td>';
-            echo '<td><img src="./img/' . $data["order_id"] . '.png" alt="' . $data["order_id"] . '"></td>';
+            echo '<td>' . $data["price"] . '<br><br>' . $data["order_id"] . '</td>';
+            // echo '<td><img src="./img/' . $data["order_id"] . '.png" alt="' . $data["order_id"] . '"></td>';
+            $extensions = array("png", "jpeg", "jpg");
+            $imageSrc = "";
+
+            foreach ($extensions as $extension) {
+                $imagePath = "./img/" . $data["order_id"] . "." . $extension;
+                if (file_exists($imagePath)) {
+                    $imageSrc = $imagePath;
+                    break; // Found a valid image, no need to check other extensions
+                }
+            }
+
+            if (!empty($imageSrc)) {
+                echo '<td><img src="' . $imageSrc . '" alt="' . $data["order_id"] . '"></td>';
+            } else {
+                echo '<td>No image found</td>';
+            }
+
             echo '<td class="t2"><a class="openBTN" data-order-id="' . $data["order_id"] . '" price="' . $data["price"] . '">update</a></td>';
             echo '</tr>';
         }
