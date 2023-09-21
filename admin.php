@@ -189,6 +189,7 @@ $user_row = mysqli_fetch_assoc($user);
         ?>
         <br><br>
         <div><a class="openBTN3">Insert New Item</a></div><br><br><br>
+        <h3>Custom Orders</h3>
         <?php
         $print_img_table = mysqli_query($conn, "SELECT * FROM order_id_price");
         echo '<table>';
@@ -199,28 +200,32 @@ $user_row = mysqli_fetch_assoc($user);
         echo '</thead>';
         echo '<tbody>';
         while ($data = mysqli_fetch_assoc($print_img_table)) {
-            echo '<tr>';
-            echo '<td>' . $data["price"] . '<br><br>' . $data["order_id"] . '</td>';
-            // echo '<td><img src="./img/' . $data["order_id"] . '.png" alt="' . $data["order_id"] . '"></td>';
-            $extensions = array("png", "jpeg", "jpg");
-            $imageSrc = "";
+            if (strpos($data["order_id"], "UBCS") !== false) {  // Check if "UBCS" is present in the order_id
+                echo '<tr>';
+                echo '<td>' . $data["price"] . '<br><br>' . $data["order_id"] . '</td>';
 
-            foreach ($extensions as $extension) {
-                $imagePath = "./uploads/" . $data["order_id"] . "." . $extension;
-                if (file_exists($imagePath)) {
-                    $imageSrc = $imagePath;
-                    break; // Found a valid image, no need to check other extensions
+                // Array of possible image file extensions
+                $imageExtensions = array("png", "jpeg", "jpg");
+                $foundImage = false;
+
+                // Iterate through the image extensions and check for the existence of each image
+                foreach ($imageExtensions as $extension) {
+                    $imagePath = "./uploads/" . $data["order_id"] . "." . $extension;
+                    if (file_exists($imagePath)) {
+                        echo '<td><img src="' . $imagePath . '" alt="' . $data["order_id"] . '"></td>';
+                        $foundImage = true;
+                        break; // Found a valid image, no need to check other extensions
+                    }
                 }
-            }
 
-            if (!empty($imageSrc)) {
-                echo '<td><img src="' . $imageSrc . '" alt="' . $data["order_id"] . '"></td>';
-            } else {
-                echo '<td>No image found</td>';
-            }
+                if (!$foundImage) {
+                    // No image found for this data row
+                    echo '<td>No image found</td>';
+                }
 
-            echo '<td class="t2"><a class="openBTN" data-order-id="' . $data["order_id"] . '" price="' . $data["price"] . '">update</a></td>';
-            echo '</tr>';
+                echo '<td class="t2"><a class="openBTN" data-order-id="' . $data["order_id"] . '" price="' . $data["price"] . '">update</a></td>';
+                echo '</tr>';
+            }
         }
         echo '</tbody>';
         echo '</table>';
