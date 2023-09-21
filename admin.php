@@ -76,6 +76,8 @@ $user_row = mysqli_fetch_assoc($user);
 
         // Query to fetch orders for today's date
         $order = mysqli_query($conn, "SELECT * FROM receive_order WHERE DATE(time_stamp) = '$todayDate'");
+        $print_img_table = mysqli_query($conn, "SELECT * FROM order_id_price");
+        $data = mysqli_fetch_assoc($print_img_table);
 
         if (mysqli_num_rows($order) > 0) {
             while ($row = mysqli_fetch_assoc($order)) {
