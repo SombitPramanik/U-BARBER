@@ -44,50 +44,66 @@ if (isset($_POST["submit"])) {
     } elseif ($fileSize > $maxFileSize) {
         echo "Error: File size exceeds the maximum allowed size (10 MB).";
     } else {
-        // Generate a unique file name based on username and file extension
-        $uniqueFileName = $up_id . '.' . $fileType;
-
-        // Construct the complete file path
-        $filePath = $targetDirectory . $uniqueFileName;
-
-        // Move the uploaded file to the target directory
-        if (move_uploaded_file($fileTmpName, $filePath)) {
-            echo "File uploaded successfully.";
-            $query = "INSERT INTO order_id_price VALUES('$up_id','$up_price')";
-            $success = mysqli_query($conn, $query);
-            if ($success) {
-                // If the query was successful, show a success message
-                echo '<script>alert("Order ID & IMG Insert Successfully.");setTimeout(function() { window.close(); }, 800);</script>';
-            } else {
-                // If there was an error with the query
-                echo 'Error: ' . mysqli_error($conn);
+        // Check for file upload errors
+        if ($_FILES['new_img']['error'] !== UPLOAD_ERR_OK) {
+            switch ($_FILES['new_img']['error']) {
+                case UPLOAD_ERR_INI_SIZE:
+                    echo "Error: The uploaded file exceeds the upload_max_filesize directive in php.ini.";
+                    break;
+                case UPLOAD_ERR_FORM_SIZE:
+                    echo "Error: The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.";
+                    break;
+                case UPLOAD_ERR_PARTIAL:
+                    echo "Error: The uploaded file was only partially uploaded.";
+                    break;
+                case UPLOAD_ERR_NO_FILE:
+                    echo "Error: No file was uploaded.";
+                    break;
+                case UPLOAD_ERR_NO_TMP_DIR:
+                    echo "Error: Missing a temporary folder. Check your PHP configuration.";
+                    break;
+                case UPLOAD_ERR_CANT_WRITE:
+                    echo "Error: Failed to write file to disk. Check permissions.";
+                    break;
+                case UPLOAD_ERR_EXTENSION:
+                    echo "Error: A PHP extension stopped the file upload.";
+                    break;
+                default:
+                    echo "Error: Unknown error occurred during file upload.";
+                    break;
             }
         } else {
-            echo "Error uploading file.";
+            // Generate a unique file name based on username and file extension
+            $uniqueFileName = $up_id . '.' . $fileType;
+
+            // Construct the complete file path
+            $filePath = $targetDirectory . $uniqueFileName;
+
+            // Move the uploaded file to the target directory
+            if (move_uploaded_file($fileTmpName, $filePath)) {
+                echo "File uploaded successfully.";
+                $query = "INSERT INTO order_id_price VALUES('$up_id','$up_price')";
+                $success = mysqli_query($conn, $query);
+                if ($success) {
+                    // If the query was successful, show a success message
+                    echo '<script>alert("Order ID & IMG Insert Successfully.");setTimeout(function() { window.close(); }, 800);</script>';
+                } else {
+                    // If there was an error with the query
+                    echo 'Error: ' . mysqli_error($conn);
+                }
+            } else {
+                echo "Error uploading file.";
+            }
         }
     }
 }
-
 ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="language" content="en">
-    <meta name="description" content="Welcome to U-BARBER, your destination for top-notch grooming and style services. Our skilled barbers are dedicated to helping you look and feel your best with precision haircuts, traditional shaves, and modern styling. Experience the art of barbering in a relaxed and comfortable atmosphere. Book your appointment today and elevate your style with U-BARBER.">
-    <meta name="keywords" content="U-BARBER,online barber, barber, new website, barber shop,https://barber.sombti-server.online">
-    <meta name="author" content="Sombit Pramanik">
-    <meta property="og:title" content="U-BARBER">
-    <meta property="og:description" content="Welcome to U-BARBER, your destination for top-notch grooming and style services. Our skilled barbers are dedicated to helping you look and feel your best with precision haircuts, traditional shaves, and modern styling. Experience the art of barbering in a relaxed and comfortable atmosphere. Book your appointment today and elevate your style with U-BARBER.">
-    <meta property="og:image" content="./U-BARBER.png">
-    <meta property="og:url" content="https://barber.sombti-server.online">
-    <meta property="og:type" content="website">
-    <link rel="icon" href="./U-BARBER.ico" type="image/x-icon">
-    <title>Custom Order / <?php echo ucwords($row["f_name"] . " " . $row["l_name"]); ?></title>
-    <link rel="stylesheet" href="./order.css">
+    <!-- Your head content here -->
 </head>
 
 <body>
