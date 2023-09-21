@@ -187,7 +187,44 @@ $user_row = mysqli_fetch_assoc($user);
         echo '</tbody>';
         echo '</table>';
         ?>
-        <div><a class="openBTN3">Insert New Item</a></div>
+        <br><br>
+        <div><a class="openBTN3">Insert New Item</a></div><br><br><br>
+        <?php
+        $print_img_table = mysqli_query($conn, "SELECT * FROM order_id_price");
+        echo '<table>';
+        echo '<thead>';
+        echo '<th>Price</th>';
+        echo '<th>style</th>';
+        echo '<th>operation</th>';
+        echo '</thead>';
+        echo '<tbody>';
+        while ($data = mysqli_fetch_assoc($print_img_table)) {
+            echo '<tr>';
+            echo '<td>' . $data["price"] . '<br><br>' . $data["order_id"] . '</td>';
+            // echo '<td><img src="./img/' . $data["order_id"] . '.png" alt="' . $data["order_id"] . '"></td>';
+            $extensions = array("png", "jpeg", "jpg");
+            $imageSrc = "";
+
+            foreach ($extensions as $extension) {
+                $imagePath = "./uploads/" . $data["order_id"] . "." . $extension;
+                if (file_exists($imagePath)) {
+                    $imageSrc = $imagePath;
+                    break; // Found a valid image, no need to check other extensions
+                }
+            }
+
+            if (!empty($imageSrc)) {
+                echo '<td><img src="' . $imageSrc . '" alt="' . $data["order_id"] . '"></td>';
+            } else {
+                echo '<td>No image found</td>';
+            }
+
+            echo '<td class="t2"><a class="openBTN" data-order-id="' . $data["order_id"] . '" price="' . $data["price"] . '">update</a></td>';
+            echo '</tr>';
+        }
+        echo '</tbody>';
+        echo '</table>';
+        ?>
         <div id="popup" class="popup">
             <div class="popup-content">
                 <iframe src="./update_ctl.php" width="99%" height="100%" style="border-radius: 5px;"></iframe>

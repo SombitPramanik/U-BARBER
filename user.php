@@ -99,7 +99,23 @@ if (!empty($_SESSION["session_token"])) {
         while ($order_id_list = mysqli_fetch_assoc($order_id)) {
             echo '<li class="list1">';
             echo '<div class="image1">';
-            echo '<img src="./img/' . $order_id_list["order_id"] . '.png" alt="" srcset="">';
+            // echo '<img src="./img/' . $order_id_list["order_id"] . '.png" alt="" srcset="">';
+            $extensions = array("png", "jpeg", "jpg");
+            $imageSrc = "";
+
+            foreach ($extensions as $extension) {
+                $imagePath = "./img/" . $data["order_id"] . "." . $extension;
+                if (file_exists($imagePath)) {
+                    $imageSrc = $imagePath;
+                    break; // Found a valid image, no need to check other extensions
+                }
+            }
+
+            if (!empty($imageSrc)) {
+                echo '<td><img src="' . $imageSrc . '" alt="' . $data["order_id"] . '"></td>';
+            } else {
+                echo '<td>No image found</td>';
+            }
             echo '</div>';
             echo '<div class="con" style="margin:5px;">';
             echo '<br><a class="openBTN" data-order-id="' . $order_id_list["order_id"] . '" price="' . $order_id_list["price"] . '">Order Now</a><br><br>';
