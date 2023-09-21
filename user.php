@@ -102,16 +102,18 @@ if (!empty($_SESSION["session_token"])) {
             echo '<div class="image1">';
             // echo '<img src="./img/' . $order_id_list["order_id"] . '.png" alt="" srcset="">';
             $extensions = array("png", "jpeg", "jpg");
+            $folders = array("./img/", "./uploads/");
             $imageSrc = "";
-
+            
             foreach ($extensions as $extension) {
-                $imagePath = "./img/" . $data["order_id"] . "." . $extension;
-                if (file_exists($imagePath)) {
-                    $imageSrc = $imagePath;
-                    break; // Found a valid image, no need to check other extensions
+                foreach ($folders as $folder) {
+                    $imagePath = $folder . $data["order_id"] . "." . $extension;
+                    if (file_exists($imagePath)) {
+                        $imageSrc = $imagePath;
+                        break 2; // Break out of both loops when a valid image is found
+                    }
                 }
             }
-
             if (!empty($imageSrc)) {
                 echo '<td><img src="' . $imageSrc . '" alt="' . $data["order_id"] . '"></td>';
             } else {
@@ -156,4 +158,4 @@ if (!empty($_SESSION["session_token"])) {
     <script src="./script.js"></script>
 </body>
 
-</html>
+</htm
