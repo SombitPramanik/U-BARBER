@@ -123,11 +123,19 @@ $user_row = mysqli_fetch_assoc($user);
                     echo '<td><img src="' . $imgPath . '" alt="' . $check_img . '"></td>';
                 } else {
                     // Check if the image file exists in the ./uploads/ directory
-                    $uploadPath = "./uploads/$upp.png";
-                    if (file_exists($uploadPath)) {
-                        echo '<td><img src="' . $uploadPath . '" alt="' . $check_img . '"></td>';
-                    } else {
-                        // Handle the case where the image file doesn't exist in either directory
+                    $uploadExtensions = array("png", "jpeg", "jpg");
+                    $foundUploadedImage = false;
+
+                    foreach ($uploadExtensions as $extension) {
+                        $uploadPath = "./uploads/" . $data["order_id"] . "." . $extension;
+                        if (file_exists($uploadPath)) {
+                            echo '<td><img src="' . $uploadPath . '" alt="' . $data["order_id"] . '"></td>';
+                            $foundUploadedImage = true;
+                            break; // Found a valid image, no need to check other extensions
+                        }
+                    }
+                    // Handle the case where the image file doesn't exist in either directory
+                    if (!$foundUploadedImage) {
                         echo '<td>No image available</td>';
                     }
                 }
@@ -147,7 +155,7 @@ $user_row = mysqli_fetch_assoc($user);
         } else {
             echo "No orders placed today";
         }
-        ?>        
+        ?>
     </fieldset>
     <fieldset>
         <legend>Update Catalog & Insert New</legend>
