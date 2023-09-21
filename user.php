@@ -91,6 +91,7 @@ if (!empty($_SESSION["session_token"])) {
     <main>
         <?php
         $order_id = mysqli_query($conn, "SELECT * FROM order_id_price");
+        $data = mysqli_fetch_assoc($order_id);
 
         echo '<div class="show_con">';
         echo '<h2><b><i>Recommended Collections</i></b></h2>';

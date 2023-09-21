@@ -147,7 +147,7 @@ $user_row = mysqli_fetch_assoc($user);
         } else {
             echo "No orders placed today";
         }
-        ?>
+        ?>        
     </fieldset>
     <fieldset>
         <legend>Update Catalog & Insert New</legend>
@@ -188,48 +188,7 @@ $user_row = mysqli_fetch_assoc($user);
         echo '</table>';
         ?>
         <br><br>
-        <div><a class="openBTN3">Insert New Item</a></div><br><br><br>
-        <h3>Custom Orders</h3>
-        <?php
-        $print_img_table = mysqli_query($conn, "SELECT * FROM order_id_price");
-        echo '<table>';
-        echo '<thead>';
-        echo '<th>Price</th>';
-        echo '<th>style</th>';
-        echo '<th>operation</th>';
-        echo '</thead>';
-        echo '<tbody>';
-        while ($data = mysqli_fetch_assoc($print_img_table)) {
-            if (strpos($data["order_id"], "UBCS") !== false) {  // Check if "UBCS" is present in the order_id
-                echo '<tr>';
-                echo '<td>' . $data["price"] . '<br><br>' . $data["order_id"] . '</td>';
-
-                // Array of possible image file extensions
-                $imageExtensions = array("png", "jpeg", "jpg");
-                $foundImage = false;
-
-                // Iterate through the image extensions and check for the existence of each image
-                foreach ($imageExtensions as $extension) {
-                    $imagePath = "./uploads/" . $data["order_id"] . "." . $extension;
-                    if (file_exists($imagePath)) {
-                        echo '<td><img src="' . $imagePath . '" alt="' . $data["order_id"] . '"></td>';
-                        $foundImage = true;
-                        break; // Found a valid image, no need to check other extensions
-                    }
-                }
-
-                if (!$foundImage) {
-                    // No image found for this data row
-                    echo '<td>No image found</td>';
-                }
-
-                echo '<td class="t2"><a class="openBTN" data-order-id="' . $data["order_id"] . '" price="' . $data["price"] . '">update</a></td>';
-                echo '</tr>';
-            }
-        }
-        echo '</tbody>';
-        echo '</table>';
-        ?>
+        <div><a class="openBTN3">Insert New Item</a></div><br>
         <div id="popup" class="popup">
             <div class="popup-content">
                 <iframe src="./update_ctl.php" width="99%" height="100%" style="border-radius: 5px;"></iframe>
